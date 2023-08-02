@@ -15,13 +15,11 @@
             We come to you fully equipped We come to you with everything needed
             to clean your car.
           </p>
+          <i class="fa-sharp fa-regular fa-bars-filter"></i>
+
           <div class="mt-10 flex items-center justify-center gap-x-6">
-            <a
-              href="#"
-              class="rounded-md bg-primary-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
-              >View Packages</a
-            >
-            <a href="#" class="text-sm font-semibold leading-6 text-white"
+            <a href="#" class="btn">View Packages</a>
+            <a href="#" class="btn2"
               >Contact Us<span aria-hidden="true">→</span></a
             >
           </div>

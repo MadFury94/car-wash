@@ -18,3 +18,5 @@
     </div>
   </NuxtLayout>
 </template>
+
+<script></script>

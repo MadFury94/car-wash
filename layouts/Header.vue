@@ -54,6 +54,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, watch } from "vue";
+import fontAwesome from "../plugins/font-awesome";
 
 const links = [
   { name: "Home", url: "#" },
