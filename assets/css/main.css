@@ -3,5 +3,8 @@
 @tailwind utilities;
 
 .heading {
-  @apply text-2xl font-semibold text-black;
+  @apply text-5xl font-bold text-primary-500 sm:text-6xl;
+}
+.para {
+  @apply text-lg leading-8 text-white sm:text-sm;
 }

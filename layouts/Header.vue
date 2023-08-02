@@ -2,7 +2,7 @@
   <header class="w-full bg-white fixed h-20 z-10 top-0 shadow-md">
     <div
       ref="headerRef"
-      class="w-full container mx-auto flex flex-wrap items-center justify-between py-2"
+      class="bg-white container mx-auto flex flex-wrap items-center justify-between py-2"
     >
       <div class="flex items-center">
         <div class="text-xl text-primary-500 tracking-wide mr-1">
@@ -16,7 +16,7 @@
 
       <button
         @click="toggleMenu"
-        class="lg:hidden px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-white hover:border-white"
+        class="lg:hidden px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-white hover:border-white top-2"
       >
         <svg
           class="fill-current h-3 w-3"
@@ -30,9 +30,9 @@
 
       <nav
         :class="{ hidden: !open }"
-        class="w-full relative flex-grow lg:w-auto lg:static lg:block lg:justify-end md:items-center"
+        class="w-full relative lg:w-auto lg:static lg:block lg:justify-end md:items-center"
       >
-        <div class="lg:flex lg:items-center lg:w-auto w-full" id="nav-content">
+        <div class="lg:flex lg:items-center lg:w-auto" id="nav-content">
           <ul
             v-for="(name, index) in links"
             :key="index"
@@ -40,7 +40,7 @@
           >
             <li class="mr-3 md:mx-4 md:my-0">
               <a
-                class="inline-block font-semibold text-primary-500 hover:text- no-underline hover:text-gray-300 hover:text-underline py-2 px-4"
+                class="inline-block font-semibold text-primary-500 hover:text- no-underline hover:text-gray-300 text-sm hover:text-underline py-2 px-4"
                 :href="name.url"
                 >{{ name.name }}</a
               >
@@ -60,7 +60,7 @@ const links = [
   { name: "About", url: "#" },
   { name: "Services", url: "#" },
   { name: "Packages", url: "#" },
-  { name: "Contact us", url: "#" },
+  { name: "Contact", url: "#" },
 ];
 
 const open = ref(false);
