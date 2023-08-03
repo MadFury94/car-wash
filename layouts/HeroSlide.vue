@@ -4,13 +4,13 @@
       <SplideTrack>
         <SplideSlide v-for="(item, index) in sliders" :key="index">
           <div>
-            <div class="relative isolate overflow-hidden pt-14">
+            <div class="relative h-[600px] isolate overflow-hidden pt-14">
               <div class="absolute inset-0 bg-black opacity-50"></div>
 
               <img
                 :src="item.image"
                 alt=""
-                class="myImage absolute inset-0 -z-10 w-full"
+                class="h-[600px] object-cover absolute inset-0 -z-10 w-full"
               />
 
               <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
@@ -47,9 +47,9 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref } from "vue";
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/vue-splide";
 import "@splidejs/vue-splide/css";
+import { ref } from "vue";
 
 // or other themes
 import "@splidejs/splide/css/skyblue";

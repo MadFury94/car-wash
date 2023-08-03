@@ -48,6 +48,11 @@ const hover = ref<HoverButtons[]>([
       "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691082648/basket_xt5jlt.png",
     text: "Car Wash 100% without detergents",
     link: "#",
+  },  {
+    image:
+      "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691082648/basket_xt5jlt.png",
+    text: "Car Wash 100% without detergents",
+    link: "#",
   },
 ]);
 </script>

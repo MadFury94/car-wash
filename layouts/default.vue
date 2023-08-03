@@ -1,12 +1,12 @@
 <script setup>
-import Header from "./Header.vue";
 import Footer from "./Footer.vue";
+import Header from "./Header.vue";
 </script>
 
 <template>
   <div>
     <Header />
-    <div class="h-screen mt-20">
+    <div >
       <slot />
     </div>
     <Footer />
