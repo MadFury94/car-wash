@@ -5,6 +5,9 @@
 .heading {
   @apply text-5xl font-bold text-primary-500 sm:text-6xl;
 }
+.heading2 {
+  @apply text-2xl font-bold text-primary-500 sm:text-xl;
+}
 .para {
   @apply text-lg leading-8 text-white sm:text-sm;
 }

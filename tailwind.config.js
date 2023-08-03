@@ -16,8 +16,16 @@ module.exports = {
     },
     colors: {
       primary: {
-        500: "#21317D",
-        // define other shades if necessary
+        50: "#E6E7F4", // Lightest
+        100: "#C4C7E1",
+        200: "#A2A8CE",
+        300: "#8089BB",
+        400: "#5E6AA8",
+        500: "#21317D", // Original primary color
+        600: "#172662",
+        700: "#0D1B47",
+        800: "#030F2C",
+        900: "#000311", // Darkest
       },
       secondary: {
         50: "#E5F6FF",
