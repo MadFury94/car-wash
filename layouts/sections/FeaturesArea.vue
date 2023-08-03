@@ -1,11 +1,11 @@
 <template>
   <div
-    class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4"
+    class="grid -mt-14 pb-20 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4"
   >
     <div
       v-for="(item, index) in hover"
       :key="index"
-      class="rounded-lg bg-white hover:bg-secondary-500 h-44 w-full py-4 px-2 transition-colors duration-300 ease-in-out relative cursor-pointer"
+      class="rounded-lg border bg-white hover:bg-secondary-500 h-44 w-full py-4 px-2 transition-colors duration-300 ease-in-out relative cursor-pointer"
     >
       <div class="p-2">
         <img class="w-20 h-20" :src="item.image" alt="" />
@@ -30,7 +30,7 @@ type HoverButtons = {
   link: string;
 };
 
-const hover = ref<HoverButtons[]>([
+const hover = ref<FeaturesArea[]>([
   {
     image:
       "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691082648/basket_xt5jlt.png",

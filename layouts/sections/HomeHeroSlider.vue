@@ -3,8 +3,8 @@
     <Splide :has-track="false" :options="options" aria-label="My Slide">
       <SplideTrack>
         <SplideSlide v-for="(item, index) in sliders" :key="index">
-          <div>
-            <div class="relative h-[600px] isolate overflow-hidden pt-14">
+          <div class="">
+            <div class="relative  h-[600px] isolate overflow-hidden pt-14">
               <div class="absolute inset-0 bg-black opacity-50"></div>
 
               <img
@@ -13,7 +13,7 @@
                 class="h-[600px] object-cover absolute inset-0 -z-10 w-full"
               />
 
-              <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+              <div class="mx-auto max-w-4xl py-32 sm:py-48 lg:py-40">
                 <div class="hidden sm:mb-8 sm:flex sm:justify-center"></div>
                 <div class="text-center">
                   <h1
@@ -88,7 +88,7 @@ const options = {
   rewind: true,
   gap: "0rem",
   type: "loop",
-  pagination: true,
+  pagination: false,
   arrows: true,
   perPage: 1,
   breakpoints: {

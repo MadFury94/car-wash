@@ -6,7 +6,6 @@
 </template>
 
 <script setup lang="ts">
-import HeroSection from "../layouts/HeroSection.vue";
-import HeroSlide from "../layouts/HeroSlide.vue";
-import HoverButtons from "../layouts/HoverButtons.vue";
+import HeroSlide from "~/layouts/sections/HomeHeroSlider.vue";
+import HoverButtons from "~/layouts/sections/FeaturesArea.vue";
 </script>
