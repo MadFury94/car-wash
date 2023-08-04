@@ -4,7 +4,7 @@
       <SplideTrack>
         <SplideSlide v-for="(item, index) in sliders" :key="index">
           <div class="">
-            <div class="relative  h-[600px] isolate overflow-hidden pt-14">
+            <div class="relative h-[600px] isolate overflow-hidden pt-14">
               <div class="absolute inset-0 bg-black opacity-50"></div>
 
               <img
@@ -16,9 +16,7 @@
               <div class="mx-auto max-w-4xl py-32 sm:py-48 lg:py-40">
                 <div class="hidden sm:mb-8 sm:flex sm:justify-center"></div>
                 <div class="text-center">
-                  <h1
-                    class="text-4xl font-bold tracking-tight text-white sm:text-6xl relative z-10"
-                  >
+                  <h1 class="heading3 text-white relative z-10">
                     {{ item.heading }}
                   </h1>
                   <p class="mt-6 text-lg leading-8 text-gray-300 relative z-10">
@@ -72,7 +70,7 @@ const sliders = ref<Sliders[]>([
   {
     heading: "Interior Detailing Service",
     image:
-      "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691081374/beautiful-car-washing-service_yeptnx.jpg",
+      "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691083363/wepik-export-202308031715220nwH_ezwxfe.jpg",
     description:
       "Our experts vacuum and polish your car's interior surfaces to keep them looking and feeling fresh.",
   },

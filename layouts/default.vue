@@ -4,9 +4,9 @@ import Header from "./Header.vue";
 </script>
 
 <template>
-  <div>
+  <div class="mx-auto px-2">
     <Header />
-    <div >
+    <div>
       <slot />
     </div>
     <Footer />
