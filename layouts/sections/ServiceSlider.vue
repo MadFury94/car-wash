@@ -1,69 +1,125 @@
 <template>
-  <div class="mx-auto">
-    <div v-for="(item, index) in service" :key="index" class="relative">
-      <div class="grid justify-items-center">
-        <img
-          :src="item.image"
-          alt=""
-          class="h-[600px] w-[800px] object-cover inset-0 -z-10 rounded-2xl"
-        />
-      </div>
+  <div>
+    <Splide :has-track="false" :options="options" aria-label="My Slide">
+      <SplideTrack>
+        <SplideSlide v-for="(item, index) in sliders" :key="index">
+          <!-- <div class="">
+            <div class="relative h-[600px] isolate overflow-hidden pt-14">
+              <div class="absolute inset-0 bg-black opacity-50"></div>
 
-      <div
-        class="grid justify-items-center mb-20"
-        @mouseover="item.isExpanded = true"
-        @mouseleave="item.isExpanded = false"
-      >
-        <div
-          class="border -mt-20 absolute border-black rounded-2xl w-[400px] bg-white p-20"
-        >
-          <div
-            class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center bg-primary-800 rounded-full w-30 h-30"
-          >
-            <img class="p-10" :src="item.icon" alt="" />
-          </div>
-          <h1 class="text-center heading2">
-            {{ item?.title }}
-          </h1>
-          <p
-            class="text-center text-secondary-500 font-semibold"
-            v-if="!item.isExpanded"
-          >
-          <p class="font-bold">READ MORE</p>
+              <img
+                :src="item.image"
+                alt=""
+                class="h-[600px] object-cover absolute inset-0 -z-10 w-full"
+              />
 
-            {{ item.description.slice(0, 20) }}...
-          </p>
-          <p
-            class="text-center text-secondary-500 font-semibold"
-            v-if="item.isExpanded"
-          >
-            {{ item.description }}
-          </p>
-        </div>
-      </div>
-    </div>
+              <div class="mx-auto max-w-4xl py-32 sm:py-48 lg:py-40">
+                <div class="hidden sm:mb-8 sm:flex sm:justify-center"></div>
+                <div class="text-center">
+                  <h1 class="heading3 text-white relative z-10">
+                    {{ item.heading }}
+                  </h1>
+                  <p class="mt-6 text-lg leading-8 text-gray-300 relative z-10">
+                    {{ item.description }}
+                  </p>
+                  <div
+                    class="mt-10 flex items-center justify-center gap-x-6 relative z-10"
+                  >
+                    <a href="#" class="btn">Get started</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <ServiceModule
+            :image="item.image"
+            :description="item.description"
+            :title="item.heading"
+            :icon="item.icon"
+          />
+        </SplideSlide>
+      </SplideTrack>
+      <button class="splide__toggle" type="button">
+        <span class="splide__toggle__play"
+          ><i class="fa-sharp fa-solid fa-play"></i
+        ></span>
+        <span class="splide__toggle__pause"
+          ><i class="fa-sharp fa-solid fa-pause"></i
+        ></span>
+      </button>
+    </Splide>
   </div>
 </template>
-
 <script setup lang="ts">
+import { Splide, SplideSlide, SplideTrack } from "@splidejs/vue-splide";
+import "@splidejs/vue-splide/css";
 import { ref } from "vue";
 
-type Services = {
+// or other themes
+import "@splidejs/splide/css/skyblue";
+
+import "@splidejs/vue-splide/css/core";
+import ServiceModule from "./ServiceModule.vue";
+
+type Sliders = {
+  heading: string;
   image: string;
-  title: string;
   description: string;
   icon: string;
-  isExpanded: boolean;
 };
-
-const service = ref<Services[]>([
+const sliders = ref<Sliders[]>([
   {
+    heading: "Express Exterior",
     image:
-      "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691167695/01-Express-Exterior_pus9y2.jpg",
-    title: "Express Exterior",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691081374/beautiful-car-washing-service_yeptnx.jpg",
+    description:
+      "A thorough wash with high-quality cleaning agents to leave your car's exterior shining and free from dirt and grime.",
     icon: "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691169409/car-wash_yq9w1o.png",
-    isExpanded: false,
+  },
+  {
+    heading: "Auto Detailing Service",
+    image:
+      "https://demo.ovatheme.com/mistercar/wp-content/uploads/2020/11/02-Auto-Detailing.jpg",
+    description:
+      "Our experts vacuum and polish your car's interior surfaces to keep them looking and feeling fresh.",
+    icon: "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691169409/car-wash_yq9w1o.png",
+  },
+  {
+    heading: "Complete Car Care Package",
+    image:
+      "https://demo.ovatheme.com/mistercar/wp-content/uploads/2020/11/04-Complete-Detail-Wash.jpg",
+    description:
+      "A thorough wash with high-quality cleaning agents to leave your car's exterior shining and free from dirt and grime.",
+    icon: "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691169409/car-wash_yq9w1o.png",
+  },
+  {
+    heading: "Oil Changing",
+    image:
+      "https://demo.ovatheme.com/mistercar/wp-content/uploads/2020/11/05-Oil-Changing.jpg",
+    description:
+      "A thorough wash with high-quality cleaning agents to leave your car's exterior shining and free from dirt and grime.",
+    icon: "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691169409/car-wash_yq9w1o.png",
   },
 ]);
+const options = {
+  rewind: true,
+  gap: "0rem",
+  type: "loop",
+  pagination: false,
+  arrows: true,
+  perPage: 1,
+  breakpoints: {
+    1200: { perPage: 1, gap: 0, arrows: true },
+    640: { perPage: 1, gap: 0, arrows: false },
+  },
+
+  autoplay: true,
+};
 </script>
+
+<style>
+.myImage {
+  height: 900px;
+  width: 100%;
+}
+</style>
