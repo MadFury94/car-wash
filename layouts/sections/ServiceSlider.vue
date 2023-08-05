@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-10">
+  <div class="pt-10 px-20 " >
     <Splide :has-track="false" :options="options" aria-label="My Slide">
       <SplideTrack>
         <SplideSlide v-for="(item, index) in sliders" :key="index">
@@ -103,14 +103,14 @@ const sliders = ref<Sliders[]>([
 ]);
 const options = {
   rewind: true,
-  gap: "0rem",
+  gap: "2rem",
   type: "loop",
   pagination: false,
   arrows: true,
-  perPage: 1,
+  perPage: 3,
   breakpoints: {
-    1200: { perPage: 1, gap: 0, arrows: true },
-    640: { perPage: 1, gap: 0, arrows: false },
+   800: { perPage: 2, gap:  "2rem", arrows: true },
+    640: { perPage: 1, gap:  "2rem", arrows: false }, 
   },
 
   autoplay: true,
