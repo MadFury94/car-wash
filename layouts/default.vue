@@ -4,7 +4,7 @@ import Header from "./Header.vue";
 </script>
 
 <template>
-  <div class="mx-auto px-2">
+  <div class="">
     <Header />
     <div>
       <slot />

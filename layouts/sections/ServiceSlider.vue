@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mb-10">
     <Splide :has-track="false" :options="options" aria-label="My Slide">
       <SplideTrack>
         <SplideSlide v-for="(item, index) in sliders" :key="index">

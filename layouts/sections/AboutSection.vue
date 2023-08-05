@@ -52,9 +52,8 @@
         <div class="col-span-3">
           <div class="w-full heading1">
             <div class="flex items-center">
-              <div
-                class="mt-0 border-t-2 border-secondary-500 w-4 mt-4 border"
-              ></div>
+              <div class="border-t-2 border-secondary-500 w-4 border"></div>
+
               <div class="px-2 text-secondary-500 font-semibold">
                 <h1>ABOUT COMPANY</h1>
               </div>
@@ -111,22 +110,22 @@
             </div>
             <div class="border-t-2 border-gray-200 w-full mt-4"></div>
             <div class="flex gap-x-2 w-full py-10">
-              <div class="flex">
+              <div class="flex px-2">
                 <img
                   class="rounded-full w-14 h-14"
                   src="https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691164026/portrait-african-american-man_kzgbkz.jpg"
                   alt=""
                 />
                 <img
-                  class="w-12 h-14 -ml-4"
+                  class="w-14 h-14 -ml-4"
                   src="https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691163567/call_yd4afo.png"
                   alt=""
                 />
               </div>
-              <div class="w-full px-2">
+              <div class="w-full px-4">
                 <h1 class="font-light">24 HOURS SERVICE AVAILABLE</h1>
                 <p class="text-xl font-semibold">
-                  Call our booking:
+                  Call:
                   <span class="font-bold">666 888 0000</span>
                 </p>
               </div>
