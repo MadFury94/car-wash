@@ -64,7 +64,7 @@
               Professional Washing and Cleaning of Your Car
             </h2>
             <p
-              class="mt-6 text-black text-base md:text-lg leading-8 text-gray-300 md:text-left"
+              class="mt-6 text-base md:text-lg leading-8 text-gray-800 md:text-left"
             >
               Over the past 6 years we cleaned over 34,000 cars, saved over 8.9
               million liters of water from being used in car washing and
@@ -75,7 +75,7 @@
               <div class="col-span-2">
                 <ul
                   role="list"
-                  class="mt-10 grid grid-cols-1 gap-x-8 gap-y-3 text-base leading-7 text-black text-center md:text-left sm:grid-cols-1"
+                  class="mt-10 grid grid-cols-1 gap-x-8 gap-y-3 text-base leading-7 text-black lg:text-center md:text-left sm:grid-cols-1"
                 >
                   <li
                     v-for="benefit in benefits"
@@ -97,7 +97,7 @@
                 class="mt-10 flex justify-center md:justify-start col-span-2"
               >
                 <div
-                  class="px-1 md:block border-l-2 border w-full h-full my-2 border-l-primary-500"
+                  class="px-1 md:block border-l-2 w-full h-full my-2 border-l-primary-500"
                 >
                   <div class="px-4">
                     <h1 class="text-5xl text-primary-500 py-4">100%</h1>

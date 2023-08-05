@@ -20,8 +20,6 @@
     }"
   >
     <div class="theme-text dark:bg-secondary-950">
-      <debug-dock />
-
       <NuxtPage />
     </div>
   </NuxtLayout>

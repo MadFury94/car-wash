@@ -7,7 +7,7 @@
         <img
           :src="image"
           alt=""
-          class="h-[600px] w-[800px] object-cover inset-0 -z-10 rounded-2xl"
+          class="h-[600px] w-[800px]  object-cover inset-0 -z-10 rounded-2xl"
         />
       </div>
 
