@@ -52,10 +52,9 @@
         <div class="col-span-3">
           <div class="w-full heading1">
             <div class="flex items-center">
-              <div class="border-t-2 border-secondary-500 w-4 border"></div>
-
-              <div class="px-2 text-secondary-500 font-semibold">
-                <h1>ABOUT COMPANY</h1>
+              <div class="mb-2 text-secondary-500 font-semibold">
+                <PillInfo title="ABOUT COMPANY"/>
+              
               </div>
             </div>
 
@@ -138,8 +137,6 @@
 </template>
 
 <script setup lang="ts">
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-
 const benefits = [
   "Over 250,000 cleans",
   "VIP & Annual Pass Programs",
