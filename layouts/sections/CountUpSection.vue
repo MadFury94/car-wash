@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-red-500">
+  <div class="lg:max-w-7xl mx-auto bg-secondary-500 rounded-2xl">
     <section class="text-center">
       <div ref="records" class="image py-5">
         <div class="flex grid-cols-4 flex-col lg:grid">
@@ -14,10 +14,11 @@
                     ref="counter"
                     class="counter"
                     :data-target="record.target"
-                  ></span
-                  ><span>+</span>
+                  ></span>
                 </h1>
-                <h5 class="whitespace-normal text-lg font-medium">
+                <h5
+                  class="whitespace-normal text-lg font-semibold uppercase text-primary-500"
+                >
                   {{ record.text }}
                 </h5>
               </div>
@@ -35,23 +36,23 @@ const records = ref(null);
 const recordsList = [
   {
     icon: "fas fa-users",
-    target: "2135",
-    text: "Item",
+    target: "25",
+    text: "Years",
   },
   {
     icon: "fas fa-award",
-    target: "400",
-    text: "item",
+    target: "38000",
+    text: "total cars washed",
   },
   {
     icon: "fas fa-user-shield",
-    target: "860",
-    text: "Item",
+    target: "17",
+    text: "awards & recognition",
   },
   {
     icon: "fas fa-history",
-    target: "5",
-    text: "item",
+    target: "140000",
+    text: "trusted client",
   },
 ];
 onMounted(() => {

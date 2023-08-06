@@ -7,7 +7,7 @@
     <!-- <ServiceModule /> -->
     <ServiceSlider />
 
-    <NumberCounter />
+    <!-- <NumberCounter /> -->
 
     <CountUpSection />
   </div>
