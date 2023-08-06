@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-10 px-20 " >
+  <div class="pt-10 px-20">
     <Splide :has-track="false" :options="options" aria-label="My Slide">
       <SplideTrack>
         <SplideSlide v-for="(item, index) in sliders" :key="index">
@@ -71,33 +71,29 @@ const sliders = ref<Sliders[]>([
   {
     heading: "Express Exterior",
     image:
-      "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691081374/beautiful-car-washing-service_yeptnx.jpg",
-    description:
-      "A thorough wash with high-quality cleaning agents to leave your car's exterior shining and free from dirt and grime.",
+      "https://res.cloudinary.com/duxvgqgfl/image/upload/v1691317598/01-Express-Exterior_puuahm.jpg",
+    description: "A thorough wash with high-quality cleaning",
     icon: "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691169409/car-wash_yq9w1o.png",
   },
   {
     heading: "Auto Detailing Service",
     image:
       "https://demo.ovatheme.com/mistercar/wp-content/uploads/2020/11/02-Auto-Detailing.jpg",
-    description:
-      "Our experts vacuum and polish your car's interior surfaces to keep them looking and feeling fresh.",
+    description: "Our experts vacuum and polish your car",
     icon: "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691169409/car-wash_yq9w1o.png",
   },
   {
     heading: "Complete Car Care Package",
     image:
       "https://demo.ovatheme.com/mistercar/wp-content/uploads/2020/11/04-Complete-Detail-Wash.jpg",
-    description:
-      "A thorough wash with high-quality cleaning agents to leave your car's exterior shining and free from dirt and grime.",
+    description: "A thorough wash with high-quality cleaning ",
     icon: "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691169409/car-wash_yq9w1o.png",
   },
   {
     heading: "Oil Changing",
     image:
       "https://demo.ovatheme.com/mistercar/wp-content/uploads/2020/11/05-Oil-Changing.jpg",
-    description:
-      "A thorough wash with high-quality cleaning agents to leave your car's exterior shining and free from dirt and grime.",
+    description: "A thorough wash with high-quality cleaning agents ",
     icon: "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691169409/car-wash_yq9w1o.png",
   },
 ]);
@@ -105,12 +101,12 @@ const options = {
   rewind: true,
   gap: "2rem",
   type: "loop",
-  pagination: false,
+  pagination: true,
   arrows: true,
   perPage: 3,
   breakpoints: {
-   800: { perPage: 2, gap:  "2rem", arrows: true },
-    640: { perPage: 1, gap:  "2rem", arrows: false }, 
+    800: { perPage: 2, gap: "2rem", arrows: true },
+    640: { perPage: 1, gap: "2rem", arrows: false },
   },
 
   autoplay: true,

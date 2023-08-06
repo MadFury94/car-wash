@@ -1,14 +1,15 @@
 <template>
   <div class="bg-gray-200 w-full">
-    <div class="grid place-content-center p-10">
-      <div class="flex items-center px-36 lg:px-48">
-        <div class="px-2 text-secondary-500 font-semibold">
-          <PillInfo title="ABOUT COMPANY"/>
-
+    <div class="p-10">
+      <div class="grid place-content-center py-2">
+        <div class="mb-2 text-secondary-500 font-semibold grid">
+          <PillInfo title="WE’RE SPECIALIZED IN" />
         </div>
       </div>
       <div>
-        <h1 class="heading4 p-4">Offering Quality Services</h1>
+        <h1 class="heading md:text-center sm:text-4xl">
+          Offering Quality Services
+        </h1>
       </div>
     </div>
   </div>

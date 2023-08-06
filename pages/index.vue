@@ -6,6 +6,7 @@
     <ServiceSection />
     <!-- <ServiceModule /> -->
     <ServiceSlider />
+    <NumberCounter />
   </div>
 </template>
 
@@ -16,4 +17,5 @@ import AboutSection from "~/layouts/sections/AboutSection.vue";
 import ServiceSection from "~/layouts/sections/ServiceSection.vue";
 import ServiceModule from "~/layouts/sections/ServiceModule.vue";
 import ServiceSlider from "~/layouts/sections/ServiceSlider.vue";
+import NumberCounter from "~/layouts/sections/NumberCounter.vue";
 </script>

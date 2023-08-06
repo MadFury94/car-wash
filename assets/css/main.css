@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .heading {
-  @apply text-5xl font-bold text-primary-500 sm:text-2xl md:text-2xl;
+  @apply text-2xl font-semibold text-primary-500 sm:text-2xl md:text-2xl;
 }
 .heading2 {
   @apply text-2xl font-bold hover:text-white text-primary-500 sm:text-xl;
@@ -23,4 +23,10 @@
 }
 .btn2 {
   @apply text-sm font-semibold leading-6 text-white;
+}
+
+.overflow-ellipsis-hover\:hover {
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
 }

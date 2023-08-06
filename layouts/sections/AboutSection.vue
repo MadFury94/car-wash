@@ -50,11 +50,10 @@
           </div>
         </div>
         <div class="col-span-3">
-          <div class="w-full heading1">
+          <div class="w-full">
             <div class="flex items-center">
               <div class="mb-2 text-secondary-500 font-semibold">
-                <PillInfo title="ABOUT COMPANY"/>
-              
+                <PillInfo title="ABOUT COMPANY" />
               </div>
             </div>
 
