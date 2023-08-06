@@ -7,7 +7,7 @@
         </div>
       </div>
       <div>
-        <h1 class="heading md:text-center sm:text-4xl">
+        <h1 class="heading grid place-content-center sm:text-4xl">
           Offering Quality Services
         </h1>
       </div>
