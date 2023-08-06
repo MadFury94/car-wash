@@ -57,6 +57,8 @@
               </div>
             </div>
 
+            <i class="fa-solid fa-house"></i>
+
             <h2 class="heading md:text-left sm:text-4xl">
               Professional Washing and Cleaning of Your Car
             </h2>
