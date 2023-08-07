@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-10 px-20">
+  <div class="pt-10 bg-gray-200">
     <Splide :has-track="false" :options="options" aria-label="My Slide">
       <SplideTrack>
         <SplideSlide v-for="(item, index) in sliders" :key="index">
@@ -106,6 +106,8 @@ const options = {
   perPage: 3,
   breakpoints: {
     800: { perPage: 2, gap: "2rem", arrows: true },
+    1600: { perPage: 2, gap: "2rem", arrows: true },
+    1000: { perPage: 2, gap: "2rem", arrows: true },
     640: { perPage: 1, gap: "2rem", arrows: false },
   },
 

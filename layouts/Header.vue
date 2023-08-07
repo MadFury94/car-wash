@@ -1,95 +1,102 @@
 <template>
-  <header class="w-full bg-white fixed h-20 z-10 top-0 shadow-md px-4">
-    <div
-      ref="headerRef"
-      class="bg-white container mx-auto flex flex-wrap items-center justify-between py-2"
+  <header class="bg-white">
+    <nav
+      class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+      aria-label="Global"
     >
-      <div class="flex items-center">
-        <div class="text-xl text-primary-500 tracking-wide mr-1">
-          <img
-            src="https://www.sprynxmulti.com/wp-content/uploads/2020/03/sprynx_new_logo-color-01.png"
-            alt="logo"
-            class="w-24"
-          />
-        </div>
-      </div>
-
-      <button
-        @click="toggleMenu"
-        class="lg:hidden px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-white hover:border-white top-2"
-      >
-        <svg
-          class="fill-current h-3 w-3"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
+      <a href="#" class="-m-1.5 p-1.5">
+        <span class="sr-only">Your Company</span>
+        <img
+          class="h-8 w-auto"
+          src="https://www.sprynxmulti.com/wp-content/uploads/2020/03/sprynx_new_logo-color-01.png"
+          alt=""
+        />
+      </a>
+      <div class="flex lg:hidden">
+        <button
+          type="button"
+          class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+          @click="mobileMenuOpen = true"
         >
-          <title>Menu</title>
-          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v15z" />
-        </svg>
-      </button>
-
-      <nav
-        :class="{ hidden: !open }"
-        class="w-full relative lg:w-auto lg:static lg:block lg:justify-end md:items-center"
+          <span class="sr-only">Open main menu</span>
+          <i class="fa-duotone fa-bars h-6 w-6"></i>
+        </button>
+      </div>
+      <div class="hidden lg:flex lg:gap-x-12">
+        <a
+          v-for="item in navigation"
+          :key="item.name"
+          :href="item.href"
+          class="text-sm font-semibold leading-6 text-gray-900"
+          >{{ item.name }}</a
+        >
+        <a href="#" class="text-sm font-semibold leading-6 text-gray-900"
+          >Contact Us <span aria-hidden="true">&rarr;</span></a
+        >
+      </div>
+    </nav>
+    <Dialog
+      as="div"
+      class="lg:hidden"
+      @close="mobileMenuOpen = false"
+      :open="mobileMenuOpen"
+    >
+      <div class="fixed inset-0 z-10" />
+      <DialogPanel
+        class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
       >
-        <div class="lg:flex lg:items-center lg:w-auto" id="nav-content">
-          <ul
-            v-for="(name, index) in links"
-            :key="index"
-            class="lg:flex justify-end flex-1 items-center md:pb-0 pb-10 md:px-0 md:static"
+        <div class="flex items-center justify-between">
+          <a href="#" class="-m-1.5 p-1.5">
+            <span class="sr-only">Your Company</span>
+            <img
+              class="h-8 w-auto"
+              src="https://www.sprynxmulti.com/wp-content/uploads/2020/03/sprynx_new_logo-color-01.png"
+              alt=""
+            />
+          </a>
+          <button
+            type="button"
+            class="-m-2.5 rounded-md p-2.5 text-gray-700"
+            @click="mobileMenuOpen = false"
           >
-            <li class="mr-3 md:mx-4 md:my-0">
-              <a
-                class="inline-block font-semibold text-primary-500 hover:text- no-underline hover:text-gray-300 text-sm hover:text-underline py-2 px-4"
-                :href="name.url"
-                >{{ name.name }}</a
-              >
-            </li>
-          </ul>
+            <span class="fas fa-window-close">Close menu</span>
+            <XMarkIcon class="h-6 w-6" aria-hidden="true" />
+          </button>
         </div>
-      </nav>
-    </div>
+        <div class="mt-6 flow-root">
+          <div class="-my-6 divide-y divide-gray-500/10">
+            <div class="space-y-2 py-6">
+              <a
+                v-for="item in navigation"
+                :key="item.name"
+                :href="item.href"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                >{{ item.name }}</a
+              >
+            </div>
+            <div class="py-6">
+              <a
+                href="#"
+                class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                >Contact Us</a
+              >
+            </div>
+          </div>
+        </div>
+      </DialogPanel>
+    </Dialog>
   </header>
 </template>
 
-<script setup lang="ts">
-import { ref, onMounted, onUnmounted, watch } from "vue";
-import fontAwesome from "../plugins/font-awesome";
+<script setup>
+import { ref } from "vue";
 
-const links = [
-  { name: "Home", url: "#" },
-  { name: "About", url: "#" },
-  { name: "Services", url: "#" },
-  { name: "Packages", url: "#" },
-  { name: "Contact", url: "#" },
+const navigation = [
+  { name: "Home", href: "#" },
+  { name: "Services", href: "#" },
+  { name: "Booking", href: "#" },
+  { name: "About Us", href: "#" },
 ];
 
-const open = ref(false);
-const headerRef = ref(null);
-
-function toggleMenu() {
-  open.value = !open.value;
-}
-
-function closeMenu(e) {
-  if (!headerRef.value.contains(e.target)) {
-    open.value = false;
-  }
-}
-
-onMounted(() => {
-  window.addEventListener("click", closeMenu);
-});
-
-onUnmounted(() => {
-  window.removeEventListener("click", closeMenu);
-});
-
-watch(open, (newVal) => {
-  if (newVal) {
-    window.addEventListener("click", closeMenu);
-  } else {
-    window.removeEventListener("click", closeMenu);
-  }
-});
+const mobileMenuOpen = ref(false);
 </script>
