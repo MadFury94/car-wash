@@ -14,7 +14,7 @@
 
       <div class="mb-40 -mt-32 flex justify-center">
         <div
-          class="border w-52 absolute border-black bg-white py-10 rounded-2xl"
+          class="border w-80 absolute border-black bg-white py-10 rounded-2xl"
         >
           <div
             class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20"
@@ -26,7 +26,7 @@
             />
           </div>
           <h1
-            class="mb-4 text-xl font-semibold text-primary-500 text-center px-10 whitespace-nowrap overflow-hidden overflow-ellipsis overflow-ellipsis-hover\:hover"
+            class="mb-4 text-xl font-semibold text-primary-500 text-center px-10"
           >
             {{ title }}
           </h1>
@@ -41,7 +41,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref } from "vue";
 
 const props = defineProps({
   image: {

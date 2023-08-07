@@ -83,7 +83,7 @@ const sliders = ref<Sliders[]>([
     icon: "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691169409/car-wash_yq9w1o.png",
   },
   {
-    heading: "Complete Car Care Package",
+    heading: "Complete Car Package",
     image:
       "https://demo.ovatheme.com/mistercar/wp-content/uploads/2020/11/04-Complete-Detail-Wash.jpg",
     description: "A thorough wash with high-quality cleaning ",
