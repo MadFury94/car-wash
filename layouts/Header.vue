@@ -1,5 +1,17 @@
 <template>
-  <header class="bg-white">
+  <div>
+    <div class="flex gap-x-4">
+      <NuxtLink
+        v-for="(item, index) in navigation"
+        :key="item"
+        :to="{ name: item.route.name }"
+        class="text-sm font-semibold leading-6 text-gray-900"
+        >{{ item.name }}
+        </NuxtLink
+      >
+    </div>
+  </div>
+  <header v-if="false" class="bg-white">
     <nav
       class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
       aria-label="Global"
@@ -60,7 +72,7 @@
             @click="mobileMenuOpen = false"
           >
             <span class="fas fa-window-close">Close menu</span>
-            <XMarkIcon class="h-6 w-6" aria-hidden="true" />
+            XXX
           </button>
         </div>
         <div class="mt-6 flow-root">
@@ -89,13 +101,20 @@
 </template>
 
 <script setup>
+import { Dialog, DialogPanel } from "@headlessui/vue";
 import { ref } from "vue";
 
 const navigation = [
-  { name: "Home", href: "#" },
+  {
+    name: "Contact Us",
+    route: { name: "contactPage" },
+    icon: "fa-solid fa-arrow-right",
+  },
+  /*   { name: "Home", href: "#" },
   { name: "Services", href: "#" },
   { name: "Booking", href: "#" },
   { name: "About Us", href: "#" },
+  { name: "About Us", href: "#" }, */
 ];
 
 const mobileMenuOpen = ref(false);

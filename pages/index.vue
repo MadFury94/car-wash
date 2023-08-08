@@ -14,11 +14,10 @@
 </template>
 
 <script setup lang="ts">
-import AboutSection from "~/layouts/sections/AboutSection.vue";
-import CountUpSection from "~/layouts/sections/CountUpSection.vue";
-import HoverButtons from "~/layouts/sections/FeaturesArea.vue";
-import HeroSlide from "~/layouts/sections/HomeHeroSlider.vue";
-import ServiceSection from "~/layouts/sections/ServiceSection.vue";
-import ServiceSlider from "~/layouts/sections/ServiceSlider.vue";
-import NumberCounter from "~/layouts/sections/NumberCounter.vue";
+import AboutSection from "~/pages/sections/AboutSection.vue";
+import CountUpSection from "~/pages/sections/CountUpSection.vue";
+import HoverButtons from "~/pages/sections/FeaturesArea.vue";
+import HeroSlide from "~/pages/sections/HomeHeroSlider.vue";
+import ServiceSection from "~/pages/sections/ServiceSection.vue";
+import ServiceSlider from "~/pages/sections/ServiceSlider.vue";
 </script>
