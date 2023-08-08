@@ -106,6 +106,11 @@ import { ref } from "vue";
 
 const navigation = [
   {
+    name: "Home",
+    route: { name: "index" },
+    icon: "fa-solid fa-arrow-right",
+  },
+  {
     name: "Contact Us",
     route: { name: "contactPage" },
     icon: "fa-solid fa-arrow-right",

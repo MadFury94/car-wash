@@ -20,4 +20,11 @@ import HoverButtons from "~/pages/sections/FeaturesArea.vue";
 import HeroSlide from "~/pages/sections/HomeHeroSlider.vue";
 import ServiceSection from "~/pages/sections/ServiceSection.vue";
 import ServiceSlider from "~/pages/sections/ServiceSlider.vue";
+
+
+definePageMeta({
+  layout: "default",
+  name: "index",
+});
+
 </script>

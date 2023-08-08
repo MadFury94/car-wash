@@ -1,5 +1,5 @@
 <template>
-  <div>Contact Us</div>
+  <div class="bg-red-500">Contact Us</div>
 </template>
 
 <script setup lang="ts">
@@ -9,6 +9,8 @@ definePageMeta({
   layout: 'pages-layout',
   name:"contactPage"
 })
+
+
 </script>
 
 <style scoped></style>
