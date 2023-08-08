@@ -96,7 +96,7 @@ onMounted(() => {
 <style scoped>
 .image {
   /* The image used */
-  background-image: url("/home/business-people.jpg");
+  /* background-image: url("/home/business-people.jpg"); */
 
   /* Set a specific height */
   min-height: 200px;

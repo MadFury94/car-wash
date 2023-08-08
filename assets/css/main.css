@@ -16,13 +16,13 @@
   @apply text-8xl font-bold tracking-tight text-primary-500 sm:text-4xl md:text-5xl;
 }
 .heading5 {
-  @apply text-8xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl;
+  @apply text-8xl font-semibold tracking-tight text-white sm:text-xl md:text-5xl;
 }
 .para {
   @apply text-lg leading-8 text-white sm:text-sm;
 }
 .btn {
-  @apply rounded-xl bg-secondary-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-800;
+  @apply rounded-xl bg-secondary-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-800 whitespace-nowrap;
 }
 .btn2 {
   @apply text-sm font-semibold leading-6 text-white;

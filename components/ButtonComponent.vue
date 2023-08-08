@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-20 flex gap-x-6 relative z-10">
+  <div class="mt-0 flex gap-x-6 relative z-10">
     <a :href="link" class="btn">{{ text }}</a>
     <i :class="icon"></i>
   </div>
