@@ -1,11 +1,11 @@
 <template>
   <div
-    class="grid -mt-14 pb-20 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 grid-cols-1 gap-4"
+    class="grid -mt-40 pb-20 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 grid-cols-1 gap-1 lg:px-80"
   >
     <div
       v-for="(item, index) in hover"
       :key="index"
-      class="rounded-lg border bg-white hover:bg-secondary-200 hover:text-white h-44 w-full py-4 px-2 transition-colors duration-300 ease-in-out relative cursor-pointer"
+      class="rounded-lg border bg-white hover:bg-secondary-200 hover:text-white h-44 lg:w-64 py-4 px-2 transition-colors duration-300 ease-in-out relative cursor-pointer"
     >
       <div class="p-2">
         <img class="w-20 h-20" :src="item.image" alt="" />
