@@ -15,25 +15,29 @@
                 class="h-[700px] object-cover absolute inset-0 -z-10 w-full"
               />
 
-              <div class="mx-auto max-w-4xl py-32 sm:py-48 lg:py-40">
+              <div class="mx-auto  py-32 sm:py-48 lg:py-40 px-10">
                 <div class="hidden sm:mb-8 sm:flex"></div>
                 <div class="lg:text-start">
                   <h1
-                    class="text-base my-2 font-semibold leading-6 text-secondary-500 ring-1 ring-inset ring-indigo-600/10 relative z-10"
+                    class="text-base my-2 w-80 lg:w-full  font-semibold leading-6 text-secondary-500 ring-1 ring-inset ring-indigo-600/10 relative z-10"
                   >
                     {{ item.heading }}
                   </h1>
-                  <h1
-                    class="lg:text-8xl font-semibold tracking-tight sm:text-xl md:text-xl text-white relative z-10 my-2"
+                  <div class="text-3xl ">
+                    <h1
+                      class="font-semibol w-80 lg:w-full  tracking-tight text-lg text-white relative z-10 my-2"
+                    >
+                      {{ item.heading2 }}
+                    </h1>
+                    <h1
+                      class="lg:text-8xl w-80  lg:w-full font-semibold tracking-tight sm:text-xl md:text-xl text-white relative z-10 my-2"
+                    >
+                      {{ item.heading3 }}
+                    </h1>
+                  </div>
+                  <p
+                    class="mt-6 text-lg leading-8 w-80 lg:w-full py-4 text-gray-300 relative z-10"
                   >
-                    {{ item.heading2 }}
-                  </h1>
-                  <h1
-                    class="lg:text-8xl font-semibold tracking-tight sm:text-xl md:text-xl text-white relative z-10 my-2"
-                  >
-                    {{ item.heading3 }}
-                  </h1>
-                  <p class="mt-6 text-lg leading-8 text-gray-300 relative z-10">
                     {{ item.description }}
                   </p>
                   <div class="flex gap-x-6 relative z-10">

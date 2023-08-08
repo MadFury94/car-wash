@@ -111,6 +111,11 @@ const navigation = [
     icon: "fa-solid fa-arrow-right",
   },
   {
+    name: "About Us",
+    route: { name: "aboutPage" },
+    icon: "fa-solid fa-arrow-right",
+  },
+  {
     name: "Contact Us",
     route: { name: "contactPage" },
     icon: "fa-solid fa-arrow-right",
