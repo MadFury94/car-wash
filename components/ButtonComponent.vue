@@ -1,22 +1,22 @@
 <template>
-  <div class="mt-0 flex gap-x-6 relative z-10">
-    <a :href="link" class="btn">{{ text }}</a>
-    <i :class="icon"></i>
+  <div class="flex gap-x-6">
+    <NuxtLink :to="{ name: link }" class="btn">{{ title }}</NuxtLink>
+    <i v-if="icon" :class="icon"></i>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+
 
 const props = defineProps({
-  text: {
+  title: {
     type: String,
     default: "Click",
     required: true,
   },
   link: {
     type: String,
-    default: "Click",
+    default: "index",
     required: true,
   },
 

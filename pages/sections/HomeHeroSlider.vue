@@ -41,7 +41,7 @@
                     {{ item.description }}
                   </p>
                   <div class="flex gap-x-6 relative z-10">
-                    <ButtonComponent :text="item.button" link="#" />
+                    <ButtonComponent :title="item.button" link="index" />
                   </div>
                 </div>
               </div>
