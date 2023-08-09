@@ -1,4 +1,5 @@
 <template>
+<div>
   <div>
     <div class="flex gap-x-4">
       <NuxtLink
@@ -7,8 +8,7 @@
         :to="{ name: item.route.name }"
         class="text-sm font-semibold leading-6 text-gray-900"
         >{{ item.name }}
-        </NuxtLink
-      >
+      </NuxtLink>
     </div>
   </div>
   <header v-if="false" class="bg-white">
@@ -16,14 +16,14 @@
       class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
       aria-label="Global"
     >
-      <a href="#" class="-m-1.5 p-1.5">
+      <NuxtLink :to="{name:'index'}" class="-m-1.5 p-1.5">
         <span class="sr-only">Your Company</span>
         <img
           class="h-8 w-auto"
           src="https://www.sprynxmulti.com/wp-content/uploads/2020/03/sprynx_new_logo-color-01.png"
           alt=""
         />
-      </a>
+      </NuxtLink>
       <div class="flex lg:hidden">
         <button
           type="button"
@@ -35,15 +35,12 @@
         </button>
       </div>
       <div class="hidden lg:flex lg:gap-x-12">
-        <a
-          v-for="item in navigation"
-          :key="item.name"
-          :href="item.href"
+        <NuxtLink
+          v-for="(item, index) in navigation"
+          :key="index"
+          :to="{ name: item.route.name }"
           class="text-sm font-semibold leading-6 text-gray-900"
-          >{{ item.name }}</a
-        >
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900"
-          >Contact Us <span aria-hidden="true">&rarr;</span></a
+          >{{ item.name }}</NuxtLink
         >
       </div>
     </nav>
@@ -78,19 +75,12 @@
         <div class="mt-6 flow-root">
           <div class="-my-6 divide-y divide-gray-500/10">
             <div class="space-y-2 py-6">
-              <a
-                v-for="item in navigation"
-                :key="item.name"
-                :href="item.href"
+              <NuxtLink
+                v-for="(item, index) in navigation"
+                :key="index"
+                :to="{ name: item.route.name }"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >{{ item.name }}</a
-              >
-            </div>
-            <div class="py-6">
-              <a
-                href="#"
-                class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >Contact Us</a
+                >{{ item.name }}</NuxtLink
               >
             </div>
           </div>
@@ -98,6 +88,7 @@
       </DialogPanel>
     </Dialog>
   </header>
+</div>
 </template>
 
 <script setup>
@@ -120,11 +111,6 @@ const navigation = [
     route: { name: "contactPage" },
     icon: "fa-solid fa-arrow-right",
   },
-  /*   { name: "Home", href: "#" },
-  { name: "Services", href: "#" },
-  { name: "Booking", href: "#" },
-  { name: "About Us", href: "#" },
-  { name: "About Us", href: "#" }, */
 ];
 
 const mobileMenuOpen = ref(false);
