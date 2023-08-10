@@ -68,7 +68,7 @@
               employed 50 youth. Our legacy is in the youth that gained work and
               life skills, grew their confidence and have moved on to bigger.
             </p>
-            <div class="grid grid-cols-4">
+            <div class="grid lg:grid-cols-4">
               <div class="col-span-2">
                 <ul
                   role="list"
