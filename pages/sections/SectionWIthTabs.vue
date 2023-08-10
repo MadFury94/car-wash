@@ -1,6 +1,6 @@
 <template>
   <div
-    class="border-2 p-4 relative"
+    class="border-2 px-4 py-40 relative"
     :style="{
       'background-image': `url(https://demo.ovatheme.com/mistercar/wp-content/uploads/2020/11/Our-Mission.jpg)`,
       'background-position': 'center center',
@@ -10,21 +10,28 @@
   >
     <div class="overlay"></div>
 
-    <div class="lg:grid grid-cols-2 items-start text-wrapper">
-      <div>
-        <div class="text-3xl text-white">
-          <div>LEARN ABOUT US</div>
-          <div>We Make Sure that Each Visits Include all Services</div>
+    <div class="lg:grid grid-cols-2 text-wrapper">
+      <div class="p-20">
+        <div class="flex items-center">
+          <div class="mb-2 text-secondary-500 font-semibold">
+            <PillInfo title="LEARN ABOUT US" />
+          </div>
         </div>
 
-        <button class="bg-secondary-500 p-2 roun">Discover More</button>
-        <!-- <ButtonComponent /> -->
+        <h2 class="heading3 sm:text-4xl">
+          We Make Sure that Each Visits Include all Services
+        </h2>
+        <p
+          class="mt-6 text-base md:text-lg leading-8 text-gray-800 md:text-left"
+        ></p>
+
+        <ButtonComponent title="Discover More" />
       </div>
 
       <div class="flex justify-center">
         <div>
           <TabGroup>
-            <TabList class="flex space-x-1 rounded-xl bg-blue-900/20 p-1">
+            <TabList class="flex space-x-1 rounded-xl p-1">
               <Tab
                 v-for="(tab, index) in tabData"
                 as="template"
@@ -33,13 +40,14 @@
               >
                 <button
                   :class="[
-                    'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700',
-                    'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
+                    'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-white',
+                    ' ring-opacity-60 ring-offset-2 button  focus:outline-none ',
                     selected
-                      ? 'bg-white shadow'
-                      : 'text-blue-100 hover:bg-white/[0.12] hover:text-white',
+                      ? ' border-b-4 button.border-b-4  shadow border-secondary-500'
+                      : 'text-white hover:bg-white/[0.12] hover:text-gray-400',
                   ]"
                 >
+                  <i :class="tab.icon"></i>
                   {{ tab.title }}
                 </button>
               </Tab>
@@ -50,39 +58,34 @@
                 v-for="(tab, idx) in tabData"
                 :key="idx"
                 :class="[
-                  'rounded-xl bg-white p-3',
+                  'rounded-xl  p-3',
                   'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
                 ]"
               >
-                <div class="flex flex-col">
-                  <div class="flex justify-center">
-                    <img class="w-96" :src="tab.image" alt="" />
+                <div class="grid lg:grid-cols-5">
+                  <div class="py-4 col-span-3 sm:px-20">
+                    <img class="rounded-md" :src="tab.image" alt="" />
                   </div>
 
-                  <div>
-                    <h1>{{ tab.description }}</h1>
+                  <div class="col-span-2 py-2">
+                    <h1 class="text-white">{{ tab.description }}</h1>
 
                     <ul>
                       <li
                         v-for="(item, index) in tab.listData"
                         :key="index"
-                        class="relative rounded-md p-3 hover:bg-gray-100"
+                        class="relative rounded-md py-3 hover:bg-gray-100 flex gap-x-2"
                       >
-                        <h3 class="text-sm font-medium leading-5">
+                        <i
+                          class="fa-solid fa-check text-white bg-secondary-500 rounded-lg"
+                        ></i>
+                        <h3 class="text-sm font-medium leading-5 text-white">
                           {{ item }}
                         </h3>
 
                         <ul
                           class="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500"
                         ></ul>
-
-                        <a
-                          href="#"
-                          :class="[
-                            'absolute inset-0 rounded-md',
-                            'ring-blue-400 focus:z-10 focus:outline-none focus:ring-2',
-                          ]"
-                        />
                       </li>
                     </ul>
                   </div>
@@ -104,6 +107,7 @@ type TabDataTypes = {
   title: string;
   description: string;
   listData: string[];
+  icon: string;
 };
 
 const tabData: TabDataTypes[] = [
@@ -119,6 +123,7 @@ const tabData: TabDataTypes[] = [
       "124/7 Available to Service",
       "1A thorough Cleaning of Dash",
     ],
+    icon: "fa-duotone fa-rectangles-mixed",
   },
   {
     image:
@@ -132,6 +137,7 @@ const tabData: TabDataTypes[] = [
       "224/7 Available to Service",
       "2A thorough Cleaning of Dash",
     ],
+    icon: "fa-solid fa-check",
   },
   {
     image:
@@ -145,6 +151,7 @@ const tabData: TabDataTypes[] = [
       "324/7 Available to Service",
       "A3 thorough Cleaning of Dash",
     ],
+    icon: "fa-duotone fa-value-absolute",
   },
 ];
 
@@ -214,5 +221,12 @@ const categories = ref({
 .text-wrapper {
   position: relative;
   z-index: 2;
+}
+button {
+  transition: all 0.3s ease; /* This ensures a smooth color transition */
+}
+button.border-b-4 {
+  transform: scale(1.05); /* This scales up the selected tab slightly */
+  transition: all 0.3s ease, transform 0.2s ease-out; /* Combines color transition with a quick scale effect */
 }
 </style>
