@@ -31,7 +31,9 @@
       <div class="flex justify-center">
         <div>
           <TabGroup>
-            <TabList class="flex flex-col md:flex-row px-4 justify-center gap-x-8 gap-y-4 space-x-1 rounded-xl p-1">
+            <TabList
+              class="flex flex-col md:flex-row px-4 justify-center gap-x-8 gap-y-4 space-x-1 rounded-xl p-1"
+            >
               <Tab
                 v-for="(tab, index) in tabData"
                 as="template"
@@ -74,10 +76,10 @@
                       <li
                         v-for="(item, index) in tab.listData"
                         :key="index"
-                        class="relative rounded-md py-3 hover:bg-gray-100 flex gap-x-2"
+                        class="relative py-3 flex gap-x-2"
                       >
                         <i
-                          class="fa-solid fa-check text-white bg-secondary-500 rounded-lg"
+                          class="fa-solid fa-check text-white bg-secondary-500 rounded-xl p-1 text-center"
                         ></i>
                         <h3 class="text-sm font-medium leading-5 text-white">
                           {{ item }}
