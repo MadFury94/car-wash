@@ -18,7 +18,7 @@
       <div class="mt-16 flex justify-center">
         <RadioGroup
           v-model="selectedTier"
-          class="grid grid-cols-2 gap-x-1 rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200"
+          class="grid grid-cols-3 gap-x-1 rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200"
         >
           <RadioGroupLabel class="sr-only">Payment frequency</RadioGroupLabel>
           <RadioGroupOption

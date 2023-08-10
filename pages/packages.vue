@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>Packages page Secdtion</h1>
 
     <PackagesSection />
 
@@ -9,6 +8,8 @@
 </template>
 
 <script setup lang="ts">
+import PackagesSection from './sections/PackagesSection.vue';
+
 definePageMeta({
   layout: "pages-layout",
   name: "packagePage",
