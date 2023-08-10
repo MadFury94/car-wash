@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .heading {
   @apply text-2xl font-semibold text-primary-500 sm:text-2xl md:text-2xl;
 }

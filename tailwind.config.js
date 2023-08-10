@@ -12,7 +12,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: ["Poppins", "Arial", "sans-serif"],
+      sans: ['Fira Sans', 'Arial', 'sans-serif'],
     },
     colors: {
       primary: {

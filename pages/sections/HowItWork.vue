@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-200">
+  <div class="bg-gray-100">
     <!-- First Section  -->
     <div class="lg:px-44">
       <div class="bg-primary-500 grid grid-cols-5 rounded-lg p-10">
@@ -39,17 +39,26 @@
           accurate and fair-price service Estimate.
         </p>
       </div>
-      <div class="">
-        <div
-          class="p-6 space-x-4 grid lg:grid-cols-3 md:grid-cols-2 text-center"
-        >
-          <div v-for="(item, index) in workProcess" :key="index">
+      <div class="flex justify-center">
+        <div class="p-6 grid lg:grid-cols-3 md:grid-cols-2 gap-y-8 text-center">
+          <div class="" v-for="(item, index) in workProcess" :key="index">
             <!-- icon -->
-            <div class="grid place-content-center">
+            <div class="flex justify-center  max-w-lg">
               <div
-                class="text-primary-500 rounded-sm bg-white w-24 shadow-2xl transition-shadow text-center py-2"
+                class="text-primary-500 bg-white relative w-32 rounded-md h-32 shadow-md transition-shadow text-center py-2"
               >
                 <i class="text-5xl p-6" :class="item.icon"></i>
+
+                <span
+                  class="absolute bg-secondary-500 rounded-full -top-4 -right-4"
+                >
+                  <div class="border-secondary-200 border-4 rounded-full">
+                    <span
+                      class="grid place-content-center w-10 h-10 text-white text-2xl font-light z-10"
+                      >0{{ index + 1 }}</span
+                    >
+                  </div>
+                </span>
               </div>
             </div>
 
@@ -57,16 +66,13 @@
 
             <!-- Header    -->
             <div>
-              <h1 class="heading py-4 sm:text-4xl">
+              <h1 class="text-xl py-4">
                 {{ item.title }}
-                <i class="px-4" :class="item.icon2"></i>
               </h1>
             </div>
-            <!-- paragragh -->
-            <p
-              class="text-base md:text-lg leading-8 text-gray-800 md:text-left"
-            >
-              {{ item.paragragh }}
+            <!-- paragraph -->
+            <p class="md:text-lg max-w-md leading-8 text-gray-800 text-center">
+              {{ item.paragraph }}
             </p>
           </div>
         </div>
@@ -75,10 +81,9 @@
   </div>
 </template>
 <script setup lang="ts">
-
 type Process = {
   title: string;
-  paragragh: string;
+  paragraph: string;
   icon: string;
   icon2: any;
 };
@@ -86,21 +91,21 @@ type Process = {
 const workProcess = ref<Process[]>([
   {
     title: "Make an appointment",
-    paragragh:
+    paragraph:
       "Book online and leave your car with us. We'll provide you with a trusted excellent service",
     icon: "fa-solid fa-calendar-days",
     icon2: "fa-solid fa-circle-chevron-right",
   },
   {
     title: "Get Amazing services",
-    paragragh:
+    paragraph:
       "Every cleaner is friendly and reliable. They’ve been background checked & rated 5-stars",
     icon: "fa-solid fa-taxi",
     icon2: "fa-solid fa-circle-chevron-right",
   },
   {
     title: "Pay Online ",
-    paragragh:
+    paragraph:
       "Pay online. We’ll provide you with a trusted, excellent services with door delivery option.",
     icon: "fa-duotone fa-credit-card",
     icon2: false,
