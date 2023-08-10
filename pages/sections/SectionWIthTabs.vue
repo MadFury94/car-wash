@@ -31,7 +31,7 @@
       <div class="flex justify-center">
         <div>
           <TabGroup>
-            <TabList class="flex space-x-1 rounded-xl p-1">
+            <TabList class="flex flex-col md:flex-row px-4 justify-center gap-x-8 gap-y-4 space-x-1 rounded-xl p-1">
               <Tab
                 v-for="(tab, index) in tabData"
                 as="template"
@@ -41,10 +41,10 @@
                 <button
                   :class="[
                     'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-white',
-                    ' ring-opacity-60 ring-offset-2 button  focus:outline-none ',
+                    ' ring-opacity-60  button  focus:outline-none ',
                     selected
-                      ? ' border-b-4 button.border-b-4  shadow border-secondary-500'
-                      : 'text-white hover:bg-white/[0.12] hover:text-gray-400',
+                      ? ' border-b-4 button.border-b-4  shadow bg-secondary-500'
+                      : 'text-white hover:bg-white/[0.12] hover:text-gray-400 border-2',
                   ]"
                 >
                   <i :class="tab.icon"></i>
@@ -62,8 +62,8 @@
                   'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
                 ]"
               >
-                <div class="grid lg:grid-cols-5">
-                  <div class="py-4 col-span-3 sm:px-20">
+                <div class="">
+                  <div class="flex justify-center">
                     <img class="rounded-md" :src="tab.image" alt="" />
                   </div>
 
@@ -214,7 +214,7 @@ const categories = ref({
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+  background-color: rgba(0, 0, 0, 0.7); /* Adjust the opacity as needed */
   z-index: 1;
 }
 
