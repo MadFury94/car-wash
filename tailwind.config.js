@@ -27,7 +27,7 @@ module.exports = {
         800: "#030F2C",
         900: "#000311", // Darkest
       },
-      secondary: {
+       secondary: {
         50: "#E5F6FF",
         100: "#CCEFFF",
         200: "#99DFFF",
@@ -38,7 +38,7 @@ module.exports = {
         700: "#005E80",
         800: "#003045",
         900: "#001520",
-      },
+      }, 
       white: colors.white,
       gray: colors.gray,
       indigo: colors.indigo,

@@ -11,6 +11,8 @@
     <div>
       <CountUpSection />
       <SectionWithTabs />
+    <PackagesSection />
+
       <HowItWork />
     </div>
   </div>
@@ -25,6 +27,7 @@ import SectionWithTabs from "~/pages/sections/SectionWithTabs.vue";
 import ServiceSection from "~/pages/sections/ServiceSection.vue";
 import ServiceSlider from "~/pages/sections/ServiceSlider.vue";
 import HowItWork from "./sections/HowItWork.vue";
+import PackagesSection from "./sections/PackagesSection.vue";
 
 definePageMeta({
   layout: "default",

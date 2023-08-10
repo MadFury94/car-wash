@@ -1,6 +1,10 @@
 <template>
   <div>
-    <h1>Packages page</h1>
+    <h1>Packages page Secdtion</h1>
+
+    <PackagesSection />
+
+
   </div>
 </template>
 
