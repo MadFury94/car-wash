@@ -7,11 +7,11 @@
     <!-- <ServiceModule /> -->
     <ServiceSlider />
 
-
     <!-- <NumberCounter /> -->
-    <CountUpSection />
-    <SectionWithTabs/>
-
+    <div>
+      <CountUpSection />
+      <SectionWithTabs />
+    </div>
   </div>
 </template>
 
@@ -24,10 +24,8 @@ import SectionWithTabs from "~/pages/sections/SectionWithTabs.vue";
 import ServiceSection from "~/pages/sections/ServiceSection.vue";
 import ServiceSlider from "~/pages/sections/ServiceSlider.vue";
 
-
 definePageMeta({
   layout: "default",
   name: "index",
 });
-
 </script>

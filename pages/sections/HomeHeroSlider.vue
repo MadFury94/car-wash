@@ -15,7 +15,7 @@
                 class="h-[700px] object-cover absolute inset-0 -z-10 w-full"
               />
 
-              <div class="mx-auto py-32 sm:py-48 lg:py-40 px-80">
+              <div class="mx-auto py-32 sm:py-48 lg:py-40 lg:px-80 px-10">
                 <div class="hidden sm:mb-8 sm:flex"></div>
                 <div class="lg:text-start">
                   <h1

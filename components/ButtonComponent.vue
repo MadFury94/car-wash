@@ -6,8 +6,6 @@
 </template>
 
 <script setup lang="ts">
-
-
 const props = defineProps({
   title: {
     type: String,
@@ -17,7 +15,7 @@ const props = defineProps({
   link: {
     type: String,
     default: "index",
-    required: true,
+    required: false,
   },
 
   icon: {

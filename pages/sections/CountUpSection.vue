@@ -110,4 +110,9 @@ onMounted(() => {
 
   /* add hue and saturation */
 }
+.margin {
+  margin-bottom: -50px; /* Adjust value to determine how much of the component you want to sink into the one below it. */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Adds shadow for depth effect */
+  z-index: 10; /* Ensures it appears on top of the content below */
+}
 </style>

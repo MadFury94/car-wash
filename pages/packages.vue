@@ -1,15 +1,15 @@
 <template>
   <div>
-    <h1>About Us page</h1>
+    <h1>Packages page</h1>
   </div>
 </template>
 
 <script setup lang="ts">
 definePageMeta({
   layout: "pages-layout",
-  name: "aboutPage",
-  title: "About our Company",
-  description: "This is the about page of our company",
+  name: "packagePage",
+  title: "our Company Packages ",
+  description: "This is the package page of our company",
 });
 </script>
 
