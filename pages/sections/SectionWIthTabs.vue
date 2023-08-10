@@ -1,6 +1,6 @@
 <template>
   <div
-    class="border-2 px-4 py-40 relative"
+    class="border-2 px-4 py-10 relative"
     :style="{
       'background-image': `url(https://demo.ovatheme.com/mistercar/wp-content/uploads/2020/11/Our-Mission.jpg)`,
       'background-position': 'center center',
@@ -10,15 +10,11 @@
   >
     <div class="overlay"></div>
 
-    <div class="lg:grid grid-cols-2 text-wrapper">
-      <div class="p-20">
-        <div class="flex items-center">
-          <div class="mb-2 text-secondary-500 font-semibold">
-            <PillInfo title="LEARN ABOUT US" />
-          </div>
-        </div>
+    <div class="grid md:grid-cols-2 text-wrapper">
+      <div class="p-4">
+        <PillInfo title="LEARN ABOUT US" />
 
-        <h2 class="heading3 sm:text-4xl">
+        <h2 class="heading3 ">
           We Make Sure that Each Visits Include all Services
         </h2>
         <p
@@ -64,12 +60,12 @@
                   'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
                 ]"
               >
-                <div class="">
+                <div class="grid xl:grid-cols-2 gap-x-4">
                   <div class="flex justify-center">
                     <img class="rounded-md" :src="tab.image" alt="" />
                   </div>
 
-                  <div class="col-span-2 py-2">
+                  <div class="">
                     <h1 class="text-white">{{ tab.description }}</h1>
 
                     <ul>

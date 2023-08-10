@@ -1,7 +1,6 @@
 <template>
-  <div class="flex gap-x-6">
-    <NuxtLink :to="{ name: link }" class="btn">{{ title }}</NuxtLink>
-    <i v-if="icon" :class="icon"></i>
+  <div class="flex gap-x-6 items-center">
+    <NuxtLink :to="{ name: link }" class="btn">{{ title }}  <i v-if="icon" :class="icon"></i></NuxtLink>
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <div>
+    <div>
       <div class="flex gap-x-4">
         <NuxtLink
           v-for="(item, index) in navigation"
@@ -10,8 +10,8 @@
           >{{ item.name }}
         </NuxtLink>
       </div>
-    </div> -->
-    <header class="bg-white">
+    </div>
+    <header v-if="false" class="bg-white">
       <nav
         class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
         aria-label="Global"

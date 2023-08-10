@@ -43,7 +43,7 @@
         <div
           class="p-6 space-x-4 grid lg:grid-cols-3 md:grid-cols-2 text-center"
         >
-          <div v-for="(item, index) in workprocess" :key="index">
+          <div v-for="(item, index) in workProcess" :key="index">
             <!-- icon -->
             <div class="grid place-content-center">
               <div
@@ -75,6 +75,7 @@
   </div>
 </template>
 <script setup lang="ts">
+
 type Process = {
   title: string;
   paragragh: string;
@@ -82,7 +83,7 @@ type Process = {
   icon2: any;
 };
 
-const workprocess = ref<Process[]>([
+const workProcess = ref<Process[]>([
   {
     title: "Make an appointment",
     paragragh:
