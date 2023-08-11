@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-200 w-full">
+  <div class="bg-gray-100 w-full">
     <div class="p-10">
       <div class="grid place-content-center py-2">
         <div class="mb-2 text-secondary-500 font-semibold grid">
@@ -15,4 +15,8 @@
   </div>
 </template>
 
-<script></script>
+<script>
+
+
+
+</script>

@@ -11,7 +11,7 @@
     <div>
       <CountUpSection />
       <SectionWithTabs />
-    <PackagesSection />
+      <PackagesSection />
 
       <HowItWork />
     </div>

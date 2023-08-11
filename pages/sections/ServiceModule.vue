@@ -8,19 +8,19 @@
             alt=""
             class="h-full w-full object-cover rounded-2xl shadow-xl md:h-full md:w-full"
           />
-          <div class="absolute inset-0 bg-black opacity-50 rounded-2xl"></div>
+          <div class="absolute inset-0 opacity-50 rounded-2xl"></div>
         </div>
       </div>
 
       <div class="mb-40 -mt-32 flex justify-center">
         <div
-          class="border w-80 absolute border-black bg-white py-10 rounded-2xl"
+          class="w-80 absolute  bg-white py-10 rounded-2xl"
         >
           <div
             class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20"
           >
             <img
-              class="w-full rounded-full p-2 bg-primary-900"
+              class="w-full rounded-full p-2 bg-white border border-gray-800"
               :src="icon"
               alt=""
             />

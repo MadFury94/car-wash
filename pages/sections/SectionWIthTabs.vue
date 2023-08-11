@@ -10,7 +10,7 @@
   >
     <div class="overlay"></div>
 
-    <div class="grid md:grid-cols-2 text-wrapper">
+    <div class="grid   lg:grid-cols-2 xl:grid-cols-3 text-wrapper">
       <div class="p-4">
         <PillInfo title="LEARN ABOUT US" />
 
@@ -24,7 +24,8 @@
         <ButtonComponent title="Discover More" />
       </div>
 
-      <div class="flex justify-center">
+    <div class="xl:col-span-2">
+        <div class="flex justify-center">
         <div>
           <TabGroup>
             <TabList
@@ -61,12 +62,12 @@
                 ]"
               >
                 <div class="grid xl:grid-cols-2 gap-x-4">
-                  <div class="flex justify-center">
+                  <div class="flex md:justify-start">
                     <img class="rounded-md" :src="tab.image" alt="" />
                   </div>
 
-                  <div class="">
-                    <h1 class="text-white">{{ tab.description }}</h1>
+                  <div class="mt-4">
+                    <p class="text-white text-justify">{{ tab.description }}</p>
 
                     <ul>
                       <li
@@ -93,6 +94,7 @@
           </TabGroup>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </template>
