@@ -104,8 +104,16 @@
               <div class="flex flex-col">
                 <p v-if="feature?.title">{{ feature?.title }}</p>
 
-                <div>
-                  {{ feature?.description }}
+                <div v-if="feature?.description">
+                  <template
+                    v-for="(item, index) in orderedListItems(
+                      feature?.description
+                    )"
+                  >
+                    <ul class="list-disc list-inside">
+                      <li>{{ item }}</li>
+                    </ul>
+                  </template>
                 </div>
               </div>
             </li>
@@ -312,4 +320,41 @@ function matchFeaturesWithDetails(features: string[]) {
     return matchedFeature;
   });
 }
+
+function orderedListItems(str: string) {
+  const array_of_strings = str.split(",").map((item) => item.trim());
+
+  return array_of_strings;
+}
 </script>
+
+<!-- 
+
+  const featureDetails = [
+  {
+    id: "PAINT",
+    title: "PAINT ENHANCEMENT AND GLOSS/SHINE",
+    description:
+      "Removing minor surface scratches, droplets,& firmly bonded surface contaminants on paint.",
+  },
+  {
+    id: "PAINT-G",
+    title: "PAINT ENHANCEMENT AND GLOSS/SHINE",
+    description:
+      "Restoring paint shine,smoothens paint surface,reducing friction between debris & paint, protecting paint from uv Ray’s & salt water.",
+  },
+  {
+    id: "ENGINE",
+    title: "ENGINE DETAILING",
+    description:
+      "Engine bay cleaning,degreasing,protecting engine from rust,restoring engine shine.",
+  },
+  {
+    id: "INTERIOR",
+    title: "INTERIOR DETAILING",
+    description:
+      "Vacuum,trunk,stain removal,leather/fabric cleaning & conditioning,mat/rugs shampooing,vinyl/plastic restoration,door jambs, dashboard,roof,AC vents flushing & steaming,cockpits.",
+  },
+] as featureTypes[];
+
+ -->
