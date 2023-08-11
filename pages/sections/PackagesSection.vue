@@ -89,16 +89,25 @@
             class="mt-8 space-y-3 text-sm leading-6 text-gray-600"
           >
             <li
-              v-for="feature in tier.features"
-              :key="feature"
+              v-for="(feature, index) in matchFeaturesWithDetails(
+                tier.features
+              )"
+              :key="index"
               class="flex gap-x-3"
             >
-              <div>
+              <div v-if="feature?.title">
                 <i
                   class="fa-solid fa-check text-white bg-secondary-500 rounded-xl p-1 text-center"
                 ></i>
               </div>
-              {{ feature }}
+
+              <div class="flex flex-col">
+                <p v-if="feature?.title">{{ feature?.title }}</p>
+
+                <div>
+                  {{ feature?.description }}
+                </div>
+              </div>
             </li>
           </ul>
         </div>
@@ -107,7 +116,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from "@headlessui/vue";
 
 const tiers = [
@@ -116,42 +125,54 @@ const tiers = [
     value: "small-size-car",
     packages: [
       {
-        name: "samll ---Hobby999",
-        id: "tier-hobby",
-        href: "#",
-        price: "$15",
-        description: "The essentials to provide your best work for clients.",
-        features: ["5 products", "Up to 1,000 subscribers", "Basic analytics"],
-        mostPopular: false,
-      },
-      {
-        name: "small ---Freelancer",
+        name: "PREMIUM DETAILING",
         id: "tier-freelancer",
         href: "#",
-        price: "$30",
+        price: "N85,000",
         description: "The essentials to provide your best work for clients.",
-        features: [
-          "5 products",
-          "Up to 1,000 subscribers",
-          "Basic analytics",
-          "48-hour support response time",
-        ],
+        features: ["INTERIOR", "EXTERIOR", "PAINT", "ENGINE"],
         mostPopular: false,
       },
       {
-        name: "small --Startup",
+        name: "Gold Package",
+        id: "tier-hobby",
+        href: "#",
+        price: "N85,000",
+        description: "The essentials to provide your best work for clients.",
+        features: ["INTERIOR", "EXTERIOR", "PAINT"],
+
+        mostPopular: false,
+      },
+
+      {
+        name: "DIAMOND PACKAGE",
         id: "tier-startup",
         href: "#",
         price: "$60",
         description: "A plan that scales with your rapidly growing business.",
-        features: [
-          "25 products",
-          "Up to 10,000 subscribers",
-          "Advanced analytics",
-          "24-hour support response time",
-          "Marketing automations",
-        ],
+        features: ["INTERIOR", "EXTERIOR", "ENGINE"],
+
         mostPopular: true,
+      },
+      {
+        name: "SILVER PACKAGE",
+        id: "tier-startup",
+        href: "#",
+        price: "$60",
+        description: "A plan that scales with your rapidly growing business.",
+        features: ["INTERIOR", "EXTERIOR", "PAINT"],
+
+        mostPopular: false,
+      },
+      {
+        name: "BRONZE PACKAGE",
+        id: "tier-startup",
+        href: "#",
+        price: "$60",
+        description: "A plan that scales with your rapidly growing business.",
+        features: ["INTERIOR", "EXTERIOR"],
+
+        mostPopular: false,
       },
     ],
   },
@@ -246,5 +267,49 @@ const tiers = [
   },
 ];
 
-const selectedTier = ref(tiers[2]);
+const selectedTier = ref(tiers[0]);
+
+const checked = ref(false);
+
+type featureTypes = {
+  id: "PAINT" | "PAINT-G" | "ENGINE" | "INTERIOR" | "EXTERIOR";
+  title: string;
+  description: string;
+};
+
+const featureDetails = [
+  {
+    id: "PAINT",
+    title: "PAINT ENHANCEMENT AND GLOSS/SHINE",
+    description:
+      "Removing minor surface scratches, droplets,& firmly bonded surface contaminants on paint.",
+  },
+  {
+    id: "PAINT-G",
+    title: "PAINT ENHANCEMENT AND GLOSS/SHINE",
+    description:
+      "Restoring paint shine,smoothens paint surface,reducing friction between debris & paint, protecting paint from uv Ray’s & salt water.",
+  },
+  {
+    id: "ENGINE",
+    title: "ENGINE DETAILING",
+    description:
+      "Engine bay cleaning,degreasing,protecting engine from rust,restoring engine shine.",
+  },
+  {
+    id: "INTERIOR",
+    title: "INTERIOR DETAILING",
+    description:
+      "Vacuum,trunk,stain removal,leather/fabric cleaning & conditioning,mat/rugs shampooing,vinyl/plastic restoration,door jambs, dashboard,roof,AC vents flushing & steaming,cockpits.",
+  },
+] as featureTypes[];
+
+function matchFeaturesWithDetails(features: string[]) {
+  return features.map((feature) => {
+    const matchedFeature = featureDetails.find(
+      (detail) => detail.id === feature
+    );
+    return matchedFeature;
+  });
+}
 </script>

@@ -6,7 +6,7 @@
         <div
           class="text-secondary-500 col-span-1 text-7xl grid place-content-center"
         >
-          <i class="fa fa-regular fa-comment-question text-6xl"></i>
+          <i class="fa-thin fa-comment-question"></i>
         </div>
         <div class="col-span-3">
           <h1
@@ -43,7 +43,7 @@
         <div class="p-6 grid lg:grid-cols-3 md:grid-cols-2 gap-y-8 text-center">
           <div class="" v-for="(item, index) in workProcess" :key="index">
             <!-- icon -->
-            <div class="flex justify-center  max-w-lg">
+            <div class="flex justify-center max-w-lg">
               <div
                 class="text-primary-500 bg-white relative w-32 rounded-md h-32 shadow-md transition-shadow text-center py-2"
               >
