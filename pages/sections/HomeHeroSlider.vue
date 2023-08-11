@@ -5,7 +5,7 @@
         <SplideSlide v-for="(item, index) in sliders" :key="index">
           <div class="mx-auto">
             <div
-              class="relative h-[700px] isolate overflow-hidden mb-8 pr-80 px-2"
+              class="relative h-[700px] isolate overflow-hidden mb-8  px-2"
             >
               <div class="absolute inset-0 bg-black opacity-50"></div>
 
@@ -19,7 +19,7 @@
                 <div class="hidden sm:mb-8 sm:flex"></div>
                 <div class="lg:text-start">
                   <h1
-                    class="text-base my-2 w-80 lg:w-full font-semibold leading-6 text-secondary-500 ring-1 ring-inset ring-indigo-600/10 relative z-10"
+                    class="text-base my-2 font-semibold leading-6 text-secondary-500 ring-1 ring-inset ring-indigo-600/10 relative z-10"
                   >
                     {{ item.heading }}
                   </h1>
@@ -30,7 +30,7 @@
                       {{ item.heading2 }}
                     </h1>
                     <h1
-                      class="lg:text-8xl w-80 lg:w-full font-semibold tracking-tight sm:text-xl md:text-xl text-white relative z-10 my-2"
+                      class="lg:text-8xl  font-semibold tracking-tight sm:text-xl md:text-xl text-white relative z-10 my-2"
                     >
                       {{ item.heading3 }}
                     </h1>
