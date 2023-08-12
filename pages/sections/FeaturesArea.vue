@@ -1,6 +1,6 @@
 <template>
   <div
-    class="grid -mt-40 pb-20 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 grid-cols-1 gap-1 px-4 "
+    class="grid -mt-40 pb-20 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 grid-cols-1 gap-1 lg:px-4 "
   >
     <div
       v-for="(item, index) in hover"

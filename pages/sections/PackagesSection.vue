@@ -30,10 +30,11 @@
           >
             <div
               :class="[
-                checked ? 'bg-indigo-600 text-white' : 'text-gray-500',
-                'cursor-pointer rounded-full px-2.5 py-1',
+                checked ? 'bg-secondary-600 text-white' : 'text-gray-500',
+                'cursor-pointer rounded-full px-2.5 py-1 ',
               ]"
             >
+          
               <span>{{ option.title }}</span>
             </div>
           </RadioGroupOption>
@@ -47,7 +48,7 @@
           :key="index"
           :class="[
             tier.mostPopular
-              ? 'ring-2 ring-indigo-600'
+              ? 'ring-2 ring-secondary-600'
               : 'ring-1 ring-gray-200',
             'rounded-3xl p-8',
           ]"
@@ -55,8 +56,8 @@
           <h3
             :id="index"
             :class="[
-              tier.mostPopular ? 'text-indigo-600' : 'text-gray-900',
-              'text-lg font-semibold leading-8',
+              tier.mostPopular ? 'text-secondary-600' : 'text-gray-900',
+              'text-lg font-semibold leading-8 uppercase',
             ]"
           >
             {{ tier.name }}
@@ -67,7 +68,7 @@
           </p>
 
           <p class="mt-6 flex items-baseline gap-x-1">
-            <span class="text-4xl font-bold tracking-tight text-gray-900">{{
+            <span class="text-4xl font-bold tracking-tight text-gray-900">₦{{
               tier.price
             }}</span>
           </p>
@@ -77,8 +78,8 @@
             :aria-describedby="tier.id"
             :class="[
               tier.mostPopular
-                ? 'bg-indigo-600 text-white shadow-sm hover:bg-indigo-500'
-                : 'text-indigo-600 ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300',
+                ? 'bg-secondary-600 text-white shadow-sm hover:bg-secondary-500'
+                : 'text-secondary-600 ring-1 ring-inset ring-secondary-200 hover:ring-secondary-300',
               'mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600',
             ]"
             >Book Now</a
@@ -111,7 +112,7 @@
                     )"
                   >
                     <ul class="list-disc list-inside">
-                      <li>{{ item }}</li>
+                      <li class="capitalize">{{ item }}</li>
                     </ul>
                   </template>
                 </div>
@@ -131,12 +132,13 @@ const tiers = [
   {
     title: "Small Size Car",
     value: "small-size-car",
+    image:"https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691846438/jeep_1_hexec2.png",
     packages: [
       {
         name: "PREMIUM DETAILING",
         id: "tier-freelancer",
         href: "#",
-        price: "N85,000",
+        price: "85,000",
         description: "The essentials to provide your best work for clients.",
         features: ["INTERIOR", "EXTERIOR", "PAINT", "ENGINE"],
         mostPopular: false,
@@ -145,7 +147,7 @@ const tiers = [
         name: "Gold Package",
         id: "tier-hobby",
         href: "#",
-        price: "N85,000",
+        price: "85,000",
         description: "The essentials to provide your best work for clients.",
         features: ["INTERIOR", "EXTERIOR", "PAINT"],
 
@@ -156,7 +158,7 @@ const tiers = [
         name: "DIAMOND PACKAGE",
         id: "tier-startup",
         href: "#",
-        price: "$60",
+        price: "60",
         description: "A plan that scales with your rapidly growing business.",
         features: ["INTERIOR", "EXTERIOR", "ENGINE"],
 
@@ -166,7 +168,7 @@ const tiers = [
         name: "SILVER PACKAGE",
         id: "tier-startup",
         href: "#",
-        price: "$60",
+        price: "₦60",
         description: "A plan that scales with your rapidly growing business.",
         features: ["INTERIOR", "EXTERIOR", "PAINT"],
 
@@ -176,7 +178,7 @@ const tiers = [
         name: "BRONZE PACKAGE",
         id: "tier-startup",
         href: "#",
-        price: "$60",
+        price: "60",
         description: "A plan that scales with your rapidly growing business.",
         features: ["INTERIOR", "EXTERIOR"],
 
@@ -192,7 +194,7 @@ const tiers = [
         name: "Mid -Express Wash",
         id: "tier-hobby",
         href: "#",
-        price: "$15",
+        price: "15",
         description: "The essentials to provide your best work for clients.",
         features: ["5 products", "Up to 1,000 subscribers", "Basic analytics"],
         mostPopular: false,
@@ -201,7 +203,7 @@ const tiers = [
         name: "Mid  Supreme Wash",
         id: "tier-freelancer",
         href: "#",
-        price: "$30",
+        price: "30",
         description: "The essentials to provide your best work for clients.",
         features: [
           "5 products",
@@ -215,7 +217,7 @@ const tiers = [
         name: "mid Utra Fullservice",
         id: "tier-startup",
         href: "#",
-        price: "$60",
+        price: "60",
         description: "A plan that scales with your rapidly growing business.",
         features: [
           "25 products",
@@ -237,7 +239,7 @@ const tiers = [
         name: "full-- Hobby999",
         id: "tier-hobby",
         href: "#",
-        price: "$15",
+        price: "15",
         description: "The essentials to provide your best work for clients.",
         features: ["5 products", "Up to 1,000 subscribers", "Basic analytics"],
         mostPopular: false,
@@ -246,7 +248,7 @@ const tiers = [
         name: "Full --- Freelancer",
         id: "tier-freelancer",
         href: "#",
-        price: "$30",
+        price: "30",
         description: "The essentials to provide your best work for clients.",
         features: [
           "5 products",
@@ -260,7 +262,7 @@ const tiers = [
         name: "full ---Startup",
         id: "tier-startup",
         href: "#",
-        price: "$60",
+        price: "60",
         description: "A plan that scales with your rapidly growing business.",
         features: [
           "25 products",
