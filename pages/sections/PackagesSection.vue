@@ -132,7 +132,6 @@ const tiers = [
   {
     title: "Small Size Car",
     value: "small-size-car",
-    image:"https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691846438/jeep_1_hexec2.png",
     packages: [
       {
         name: "PREMIUM DETAILING",
