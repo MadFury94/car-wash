@@ -2,7 +2,7 @@
   <Head>
     <Title>Sprynx | Car Wash</Title>
 
-    <Link rel="icon" href="/logo.svg" />
+    <Link v-if="false" rel="icon" href="/logo.svg" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
