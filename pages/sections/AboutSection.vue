@@ -19,7 +19,7 @@
               <div
                 class="lg:items-center flex justify-center md:block border border-primary-500 rounded-lg px-4 py-6 bg-primary-500"
               >
-                <div class="grid px-4">
+                <div class="grid">
                   <div class="flex items-center">
                     <div>
                       <img

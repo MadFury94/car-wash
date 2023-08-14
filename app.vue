@@ -19,7 +19,7 @@
       mode: 'out-in',
     }"
   >
-    <div class="theme-text dark:bg-secondary-950">
+    <div>
       <NuxtPage />
     </div>
   </NuxtLayout>

@@ -14,6 +14,7 @@
       <PackagesSection />
 
       <HowItWork />
+      <FaqSection />
     </div>
   </div>
 </template>
@@ -28,6 +29,7 @@ import ServiceSection from "~/pages/sections/ServiceSection.vue";
 import ServiceSlider from "~/pages/sections/ServiceSlider.vue";
 import HowItWork from "./sections/HowItWork.vue";
 import PackagesSection from "./sections/PackagesSection.vue";
+import FaqSection from "./sections/FaqSection.vue";
 
 definePageMeta({
   layout: "default",
