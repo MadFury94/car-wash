@@ -36,8 +36,8 @@
 </template>
 
 <script setup lang="ts">
+import Header from "../components/commons/Header.vue";
 import Footer from "./Footer.vue";
-import Header from "./Header.vue";
 
 const defaultImgUrl = "https://demo.ovatheme.com/mistercar/wp-content/uploads/2020/10/blog_6.jpg"
 

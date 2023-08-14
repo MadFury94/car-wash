@@ -1,11 +1,11 @@
 <script setup>
+import Header from "../components/commons/Header.vue";
 import Footer from "./Footer.vue";
-import Header from "./Header.vue";
 </script>
 
 <template>
   <div class="">
-    <Header v-if="false" />
+    <Header  />
     <div>
       <slot />
     </div>

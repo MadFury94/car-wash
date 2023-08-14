@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="false">
     <div v-if="false">
       <div class="flex gap-x-4">
         <NuxtLink
