@@ -1,5 +1,9 @@
 <template>
+  
   <div class="bg-white py-24 sm:py-32">
+      <!-- you will need to handle a loading state -->
+
+ 
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto max-w-4xl text-center">
         <PillInfo title="PRICING PLAN" class="flex justify-center" />
@@ -23,18 +27,17 @@
           <RadioGroupLabel class="sr-only">Payment frequency</RadioGroupLabel>
           <RadioGroupOption
             as="template"
-            v-for="option in tiers"
+            v-for="option in packageData"
             :key="option.value"
             :value="option"
             v-slot="{ checked }"
           >
             <div
               :class="[
-                checked ? 'bg-secondary-600 text-white' : 'text-gray-500',
+                checked ? 'bg-secondary-500 text-white' : 'text-gray-500',
                 'cursor-pointer rounded-full px-2.5 py-1 ',
               ]"
             >
-          
               <span>{{ option.title }}</span>
             </div>
           </RadioGroupOption>
@@ -54,7 +57,6 @@
           ]"
         >
           <h3
-            :id="index"
             :class="[
               tier.mostPopular ? 'text-secondary-600' : 'text-gray-900',
               'text-lg font-semibold leading-8 uppercase',
@@ -68,9 +70,9 @@
           </p>
 
           <p class="mt-6 flex items-baseline gap-x-1">
-            <span class="text-4xl font-bold tracking-tight text-gray-900">₦{{
-              tier.price
-            }}</span>
+            <span class="text-4xl font-bold tracking-tight text-gray-900"
+              >₦{{ tier.price }}</span
+            >
           </p>
 
           <a
@@ -121,13 +123,15 @@
           </ul>
         </div>
       </div>
+
+      <p class="text-center py-4">See more Packages</p>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from "@headlessui/vue";
-
+/* 
 const tiers = [
   {
     title: "Small Size Car",
@@ -274,9 +278,33 @@ const tiers = [
       },
     ],
   },
-];
+]; */
 
-const selectedTier = ref(tiers[0]);
+type PackageDetails = {
+  title: string;
+  value: string;
+
+  packages: {
+    name: string;
+    id: string;
+    href: string;
+    price: string;
+    description: string;
+    features: string[];
+    mostPopular: boolean;
+  }[];
+}
+
+
+
+const props = defineProps({
+packageData:{
+  type: Array as PropType<PackageDetails[]>,
+  required: true,
+}
+});
+
+const selectedTier = ref(props.packageData[0]);
 
 const checked = ref(false);
 
@@ -327,6 +355,7 @@ function orderedListItems(str: string) {
 
   return array_of_strings;
 }
+
 </script>
 
 <!-- 
@@ -359,3 +388,5 @@ function orderedListItems(str: string) {
 ] as featureTypes[];
 
  -->
+
+

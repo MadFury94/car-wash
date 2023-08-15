@@ -1,0 +1,38 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "packages": [
+
+    {
+      "title": "Small Size Car",
+      "value": "small-size-car",
+      "packages": [
+        {
+          "name": "PREMIUM DETAILING",
+          "id": "tier-freelancer",
+          "href": "#",
+          "price": "85,000",
+          "description": "The essentials to provide your best work for clients.",
+          "features": ["INTERIOR", "EXTERIOR", "PAINT", "ENGINE"],
+          "mostPopular": false
+        }
+      ]
+    }
+  ]
+
+}
