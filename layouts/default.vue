@@ -5,7 +5,7 @@ import Header from "./Header.vue";
 
 <template>
   <div class="">
-    <Header v-if="false" />
+    <Header />
     <div>
       <slot />
     </div>

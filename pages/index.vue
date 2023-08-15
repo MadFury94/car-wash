@@ -23,6 +23,7 @@
 
       <HowItWork />
       <FaqSection />
+      <TestimonialSection />
     </div>
   </div>
 </template>
@@ -83,8 +84,6 @@ const packageData = [
 
         mostPopular: true,
       },
-     
-     
     ],
   },
   {

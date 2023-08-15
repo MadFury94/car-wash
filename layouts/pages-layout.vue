@@ -14,11 +14,11 @@
     >
       <div class="overlay"></div>
       <div class="text-wrapper">
-        <div class="p-10">
-          <div class="font-medium text-white text-2xl text-center">
-            <h1>{{ $route.meta.title || 'Page Tile' }}</h1>
+        <div class="p-24">
+          <div class="font-medium text-white text-center">
+            <h1 class="text-4xl">{{ $route.meta.title || "Page Tile" }}</h1>
             <p>
-              {{ $route.meta.description  || 'Page Description'}}
+              {{ $route.meta.description || "Home > About Us" }}
             </p>
           </div>
 
@@ -39,8 +39,8 @@
 import Footer from "./Footer.vue";
 import Header from "./Header.vue";
 
-const defaultImgUrl = "https://demo.ovatheme.com/mistercar/wp-content/uploads/2020/10/blog_6.jpg"
-
+const defaultImgUrl =
+  "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691081374/beautiful-car-washing-service_yeptnx.jpg";
 </script>
 
 <style scoped>
