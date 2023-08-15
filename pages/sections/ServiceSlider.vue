@@ -1,36 +1,8 @@
 <template>
-  <div class="pt-10 bg-gray-100">
+  <div class="container mx-auto">
     <Splide :has-track="false" :options="options" aria-label="My Slide">
       <SplideTrack>
         <SplideSlide v-for="(item, index) in sliders" :key="index">
-          <!-- <div class="">
-            <div class="relative h-[600px] isolate overflow-hidden pt-14">
-              <div class="absolute inset-0 bg-black opacity-50"></div>
-
-              <img
-                :src="item.image"
-                alt=""
-                class="h-[600px] object-cover absolute inset-0 -z-10 w-full"
-              />
-
-              <div class="mx-auto max-w-4xl py-32 sm:py-48 lg:py-40">
-                <div class="hidden sm:mb-8 sm:flex sm:justify-center"></div>
-                <div class="text-center">
-                  <h1 class="heading3 text-white relative z-10">
-                    {{ item.heading }}
-                  </h1>
-                  <p class="mt-6 text-lg leading-8 text-gray-300 relative z-10">
-                    {{ item.description }}
-                  </p>
-                  <div
-                    class="mt-10 flex items-center justify-center gap-x-6 relative z-10"
-                  >
-                    <a href="#" class="btn">Get started</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> -->
           <ServiceModule
             :image="item.image"
             :description="item.description"
@@ -105,10 +77,10 @@ const options = {
   arrows: true,
   perPage: 3,
   breakpoints: {
-    800: { perPage: 2, gap: "2rem", arrows: true },
+    /*    800: { perPage: 2, gap: "2rem", arrows: true },
     1600: { perPage: 2, gap: "2rem", arrows: true },
     1000: { perPage: 2, gap: "2rem", arrows: true },
-    640: { perPage: 1, gap: "2rem", arrows: false },
+    640: { perPage: 1, gap: "2rem", arrows: false }, */
   },
 
   autoplay: true,

@@ -36,8 +36,9 @@
 </template>
 
 <script setup lang="ts">
-import Footer from "./Footer.vue";
-import Header from "./Header.vue";
+import Footer from "../components/commons/Footer.vue";
+import Header from "../components/commons/Header.vue";
+
 
 const defaultImgUrl =
   "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691081374/beautiful-car-washing-service_yeptnx.jpg";

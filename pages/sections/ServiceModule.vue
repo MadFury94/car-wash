@@ -1,36 +1,19 @@
 <template>
   <div class="mx-auto">
     <div class="relative">
-      <div class="grid justify-items-center mb-10">
-        <div class="relative rounded-2xl">
-          <img
-            :src="image"
-            alt=""
-            class="h-full w-full object-cover rounded-2xl shadow-xl md:h-full md:w-full"
-          />
-          <div class="absolute inset-0 opacity-50 rounded-2xl"></div>
+      <div class="">
+        <div class="relative">
+          <img :src="image" alt="" class="w-96 object-cover" />
         </div>
       </div>
 
-      <div class="mb-40 -mt-32 flex justify-center">
-        <div
-          class="w-80 absolute  bg-white py-10 rounded-2xl"
-        >
-          <div
-            class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20"
-          >
-            <img
-              class="w-full rounded-full p-2 bg-white border border-gray-800"
-              :src="icon"
-              alt=""
-            />
-          </div>
-          <h1
-            class="mb-4 text-xl font-semibold text-primary-500 text-center px-10"
-          >
+      <div class="">
+        <div class="w-96 bg-white p-4">
+          <h1 class="mb-4 text-xl font-semibold text-primary-500">
             {{ title }}
           </h1>
-
+          {{ description }} Lorem ipsum dolor, sit amet consectetur adipisicing
+          elit. Ex, saepe?
           <p class="text-center text-secondary-500 text-sm font-semibold">
             Read More
           </p>

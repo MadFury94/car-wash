@@ -1,7 +1,7 @@
 <template>
   <div>
     <HeroSlide />
-    <HoverButtons />
+    <FeaturesArea />
     <AboutSection />
     <ServiceSection />
     <!-- <ServiceModule /> -->
@@ -31,7 +31,7 @@
 <script setup lang="ts">
 import AboutSection from "~/pages/sections/AboutSection.vue";
 import CountUpSection from "~/pages/sections/CountUpSection.vue";
-import HoverButtons from "~/pages/sections/FeaturesArea.vue";
+import FeaturesArea from "~/pages/sections/FeaturesArea.vue";
 import HeroSlide from "~/pages/sections/HomeHeroSlider.vue";
 import SectionWithTabs from "~/pages/sections/SectionWithTabs.vue";
 import ServiceSection from "~/pages/sections/ServiceSection.vue";
