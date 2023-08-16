@@ -8,11 +8,11 @@
     >
       <SplideTrack>
         <SplideSlide v-for="(item, index) in testimonials" :key="index">
-          <TestimonialSection
+          <TestimonyCard
             :name="item.name"
-            :description="item.description"
-            :image="item.image"
             :position="item.position"
+            :image="item.image"
+            :description="item.description"
           />
         </SplideSlide>
       </SplideTrack>
@@ -40,7 +40,7 @@ import "@splidejs/vue-splide/css";
 import "@splidejs/splide/css/skyblue";
 
 import "@splidejs/vue-splide/css/core";
-import TestimonialSection from "./TestimonialSection.vue";
+import TestimonyCard from "./TestimonyCard.vue";
 
 const testimonials = [
   {

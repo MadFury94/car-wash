@@ -23,7 +23,7 @@
 
       <HowItWork />
       <FaqSection />
-      <TestimonialSection />
+      <TestimonialSlider />
     </div>
   </div>
 </template>
@@ -39,6 +39,7 @@ import ServiceSlider from "~/pages/sections/ServiceSlider.vue";
 import FaqSection from "./sections/FaqSection.vue";
 import HowItWork from "./sections/HowItWork.vue";
 import PackagesSection from "./sections/PackagesSection.vue";
+import TestimonialSlider from "./sections/TestimonialSlider.vue";
 
 definePageMeta({
   layout: "default",
