@@ -2,7 +2,7 @@
   <div class="bg-white py-24 sm:py-32">
     <!-- you will need to handle a loading state -->
 
-    <div class="mx-auto md:max-w-7xl  lg:px-8">
+    <div class="mx-auto  max-w-7xl  lg:px-8">
       <div class="mx-auto max-w-4xl text-center">
         <PillInfo title="PACKAGES" class="flex justify-center" />
         <p
