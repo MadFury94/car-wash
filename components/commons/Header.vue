@@ -1,6 +1,6 @@
 <template>
-  <div v-if="false">
-    <div v-if="false">
+  <div>
+    <div>
       <div class="flex gap-x-4">
         <NuxtLink
           v-for="(item, index) in navigation"
