@@ -13,6 +13,8 @@ export const package_detail_data = [
           description: "The essentials to provide your best work for clients.",
           features: ["INTERIOR", "EXTERIOR", "PAINT", "ENGINE"],
           mostPopular: false,
+          duration: "8 to 9 hours",
+
         }, 
        {
           name: "Gold Package",
@@ -22,10 +24,13 @@ export const package_detail_data = [
           description: "The essentials to provide your best work for clients.",
           features: ["INTERIOR", "EXTERIOR", "PAINT"],
           mostPopular: false,
+          duration: "6 to 7 hours",
+
         }, 
    
         {
           name: "DIAMOND PACKAGE",
+          duration: "5 to 6 hours",
           id: "tier-startup",
           href: "#",
           price: "47,000",
@@ -33,6 +38,28 @@ export const package_detail_data = [
           mostPopular: true,
           features: ["INTERIOR", "EXTERIOR", "PAINT"]
         }, 
+        {
+            name: "SILVER PACKAGE",
+            id: "tier-startup",
+            href: "#",
+            price: "50,000",
+            description: "A plan that scales with your rapidly growing business.",
+            mostPopular: true,
+            features: ["INTERIOR", "EXTERIOR", "PAINT", "PAINT-G"],
+            duration: "4 to 6 hours",
+
+          }, 
+          {
+            name: "BRONZE PACKAGE",
+            id: "tier-startup",
+            href: "#",
+            price: "33,500",
+            description: "A plan that scales with your rapidly growing business.",
+            mostPopular: true,
+            features: ["INTERIOR", "EXTERIOR"],
+            duration: "4 to 6 hours",
+
+          }, 
       ],
     },
     {
@@ -40,32 +67,61 @@ export const package_detail_data = [
       value: "mid-size-car",
       packages: [
         {
-          name: "Mid -Express Wash",
+          name: "PREMIUM DETAILING",
+
           id: "tier-hobby",
           href: "#",
           price: "95,000 ",
           description: "The essentials to provide your best work for clients.",
           features: ["INTERIOR", "EXTERIOR", "PAINT", "ENGINE"],
           mostPopular: false,
+          duration: "8 to 9 hours",
+
         },
         {
-          name: "Mid  Supreme Wash",
+          name: "Gold Package",
+
           id: "tier-freelancer",
           href: "#",
           price: "85,000",
+          duration: "6 to 7 hours",
+
           description: "The essentials to provide your best work for clients.",
           features: ["INTERIOR", "EXTERIOR", "PAINT"],
           mostPopular: false,
         },
         {
-          name: "mid Utra Full service",
+          name: "DIAMOND PACKAGE",
+
           id: "tier-startup",
           href: "#",
           price: "50,500",
+          duration: "5 to 6 hours",
           description: "A plan that scales with your rapidly growing business.",
           features: ["INTERIOR", "EXTERIOR", "ENGINE"],
           mostPopular: true,
         },
+        {
+            name: "SILVER PACKAGE",
+  
+            id: "tier-startup",
+            href: "#",
+            price: "60,000",
+            duration: "4 to 6 hours",
+            description: "A plan that scales with your rapidly growing business.",
+            features: ["INTERIOR", "EXTERIOR", "ENGINE", "PAINT-G"],
+            mostPopular: true,
+          },    {
+            name: "BRONZE PACKAGE",
+  
+            id: "tier-startup",
+            href: "#",
+            price: "35,500",
+            duration: "4 to 6 hours",
+            description: "A plan that scales with your rapidly growing business.",
+            features: ["INTERIOR", "EXTERIOR"],
+            mostPopular: true,
+          },
       ],
     },
   

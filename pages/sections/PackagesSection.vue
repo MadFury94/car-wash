@@ -66,6 +66,7 @@
           >
             {{ tier.name }}
           </h3>
+          <p><i class="fa-regular fa-timer text-secondary-500 pr-2"></i>{{ tier.duration }}</p>
 
           <p v-if="false" class="mt-4 text-sm leading-6 text-gray-600">
             {{ tier.description }}

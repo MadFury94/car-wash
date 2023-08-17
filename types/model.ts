@@ -5,6 +5,7 @@ export type PackageDetails = {
       name: string;
       id: string;
       href: string;
+      duration: string;
       price: string;
       description: string;
       features: string[];
