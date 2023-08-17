@@ -42,6 +42,7 @@ import PackagesSection from "./sections/PackagesSection.vue";
 import TestimonialSlider from "./sections/TestimonialSlider.vue";
 
 definePageMeta({
+  // layout: "default",
   layout: "default",
   name: "index",
 });
