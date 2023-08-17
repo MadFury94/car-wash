@@ -2,7 +2,7 @@ import { PackageDetails } from "types/model";
 
 export const package_detail_data = [
   {
-    title: "Sallon Car",
+    title: "Saloon Car",
     value: "small-size-car",
     packages: [
       {
