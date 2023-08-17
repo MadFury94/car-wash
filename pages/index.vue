@@ -29,13 +29,13 @@
 </template>
 
 <script setup lang="ts">
-import ServiceSection from "~..pages/sections/ServiceSection.vue";
-import AboutSection from "~/pages/sections/AboutSection.vue";
-import FeaturesArea from "~/pages/sections/FeaturesArea.vue";
-import ServiceSlider from "~/pages/sections/ServiceSlider.vue";
+import AboutSection from "../pages/sections/AboutSection.vue";
 import CountUpSection from "../pages/sections/CountUpSection.vue";
+import FeaturesArea from "../pages/sections/FeaturesArea.vue";
 import HeroSlide from "../pages/sections/HomeHeroSlider.vue";
-import SectionWithTabs from "../pages/sections/SectionWithTabs.vue";
+import SectionWithTabs from "../pages/sections/SectionTabs.vue";
+import ServiceSlider from "../pages/sections/ServiceSlider.vue";
+import ServiceSection from "../pages/sections/service-section";
 import FaqSection from "./sections/FaqSection.vue";
 import HowItWork from "./sections/HowItWork.vue";
 import PackagesSection from "./sections/PackagesSection.vue";
