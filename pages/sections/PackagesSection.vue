@@ -343,13 +343,12 @@ const featureDetails = [
 
 function matchFeaturesWithDetails(features: string[]) {
 
-  console.log(features);
-/*   return features.map((feature) => {
+   return features.map((feature) => {
     const matchedFeature = featureDetails.find(
       (detail) => detail.id === feature
     );
     return matchedFeature;
-  }); */
+  }); 
 }
 
 function orderedListItems(str: string) {

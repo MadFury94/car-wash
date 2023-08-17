@@ -1,7 +1,6 @@
 export type PackageDetails = {
     title: string;
-    value: string;
-  
+    value: string;  
     packages: {
       name: string;
       id: string;
