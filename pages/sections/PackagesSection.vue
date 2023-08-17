@@ -67,7 +67,7 @@
             {{ tier.name }}
           </h3>
 
-          <p class="mt-4 text-sm leading-6 text-gray-600">
+          <p v-if="false" class="mt-4 text-sm leading-6 text-gray-600">
             {{ tier.description }}
           </p>
 
@@ -78,6 +78,7 @@
           </p>
 
           <a
+          v-if="false"
             :href="tier.href"
             :aria-describedby="tier.id"
             :class="[
@@ -123,6 +124,11 @@
               </div>
             </li>
           </ul>
+
+     <div class="flex items-center mt-4 gap-x-4 text-primary-500">
+      <i class="fa-sharp fa-regular fa-circle-exclamation"></i>
+          <p class="">₦8,500 extra Logistics fee to Mainland.</p>
+     </div>
         </div>
       </div>
 
@@ -133,6 +139,7 @@
 
 <script setup lang="ts">
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from "@headlessui/vue";
+import { PackageDetails } from "../../types/model";
 /* 
 const tiers = [
   {
@@ -282,21 +289,6 @@ const tiers = [
   },
 ]; */
 
-type PackageDetails = {
-  title: string;
-  value: string;
-
-  packages: {
-    name: string;
-    id: string;
-    href: string;
-    price: string;
-    description: string;
-    features: string[];
-    mostPopular: boolean;
-  }[];
-}
-
 
 
 const props = defineProps({
@@ -307,7 +299,7 @@ packageData:{
 menuStyle:{
   type:String,
   required: false,
-  default:"grid grid-cols-3"
+  default:"grid grid-cols-2"
 },
 
 });
@@ -350,12 +342,14 @@ const featureDetails = [
 ] as featureTypes[];
 
 function matchFeaturesWithDetails(features: string[]) {
-  return features.map((feature) => {
+
+  console.log(features);
+/*   return features.map((feature) => {
     const matchedFeature = featureDetails.find(
       (detail) => detail.id === feature
     );
     return matchedFeature;
-  });
+  }); */
 }
 
 function orderedListItems(str: string) {
