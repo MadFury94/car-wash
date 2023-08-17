@@ -6,23 +6,25 @@
  
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto max-w-4xl text-center">
-        <PillInfo title="PRICING PLAN" class="flex justify-center" />
+        <PillInfo title="PACKAGES" class="flex justify-center" />
         <p
           class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
         >
           Choose your Package
         </p>
       </div>
-      <p
+   <!--    <p
         class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600"
       >
         Unlimited Washes is for you! Wash whenever you want and enjoy the ease
         of auto monthly billing and you can cancel any time.
-      </p>
+            :class="`grid grid-cols-${packageData}`"
+      </p> -->
       <div class="mt-16 flex justify-center">
         <RadioGroup
           v-model="selectedTier"
-          class="grid grid-cols-3 gap-x-1 rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200"
+          :class="menuStyle"
+          class=" rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200"
         >
           <RadioGroupLabel class="sr-only">Payment frequency</RadioGroupLabel>
           <RadioGroupOption
@@ -124,7 +126,7 @@
         </div>
       </div>
 
-      <p class="text-center py-4">See more Packages</p>
+      <!-- <p class="text-center py-4">See more Packages</p> -->
     </div>
   </div>
 </template>
@@ -301,7 +303,13 @@ const props = defineProps({
 packageData:{
   type: Array as PropType<PackageDetails[]>,
   required: true,
-}
+},
+menuStyle:{
+  type:String,
+  required: false,
+  default:"grid grid-cols-3"
+},
+
 });
 
 const selectedTier = ref(props.packageData[0]);
@@ -357,36 +365,4 @@ function orderedListItems(str: string) {
 }
 
 </script>
-
-<!-- 
-
-  const featureDetails = [
-  {
-    id: "PAINT",
-    title: "PAINT ENHANCEMENT AND GLOSS/SHINE",
-    description:
-      "Removing minor surface scratches, droplets,& firmly bonded surface contaminants on paint.",
-  },
-  {
-    id: "PAINT-G",
-    title: "PAINT ENHANCEMENT AND GLOSS/SHINE",
-    description:
-      "Restoring paint shine,smoothens paint surface,reducing friction between debris & paint, protecting paint from uv Ray’s & salt water.",
-  },
-  {
-    id: "ENGINE",
-    title: "ENGINE DETAILING",
-    description:
-      "Engine bay cleaning,degreasing,protecting engine from rust,restoring engine shine.",
-  },
-  {
-    id: "INTERIOR",
-    title: "INTERIOR DETAILING",
-    description:
-      "Vacuum,trunk,stain removal,leather/fabric cleaning & conditioning,mat/rugs shampooing,vinyl/plastic restoration,door jambs, dashboard,roof,AC vents flushing & steaming,cockpits.",
-  },
-] as featureTypes[];
-
- -->
-
 

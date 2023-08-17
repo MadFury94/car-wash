@@ -118,6 +118,10 @@ const navigation = [
     name: "Contact Us",
     route: { name: "contactPage" },
     icon: "fa-solid fa-phone",
+  },  {
+    name: "Coming Soon",
+    route: { name: "comingSoon" },
+    icon: "fa-solid fa-phone",
   },
 ];
 
