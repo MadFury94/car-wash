@@ -2,7 +2,7 @@ import { PackageDetails } from "types/model";
 
 export const package_detail_data = [
     {
-      title: "Small Size Car",
+      title: "Sallon Car",
       value: "small-size-car",
       packages: [
         {
@@ -44,7 +44,7 @@ export const package_detail_data = [
             href: "#",
             price: "50,000",
             description: "A plan that scales with your rapidly growing business.",
-            mostPopular: true,
+            mostPopular: false,
             features: ["INTERIOR", "EXTERIOR", "PAINT", "PAINT-G"],
             duration: "4 to 6 hours",
 
@@ -55,7 +55,7 @@ export const package_detail_data = [
             href: "#",
             price: "33,500",
             description: "A plan that scales with your rapidly growing business.",
-            mostPopular: true,
+            mostPopular: false,
             features: ["INTERIOR", "EXTERIOR"],
             duration: "4 to 6 hours",
 
@@ -63,7 +63,7 @@ export const package_detail_data = [
       ],
     },
     {
-      title: "Mid Size Car",
+      title: "SUV",
       value: "mid-size-car",
       packages: [
         {
@@ -110,7 +110,7 @@ export const package_detail_data = [
             duration: "4 to 6 hours",
             description: "A plan that scales with your rapidly growing business.",
             features: ["INTERIOR", "EXTERIOR", "ENGINE", "PAINT-G"],
-            mostPopular: true,
+            mostPopular: false,
           },    {
             name: "BRONZE PACKAGE",
   
@@ -120,7 +120,7 @@ export const package_detail_data = [
             duration: "4 to 6 hours",
             description: "A plan that scales with your rapidly growing business.",
             features: ["INTERIOR", "EXTERIOR"],
-            mostPopular: true,
+            mostPopular: false,
           },
       ],
     },

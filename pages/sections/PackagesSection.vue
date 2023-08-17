@@ -1,10 +1,8 @@
 <template>
-  
   <div class="bg-white py-24 sm:py-32">
-      <!-- you will need to handle a loading state -->
+    <!-- you will need to handle a loading state -->
 
- 
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto md:max-w-7xl  lg:px-8">
       <div class="mx-auto max-w-4xl text-center">
         <PillInfo title="PACKAGES" class="flex justify-center" />
         <p
@@ -13,18 +11,12 @@
           Choose your Package
         </p>
       </div>
-   <!--    <p
-        class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600"
-      >
-        Unlimited Washes is for you! Wash whenever you want and enjoy the ease
-        of auto monthly billing and you can cancel any time.
-            :class="`grid grid-cols-${packageData}`"
-      </p> -->
+
       <div class="mt-16 flex justify-center">
         <RadioGroup
           v-model="selectedTier"
           :class="menuStyle"
-          class=" rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200"
+          class="rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200"
         >
           <RadioGroupLabel class="sr-only">Payment frequency</RadioGroupLabel>
           <RadioGroupOption
@@ -46,7 +38,7 @@
         </RadioGroup>
       </div>
       <div
-        class="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 md:max-w-2xl md:grid-cols-2 lg:max-w-4xl xl:mx-0 xl:max-w-none xl:grid-cols-3"
+        class="isolate place-content-center mx-auto max-w-lg md:max-w-2xl  mt-10 xl:mx-0 xl:max-w-none grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3"
       >
         <div
           v-for="(tier, index) in selectedTier.packages"
@@ -55,9 +47,11 @@
             tier.mostPopular
               ? 'ring-2 ring-secondary-600'
               : 'ring-1 ring-gray-200',
-            'rounded-3xl p-8',
+            'rounded-3xl mx-auto max-w-lg',
           ]"
+          class="flex justify-center "
         >
+        <div class="p-4">
           <h3
             :class="[
               tier.mostPopular ? 'text-secondary-600' : 'text-gray-900',
@@ -66,7 +60,10 @@
           >
             {{ tier.name }}
           </h3>
-          <p><i class="fa-regular fa-timer text-secondary-500 pr-2"></i>{{ tier.duration }}</p>
+          <p>
+            <i class="fa-regular fa-timer text-secondary-500 pr-2"></i
+            >{{ tier.duration }}
+          </p>
 
           <p v-if="false" class="mt-4 text-sm leading-6 text-gray-600">
             {{ tier.description }}
@@ -79,7 +76,7 @@
           </p>
 
           <a
-          v-if="false"
+            v-if="false"
             :href="tier.href"
             :aria-describedby="tier.id"
             :class="[
@@ -126,10 +123,11 @@
             </li>
           </ul>
 
-     <div class="flex items-center mt-4 gap-x-4 text-primary-500">
-      <i class="fa-sharp fa-regular fa-circle-exclamation"></i>
-          <p class="">₦8,500 extra Logistics fee to Mainland.</p>
-     </div>
+          <div class="flex items-center mt-4 gap-x-4 text-primary-500">
+            <i class="fa-sharp fa-regular fa-circle-exclamation"></i>
+            <p class="">₦8,500 extra Logistics fee to Mainland.</p>
+          </div>
+        </div>
         </div>
       </div>
 
@@ -290,19 +288,16 @@ const tiers = [
   },
 ]; */
 
-
-
 const props = defineProps({
-packageData:{
-  type: Array as PropType<PackageDetails[]>,
-  required: true,
-},
-menuStyle:{
-  type:String,
-  required: false,
-  default:"grid grid-cols-2"
-},
-
+  packageData: {
+    type: Array as PropType<PackageDetails[]>,
+    required: true,
+  },
+  menuStyle: {
+    type: String,
+    required: false,
+    default: "grid grid-cols-2",
+  },
 });
 
 const selectedTier = ref(props.packageData[0]);
@@ -343,13 +338,12 @@ const featureDetails = [
 ] as featureTypes[];
 
 function matchFeaturesWithDetails(features: string[]) {
-
-   return features.map((feature) => {
+  return features.map((feature) => {
     const matchedFeature = featureDetails.find(
       (detail) => detail.id === feature
     );
     return matchedFeature;
-  }); 
+  });
 }
 
 function orderedListItems(str: string) {
@@ -357,6 +351,4 @@ function orderedListItems(str: string) {
 
   return array_of_strings;
 }
-
 </script>
-
