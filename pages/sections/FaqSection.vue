@@ -34,12 +34,8 @@
                     faq.question
                   }}</span>
                   <span class="ml-6 flex h-7 items-center">
-                    <PlusSmallIcon
-                      v-if="!open"
-                      class="h-6 w-6"
-                      aria-hidden="true"
-                    />
-                    <MinusSmallIcon v-else class="h-6 w-6" aria-hidden="true" />
+                    <i v-if="!open" class="fa-solid fa-plus"></i>
+                    <i v-else class="fa-solid fa-minus"></i>
                   </span>
                 </DisclosureButton>
               </dt>
@@ -58,7 +54,6 @@
 
 <script setup lang="ts">
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
-import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/vue/24/outline";
 
 const faqs = [
   {

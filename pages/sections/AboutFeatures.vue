@@ -28,11 +28,11 @@
               <div
                 class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-secondary-600"
               >
-                <component
-                  :is="feature.icon"
-                  class="h-6 w-6 text-white"
+                <i
+                  :class="feature.icon"
+                  class="text-white items-center"
                   aria-hidden="true"
-                />
+                ></i>
               </div>
               {{ feature.name }}
             </dt>
@@ -47,37 +47,30 @@
 </template>
 
 <script setup>
-import {
-  ShieldCheckIcon,
-  SparklesIcon,
-  HandRaisedIcon,
-  TruckIcon,
-} from "@heroicons/vue/24/outline";
-
 const features = [
   {
     name: "Hand Wash",
     description:
       "Gentle care with a meticulous touch. Our experts hand wash your car ensuring every corner shines.",
-    icon: HandRaisedIcon,
+    icon: "fa-regular fa-hand",
   },
   {
     name: "Expert Detailing",
     description:
       "Precision detailing to make your car look as good as new. Experience brilliance inside out.",
-    icon: TruckIcon,
+    icon: "fa-solid fa-car-side",
   },
   {
     name: "Protection Seal",
     description:
       "Guard your vehicle against the elements. Our protection seal ensures longevity and maintains the shine.",
-    icon: ShieldCheckIcon,
+    icon: "fa-light fa-shield-check",
   },
   {
     name: "Eco-Friendly Products",
     description:
       "Committed to the environment. We use eco-friendly products ensuring the best care for your vehicle and nature.",
-    icon: SparklesIcon,
+    icon: "fa-solid fa-seedling",
   },
 ];
 </script>
