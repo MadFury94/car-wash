@@ -32,7 +32,7 @@
                     <h1
                       class="lg:text-8xl  font-semibold tracking-tight sm:text-xl md:text-xl text-white relative z-10 my-2"
                     >
-                      {{ item.heading3 }} dsdsd a d sdushdushdushds
+                      {{ item.heading3 }}
                     </h1>
                   </div>
                   <p
