@@ -53,5 +53,5 @@ const { pending, data: posts } = useFetch("http://localhost:3000/packages", {
   lazy: true,
 });
 
-const packageData = package_detail_data
+const packageData = package_detail_data;
 </script>

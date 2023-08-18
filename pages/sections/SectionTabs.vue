@@ -2,7 +2,7 @@
   <div
     class="border-2 px-4 py-10 relative"
     :style="{
-      'background-image': `url(https://demo.ovatheme.com/mistercar/wp-content/uploads/2020/11/Our-Mission.jpg)`,
+      'background-image': `url(https://res.cloudinary.com/dqwfjxn8g/image/upload/v1692344815/car-wash-detailing-station_jqig2c.jpg)`,
       'background-position': 'center center',
       'background-repeat': 'no-repeat',
       'background-size': 'cover',
@@ -10,11 +10,11 @@
   >
     <div class="overlay"></div>
 
-    <div class="grid   lg:grid-cols-2 xl:grid-cols-3 text-wrapper">
+    <div class="grid lg:grid-cols-2 xl:grid-cols-3 text-wrapper">
       <div class="p-4">
         <PillInfo title="LEARN ABOUT US" />
 
-        <h2 class="heading3 ">
+        <h2 class="heading3">
           We Make Sure that Each Visits Include all Services
         </h2>
         <p
@@ -24,77 +24,79 @@
         <ButtonComponent title="Discover More" />
       </div>
 
-    <div class="xl:col-span-2">
+      <div class="xl:col-span-2">
         <div class="flex justify-center">
-        <div>
-          <TabGroup>
-            <TabList
-              class="flex flex-col md:flex-row px-4 justify-center gap-x-8 gap-y-4 space-x-1 rounded-xl p-1"
-            >
-              <Tab
-                v-for="(tab, index) in tabData"
-                as="template"
-                :key="index"
-                v-slot="{ selected }"
+          <div>
+            <TabGroup>
+              <TabList
+                class="flex flex-col md:flex-row px-4 justify-center gap-x-8 gap-y-4 space-x-1 rounded-xl p-1"
               >
-                <button
+                <Tab
+                  v-for="(tab, index) in tabData"
+                  as="template"
+                  :key="index"
+                  v-slot="{ selected }"
+                >
+                  <button
+                    :class="[
+                      'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-white',
+                      ' ring-opacity-60  button  focus:outline-none ',
+                      selected
+                        ? ' border-b-4 button.border-b-4  shadow bg-secondary-500'
+                        : 'text-white hover:bg-white/[0.12] hover:text-gray-400 border-2',
+                    ]"
+                  >
+                    <i :class="tab.icon"></i>
+                    {{ tab.title }}
+                  </button>
+                </Tab>
+              </TabList>
+
+              <TabPanels class="mt-2">
+                <TabPanel
+                  v-for="(tab, idx) in tabData"
+                  :key="idx"
                   :class="[
-                    'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-white',
-                    ' ring-opacity-60  button  focus:outline-none ',
-                    selected
-                      ? ' border-b-4 button.border-b-4  shadow bg-secondary-500'
-                      : 'text-white hover:bg-white/[0.12] hover:text-gray-400 border-2',
+                    'rounded-xl  p-3',
+                    'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
                   ]"
                 >
-                  <i :class="tab.icon"></i>
-                  {{ tab.title }}
-                </button>
-              </Tab>
-            </TabList>
+                  <div class="grid xl:grid-cols-2 gap-x-4">
+                    <div class="flex md:justify-start">
+                      <img class="rounded-md" :src="tab.image" alt="" />
+                    </div>
 
-            <TabPanels class="mt-2">
-              <TabPanel
-                v-for="(tab, idx) in tabData"
-                :key="idx"
-                :class="[
-                  'rounded-xl  p-3',
-                  'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
-                ]"
-              >
-                <div class="grid xl:grid-cols-2 gap-x-4">
-                  <div class="flex md:justify-start">
-                    <img class="rounded-md" :src="tab.image" alt="" />
+                    <div class="mt-4">
+                      <p class="text-white text-justify">
+                        {{ tab.description }}
+                      </p>
+
+                      <ul>
+                        <li
+                          v-for="(item, index) in tab.listData"
+                          :key="index"
+                          class="relative py-3 flex gap-x-2"
+                        >
+                          <i
+                            class="fa-solid fa-check text-white bg-secondary-500 rounded-xl p-1 text-center"
+                          ></i>
+                          <h3 class="text-sm font-medium leading-5 text-white">
+                            {{ item }}
+                          </h3>
+
+                          <ul
+                            class="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500"
+                          ></ul>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
-
-                  <div class="mt-4">
-                    <p class="text-white text-justify">{{ tab.description }}</p>
-
-                    <ul>
-                      <li
-                        v-for="(item, index) in tab.listData"
-                        :key="index"
-                        class="relative py-3 flex gap-x-2"
-                      >
-                        <i
-                          class="fa-solid fa-check text-white bg-secondary-500 rounded-xl p-1 text-center"
-                        ></i>
-                        <h3 class="text-sm font-medium leading-5 text-white">
-                          {{ item }}
-                        </h3>
-
-                        <ul
-                          class="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500"
-                        ></ul>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </TabPanel>
-            </TabPanels>
-          </TabGroup>
+                </TabPanel>
+              </TabPanels>
+            </TabGroup>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   </div>
 </template>
@@ -113,43 +115,43 @@ type TabDataTypes = {
 const tabData: TabDataTypes[] = [
   {
     image:
-      "https://demo.ovatheme.com/mistercar/wp-content/uploads/2020/11/Our-Mission.jpg",
+      "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1692345331/car-being-taking-care-workshop_gf5ahd.jpg",
     title: "Our Mission",
     description:
-      "1nMonocle ipsum dolor sit amet exclusive essential way uniforms, classic K-pop Tsutaya Boeing 787 ginza being vibrant Ginza Asia-Pacific non.Monocle ipsum dolor sit amet exclusive essential way uniforms, classic K-pop Tsutaya Boeing 787 ginza being vibrant Ginza Asia-Pacific non.",
+      "At Sprynx Multi, we strive to deliver the best car wash experience. Through advanced equipment and eco-friendly solutions, we ensure your car not only looks clean but also retains its shine over time. Your vehicle's longevity is our prime concern.",
     listData: [
-      "1Dedicated to Save Lives",
-      "1Electronically and Securely",
-      "124/7 Available to Service",
-      "1A thorough Cleaning of Dash",
+      "Environment-friendly cleaning solutions",
+      "Expertise in handling all car models",
+      "Customized cleaning based on client requirements",
+      "Continuous improvement through feedback",
     ],
     icon: "fa-duotone fa-rectangles-mixed",
   },
   {
     image:
-      "https://demo.ovatheme.com/mistercar/wp-content/uploads/2020/11/Our-Vision.jpg",
+      "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1692345331/car-being-taking-care-workshop_2_y1g79w.jpg",
     title: "Our Vision",
     description:
-      "2MMonocle ipsum dolor sit amet exclusive essential way uniforms, classic K-pop Tsutaya Boeing 787 ginza being vibrant Ginza Asia-Pacific non.",
+      "We envision Sprynx Multi to be the trusted name in car wash and detailing. Through relentless dedication, we aim to expand our reach, making top-notch car care accessible to all.",
     listData: [
-      "2Dedicated to Save Lives",
-      "2Electronically and Securely",
-      "224/7 Available to Service",
-      "2A thorough Cleaning of Dash",
+      "Expansion to multiple locations",
+      "Training and workshops for our staff",
+      "Adoption of the latest car care technologies",
+      "Maintain sustainability and eco-friendliness",
     ],
     icon: "fa-solid fa-check",
   },
   {
     image:
-      "https://demo.ovatheme.com/mistercar/wp-content/uploads/2020/11/Our-Mission.jpg",
-    title: "Values",
+      "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1692345331/car-being-taking-care-workshop_1_dyfnqs.jpg",
+    title: "Our Values",
     description:
-      "3MoMonocle ipsum dolor sit amet exclusive essential way uniforms, classic K-pop Tsutaya Boeing 787 ginza being vibrant Ginza Asia-Pacific non.",
+      "At the heart of Sprynx Multi lies our core values. Integrity, dedication, customer satisfaction, and sustainability guide us in every decision we make, ensuring that we consistently deliver unparalleled service.",
     listData: [
-      "3Dedicated to Save Lives",
-      "3Electronically and Securely",
-      "324/7 Available to Service",
-      "A3 thorough Cleaning of Dash",
+      "Upholding transparency and honesty",
+      "Dedication to work and customer satisfaction",
+      "Prioritizing sustainable and eco-friendly practices",
+      "Regular feedback and continuous improvement",
     ],
     icon: "fa-duotone fa-value-absolute",
   },
@@ -227,6 +229,8 @@ button {
 }
 button.border-b-4 {
   transform: scale(1.05); /* This scales up the selected tab slightly */
-  transition: all 0.3s ease, transform 0.2s ease-out; /* Combines color transition with a quick scale effect */
+  transition:
+    all 0.3s ease,
+    transform 0.2s ease-out; /* Combines color transition with a quick scale effect */
 }
 </style>
