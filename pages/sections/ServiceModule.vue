@@ -12,8 +12,7 @@
           <h1 class="mb-4 text-xl font-semibold text-primary-500">
             {{ title }}
           </h1>
-          {{ description }} Lorem ipsum dolor, sit amet consectetur adipisicing
-          elit. Ex, saepe?
+          {{ description }}
           <p class="text-center text-secondary-500 text-sm font-semibold">
             Read More
           </p>

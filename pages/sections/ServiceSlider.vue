@@ -44,31 +44,36 @@ const sliders = ref<Sliders[]>([
     heading: "Express Exterior",
     image:
       "https://res.cloudinary.com/duxvgqgfl/image/upload/v1691317598/01-Express-Exterior_puuahm.jpg",
-    description: "A thorough wash with high-quality cleaning",
+    description:
+      "For those in a hurry. Get a rapid, efficient exterior wash that leaves your car gleaming without the wait.",
     icon: "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691169409/car-wash_yq9w1o.png",
   },
   {
     heading: "Auto Detailing Service",
     image:
       "https://demo.ovatheme.com/mistercar/wp-content/uploads/2020/11/02-Auto-Detailing.jpg",
-    description: "Our experts vacuum and polish your car",
+    description:
+      "Delve deeper than the surface. Comprehensive cleaning, waxing, and polishing to make every detail of your car stand out.",
     icon: "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691169409/car-wash_yq9w1o.png",
   },
   {
     heading: "Complete Car Package",
     image:
       "https://demo.ovatheme.com/mistercar/wp-content/uploads/2020/11/04-Complete-Detail-Wash.jpg",
-    description: "A thorough wash with high-quality cleaning ",
+    description:
+      "The ultimate pampering for your car. Exterior, interior, undercarriage – every part gets our utmost attention.",
     icon: "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691169409/car-wash_yq9w1o.png",
   },
   {
     heading: "Oil Changing",
     image:
       "https://demo.ovatheme.com/mistercar/wp-content/uploads/2020/11/05-Oil-Changing.jpg",
-    description: "A thorough wash with high-quality cleaning agents ",
+    description:
+      "Enhance your car's longevity and performance. We offer a premium oil change to ensure a smooth ride.",
     icon: "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691169409/car-wash_yq9w1o.png",
   },
 ]);
+
 const options = {
   rewind: true,
   gap: "2rem",
