@@ -29,19 +29,22 @@
 </template>
 
 <script setup lang="ts">
-import AboutSection from "~/pages/sections/AboutSection.vue";
-import CountUpSection from "~/pages/sections/CountUpSection.vue";
-import FeaturesArea from "~/pages/sections/FeaturesArea.vue";
-import HeroSlide from "~/pages/sections/HomeHeroSlider.vue";
-import SectionWithTabs from "~/pages/sections/SectionWithTabs.vue";
-import ServiceSection from "~/pages/sections/ServiceSection.vue";
-import ServiceSlider from "~/pages/sections/ServiceSlider.vue";
+import AboutSection from "../pages/sections/AboutSection.vue";
+import CountUpSection from "../pages/sections/CountUpSection.vue";
+import FeaturesArea from "../pages/sections/FeaturesArea.vue";
+import HeroSlide from "../pages/sections/HomeHeroSlider.vue";
+import SectionWithTabs from "../pages/sections/SectionTabs.vue";
+import ServiceSlider from "../pages/sections/ServiceSlider.vue";
+import ServiceSection from "../pages/sections/service-section";
 import FaqSection from "./sections/FaqSection.vue";
 import HowItWork from "./sections/HowItWork.vue";
 import PackagesSection from "./sections/PackagesSection.vue";
 import TestimonialSlider from "./sections/TestimonialSlider.vue";
 
+import { package_detail_data } from "../store/data";
+
 definePageMeta({
+  // layout: "default",
   layout: "default",
   name: "index",
 });
@@ -50,131 +53,5 @@ const { pending, data: posts } = useFetch("http://localhost:3000/packages", {
   lazy: true,
 });
 
-const packageData = [
-  {
-    title: "Small Size Car",
-    value: "small-size-car",
-    packages: [
-      {
-        name: "PREMIUM DETAILING",
-        id: "tier-freelancer",
-        href: "#",
-        price: "85,000",
-        description: "The essentials to provide your best work for clients.",
-        features: ["INTERIOR", "EXTERIOR", "PAINT", "ENGINE"],
-        mostPopular: false,
-      },
-      {
-        name: "Gold Package",
-        id: "tier-hobby",
-        href: "#",
-        price: "85,000",
-        description: "The essentials to provide your best work for clients.",
-        features: ["INTERIOR", "EXTERIOR", "PAINT"],
-
-        mostPopular: false,
-      },
-
-      {
-        name: "DIAMOND PACKAGE",
-        id: "tier-startup",
-        href: "#",
-        price: "60",
-        description: "A plan that scales with your rapidly growing business.",
-        features: ["INTERIOR", "EXTERIOR", "ENGINE"],
-
-        mostPopular: true,
-      },
-    ],
-  },
-  {
-    title: "Mid Size Car",
-    value: "mid-size-car",
-    packages: [
-      {
-        name: "Mid -Express Wash",
-        id: "tier-hobby",
-        href: "#",
-        price: "15",
-        description: "The essentials to provide your best work for clients.",
-        features: ["5 products", "Up to 1,000 subscribers", "Basic analytics"],
-        mostPopular: false,
-      },
-      {
-        name: "Mid  Supreme Wash",
-        id: "tier-freelancer",
-        href: "#",
-        price: "30",
-        description: "The essentials to provide your best work for clients.",
-        features: [
-          "5 products",
-          "Up to 1,000 subscribers",
-          "Basic analytics",
-          "48-hour support response time",
-        ],
-        mostPopular: false,
-      },
-      {
-        name: "mid Utra Fullservice",
-        id: "tier-startup",
-        href: "#",
-        price: "60",
-        description: "A plan that scales with your rapidly growing business.",
-        features: [
-          "25 products",
-          "Up to 10,000 subscribers",
-          "Advanced analytics",
-          "24-hour support response time",
-          "Marketing automations",
-        ],
-        mostPopular: true,
-      },
-    ],
-  },
-
-  {
-    title: "Full Size Car",
-    value: "full-size-car",
-    packages: [
-      {
-        name: "full-- Hobby999",
-        id: "tier-hobby",
-        href: "#",
-        price: "15",
-        description: "The essentials to provide your best work for clients.",
-        features: ["5 products", "Up to 1,000 subscribers", "Basic analytics"],
-        mostPopular: false,
-      },
-      {
-        name: "Full --- Freelancer",
-        id: "tier-freelancer",
-        href: "#",
-        price: "30",
-        description: "The essentials to provide your best work for clients.",
-        features: [
-          "5 products",
-          "Up to 1,000 subscribers",
-          "Basic analytics",
-          "48-hour support response time",
-        ],
-        mostPopular: false,
-      },
-      {
-        name: "full ---Startup",
-        id: "tier-startup",
-        href: "#",
-        price: "60",
-        description: "A plan that scales with your rapidly growing business.",
-        features: [
-          "25 products",
-          "Up to 10,000 subscribers",
-          "Advanced analytics",
-          "24-hour support response time",
-          "Marketing automations",
-        ],
-        mostPopular: true,
-      },
-    ],
-  },
-];
+const packageData = package_detail_data
 </script>

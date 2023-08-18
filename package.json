@@ -6,7 +6,8 @@
     "dev": "nuxt dev --port 3450",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "knip": "knip"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
@@ -24,6 +25,7 @@
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
     "@fortawesome/vue-fontawesome": "^3.0.3",
     "@heroicons/vue": "^2.0.18",
-    "@splidejs/vue-splide": "^0.6.12"
+    "@splidejs/vue-splide": "^0.6.12",
+    "knip": "^2.19.3"
   }
 }

@@ -1,28 +1,22 @@
 <template>
-  
   <div class="bg-white py-24 sm:py-32">
-      <!-- you will need to handle a loading state -->
+    <!-- you will need to handle a loading state -->
 
- 
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto  max-w-7xl  lg:px-8">
       <div class="mx-auto max-w-4xl text-center">
-        <PillInfo title="PRICING PLAN" class="flex justify-center" />
+        <PillInfo title="PACKAGES" class="flex justify-center" />
         <p
           class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
         >
           Choose your Package
         </p>
       </div>
-      <p
-        class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600"
-      >
-        Unlimited Washes is for you! Wash whenever you want and enjoy the ease
-        of auto monthly billing and you can cancel any time.
-      </p>
+
       <div class="mt-16 flex justify-center">
         <RadioGroup
           v-model="selectedTier"
-          class="grid grid-cols-3 gap-x-1 rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200"
+          :class="menuStyle"
+          class="rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200"
         >
           <RadioGroupLabel class="sr-only">Payment frequency</RadioGroupLabel>
           <RadioGroupOption
@@ -44,7 +38,7 @@
         </RadioGroup>
       </div>
       <div
-        class="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 md:max-w-2xl md:grid-cols-2 lg:max-w-4xl xl:mx-0 xl:max-w-none xl:grid-cols-3"
+        class="isolate place-content-center mx-auto max-w-lg md:max-w-2xl  mt-10 xl:mx-0 xl:max-w-none grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3"
       >
         <div
           v-for="(tier, index) in selectedTier.packages"
@@ -53,9 +47,11 @@
             tier.mostPopular
               ? 'ring-2 ring-secondary-600'
               : 'ring-1 ring-gray-200',
-            'rounded-3xl p-8',
+            'rounded-3xl mx-auto max-w-lg',
           ]"
+          class="flex justify-center "
         >
+        <div class="p-4">
           <h3
             :class="[
               tier.mostPopular ? 'text-secondary-600' : 'text-gray-900',
@@ -64,8 +60,12 @@
           >
             {{ tier.name }}
           </h3>
+          <p>
+            <i class="fa-regular fa-timer text-secondary-500 pr-2"></i
+            >{{ tier.duration }}
+          </p>
 
-          <p class="mt-4 text-sm leading-6 text-gray-600">
+          <p v-if="false" class="mt-4 text-sm leading-6 text-gray-600">
             {{ tier.description }}
           </p>
 
@@ -76,6 +76,7 @@
           </p>
 
           <a
+            v-if="false"
             :href="tier.href"
             :aria-describedby="tier.id"
             :class="[
@@ -121,16 +122,23 @@
               </div>
             </li>
           </ul>
+
+          <div class="flex items-center mt-4 gap-x-4 text-primary-500">
+            <i class="fa-sharp fa-regular fa-circle-exclamation"></i>
+            <p class="">₦8,500 extra Logistics fee to Mainland.</p>
+          </div>
+        </div>
         </div>
       </div>
 
-      <p class="text-center py-4">See more Packages</p>
+      <!-- <p class="text-center py-4">See more Packages</p> -->
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from "@headlessui/vue";
+import { PackageDetails } from "../../types/model";
 /* 
 const tiers = [
   {
@@ -280,28 +288,16 @@ const tiers = [
   },
 ]; */
 
-type PackageDetails = {
-  title: string;
-  value: string;
-
-  packages: {
-    name: string;
-    id: string;
-    href: string;
-    price: string;
-    description: string;
-    features: string[];
-    mostPopular: boolean;
-  }[];
-}
-
-
-
 const props = defineProps({
-packageData:{
-  type: Array as PropType<PackageDetails[]>,
-  required: true,
-}
+  packageData: {
+    type: Array as PropType<PackageDetails[]>,
+    required: true,
+  },
+  menuStyle: {
+    type: String,
+    required: false,
+    default: "grid grid-cols-2",
+  },
 });
 
 const selectedTier = ref(props.packageData[0]);
@@ -355,38 +351,4 @@ function orderedListItems(str: string) {
 
   return array_of_strings;
 }
-
 </script>
-
-<!-- 
-
-  const featureDetails = [
-  {
-    id: "PAINT",
-    title: "PAINT ENHANCEMENT AND GLOSS/SHINE",
-    description:
-      "Removing minor surface scratches, droplets,& firmly bonded surface contaminants on paint.",
-  },
-  {
-    id: "PAINT-G",
-    title: "PAINT ENHANCEMENT AND GLOSS/SHINE",
-    description:
-      "Restoring paint shine,smoothens paint surface,reducing friction between debris & paint, protecting paint from uv Ray’s & salt water.",
-  },
-  {
-    id: "ENGINE",
-    title: "ENGINE DETAILING",
-    description:
-      "Engine bay cleaning,degreasing,protecting engine from rust,restoring engine shine.",
-  },
-  {
-    id: "INTERIOR",
-    title: "INTERIOR DETAILING",
-    description:
-      "Vacuum,trunk,stain removal,leather/fabric cleaning & conditioning,mat/rugs shampooing,vinyl/plastic restoration,door jambs, dashboard,roof,AC vents flushing & steaming,cockpits.",
-  },
-] as featureTypes[];
-
- -->
-
-
