@@ -47,7 +47,7 @@ const testimonials = [
     name: "Chijioke Okafor",
     position: "Uber Driver",
     image:
-      "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1692346124/handsome-elegant-man-car-salon_numphc.jpg",
+      "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1692346124/afroamerican-man-posing-car_sfsaqg.jpg",
     description:
       "Every day in Lagos, my taxi is exposed to so much dirt. But with Sprynx Multi, it gets a remarkable transformation. My passengers can't help but admire the shine!",
     star: "5",
