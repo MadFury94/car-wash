@@ -12,6 +12,7 @@
       <CountUpSection />
       <SectionWithTabs />
       <PackagesSection :package-data="packageData" />
+      <PackageSlider />
 
       <div v-if="pending">Loading ...</div>
       <div v-else>
@@ -42,6 +43,7 @@ import PackagesSection from "./sections/PackagesSection.vue";
 import TestimonialSlider from "./sections/TestimonialSlider.vue";
 
 import { package_detail_data } from "../store/data";
+import PackageSlider from "./sections/PackageSlider.vue";
 
 definePageMeta({
   // layout: "default",
