@@ -37,98 +37,100 @@
           </RadioGroupOption>
         </RadioGroup>
       </div>
-      <div
-        class="isolate place-content-center mx-auto max-w-lg md:max-w-2xl mt-10 xl:mx-0 xl:max-w-none grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3"
-      >
+      <div class="overflow-x-auto mt-10">
         <div
-          v-for="(tier, index) in selectedTier.packages"
-          :key="index"
-          :class="[
-            tier.mostPopular
-              ? 'ring-2 ring-secondary-600'
-              : 'ring-1 ring-gray-200',
-            'rounded-3xl mx-auto max-w-lg',
-          ]"
-          class="flex justify-center"
+          class="isolate gap-x-8 flex no-wrap place-content-center mx-auto max-w-lg md:max-w-2xl mt-10 xl:mx-0 xl:max-w-none"
         >
-          <div class="p-4">
-            <h3
-              :class="[
-                tier.mostPopular ? 'text-secondary-600' : 'text-gray-900',
-                'text-lg font-semibold leading-8 uppercase',
-              ]"
-            >
-              {{ tier.name }}
-            </h3>
-            <p>
-              <i class="fa-regular fa-timer text-secondary-500 pr-2"></i
-              >{{ tier.duration }}
-            </p>
-            <div
-              class="flex items-center mt-4 gap-x-4 font-semibold text-sm text-primary-500"
-            >
-              <i
-                class="fa-sharp fa-regular fa-circle-exclamation text-red-500"
-              ></i>
-              <p class="">₦8,500 extra Logistics fee to Mainland.</p>
-            </div>
-            <p v-if="false" class="mt-4 text-sm leading-6 text-gray-600">
-              {{ tier.description }}
-            </p>
-
-            <p class="mt-6 flex items-baseline gap-x-1">
-              <span class="text-4xl font-bold tracking-tight text-gray-900"
-                >₦{{ tier.price }}</span
+          <div
+            v-for="(tier, index) in selectedTier.packages"
+            :key="index"
+            :class="[
+              tier.mostPopular
+                ? 'ring-2 ring-secondary-600'
+                : 'ring-1 ring-gray-200',
+              'rounded-3xl mx-auto max-w-lg',
+            ]"
+            class="flex-none"
+          >
+            <div class="p-4">
+              <h3
+                :class="[
+                  tier.mostPopular ? 'text-secondary-600' : 'text-gray-900',
+                  'text-lg font-semibold leading-8 uppercase',
+                ]"
               >
-            </p>
-
-            <a
-              v-if="false"
-              :href="tier.href"
-              :aria-describedby="tier.id"
-              :class="[
-                tier.mostPopular
-                  ? 'bg-secondary-600 text-white shadow-sm hover:bg-secondary-500'
-                  : 'text-secondary-600 ring-1 ring-inset ring-secondary-200 hover:ring-secondary-300',
-                'mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600',
-              ]"
-              >Book Now</a
-            >
-
-            <ul
-              role="list"
-              class="mt-8 space-y-3 text-sm leading-6 text-gray-600"
-            >
-              <li
-                v-for="(feature, index) in matchFeaturesWithDetails(
-                  tier.features
-                )"
-                :key="index"
-                class="flex gap-x-3"
+                {{ tier.name }}
+              </h3>
+              <p>
+                <i class="fa-regular fa-timer text-secondary-500 pr-2"></i
+                >{{ tier.duration }}
+              </p>
+              <div
+                class="flex items-center mt-4 gap-x-4 font-semibold text-sm text-primary-500"
               >
-                <div v-if="feature?.title">
-                  <i
-                    class="fa-solid fa-check text-white bg-secondary-500 rounded-xl p-1 text-center"
-                  ></i>
-                </div>
+                <i
+                  class="fa-sharp fa-regular fa-circle-exclamation text-red-500"
+                ></i>
+                <p class="">₦8,500 extra Logistics fee to Mainland.</p>
+              </div>
+              <p v-if="false" class="mt-4 text-sm leading-6 text-gray-600">
+                {{ tier.description }}
+              </p>
 
-                <div class="flex flex-col">
-                  <p v-if="feature?.title">{{ feature?.title }}</p>
+              <p class="mt-6 flex items-baseline gap-x-1">
+                <span class="text-4xl font-bold tracking-tight text-gray-900"
+                  >₦{{ tier.price }}</span
+                >
+              </p>
 
-                  <div v-if="feature?.description">
-                    <template
-                      v-for="(item, index) in orderedListItems(
-                        feature?.description
-                      )"
-                    >
-                      <ul class="list-disc list-inside">
-                        <li class="capitalize">{{ item }}</li>
-                      </ul>
-                    </template>
+              <a
+                v-if="false"
+                :href="tier.href"
+                :aria-describedby="tier.id"
+                :class="[
+                  tier.mostPopular
+                    ? 'bg-secondary-600 text-white shadow-sm hover:bg-secondary-500'
+                    : 'text-secondary-600 ring-1 ring-inset ring-secondary-200 hover:ring-secondary-300',
+                  'mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600',
+                ]"
+                >Book Now</a
+              >
+
+              <ul
+                role="list"
+                class="mt-8 space-y-3 text-sm leading-6 text-gray-600"
+              >
+                <li
+                  v-for="(feature, index) in matchFeaturesWithDetails(
+                    tier.features
+                  )"
+                  :key="index"
+                  class="flex gap-x-3"
+                >
+                  <div v-if="feature?.title">
+                    <i
+                      class="fa-solid fa-check text-white bg-secondary-500 rounded-xl p-1 text-center"
+                    ></i>
                   </div>
-                </div>
-              </li>
-            </ul>
+
+                  <div class="flex flex-col">
+                    <p v-if="feature?.title">{{ feature?.title }}</p>
+
+                    <div v-if="feature?.description">
+                      <template
+                        v-for="(item, index) in orderedListItems(
+                          feature?.description
+                        )"
+                      >
+                        <ul class="list-disc list-inside">
+                          <li class="capitalize">{{ item }}</li>
+                        </ul>
+                      </template>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
