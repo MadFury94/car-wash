@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto">
-    <div class="grid grid-cols-2 gap-8">
+    <div class="grid lg:grid-cols-2 gap-8">
       <div
         v-for="(item, index) in hover"
         :key="index"

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <div v-if="false">
       <div class="flex gap-x-4">
         <NuxtLink
           v-for="(item, index) in navigation"
@@ -118,7 +118,8 @@ const navigation = [
     name: "Contact Us",
     route: { name: "contactPage" },
     icon: "fa-solid fa-phone",
-  },  {
+  },
+  {
     name: "Coming Soon",
     route: { name: "comingSoon" },
     icon: "fa-solid fa-phone",
