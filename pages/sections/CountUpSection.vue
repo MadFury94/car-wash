@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto bg-secondary-500 rounded-2xl">
+  <div class="mx-auto bg-secondary-900">
     <section class="text-center">
       <div ref="records" class="image py-5">
         <div class="flex grid-cols-4 flex-col lg:grid">
@@ -17,7 +17,7 @@
                   ></span>
                 </h1>
                 <h5
-                  class="whitespace-normal text-lg font-semibold uppercase text-primary-500"
+                  class="whitespace-normal text-lg font-semibold uppercase text-primary-200"
                 >
                   {{ record.text }}
                 </h5>
