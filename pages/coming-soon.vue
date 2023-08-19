@@ -3,12 +3,10 @@
     <div class="p-20">
       <h1 class="text-4xl font-bold mb-4 text-center">Under Construction</h1>
       <p class="text-gray-600 text-center">
-        We are updating our Web Application to give you something awseom
+        We are updating our Web Application to give you something awesome.
       </p>
 
-      <PackagesSection
-        :package-data="packageData"
-      />
+      <PackagesSection :package-data="packageData" />
     </div>
   </div>
 </template>
@@ -26,7 +24,7 @@ definePageMeta({
     "https://demo.ovatheme.com/mistercar/wp-content/uploads/2020/09/blog_3.jpg",
 });
 
-const packageData = package_detail_data
+const packageData = package_detail_data;
 </script>
 
 <style scoped></style>

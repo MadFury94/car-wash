@@ -2,12 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .heading {
   @apply text-2xl font-semibold text-primary-500 sm:text-2xl md:text-2xl;
 }
 .heading2 {
-  @apply text-2xl font-bold hover:text-white text-primary-500 sm:text-xl;
+  @apply text-2xl font-bold  text-primary-500 sm:text-xl;
 }
 
 .heading3 {

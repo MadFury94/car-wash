@@ -2,7 +2,9 @@
   <div class="bg-gray-100">
     <!-- First Section  -->
     <div class="lg:px-44">
-      <div class="bg-primary-500 grid grid-cols-5 rounded-lg p-10">
+      <div
+        class="bg-primary-500 grid lg:grid-cols-5 rounded-lg p-10 grid-cols-1"
+      >
         <div
           class="text-secondary-500 col-span-1 text-7xl grid place-content-center"
         >
