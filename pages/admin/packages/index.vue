@@ -4,7 +4,12 @@
 
     <button class="bg-green-500 p-2">Create Package</button>
 
-    <Modal max-size="max-w-md" @on-close="modalActive = !modalActive" class="" v-if="modalActive">
+    <Modal
+      max-size="max-w-md"
+      @on-close="modalActive = !modalActive"
+      class=""
+      v-if="modalActive"
+    >
       <div class="form">
         <div
           class="bg-gray-50 mx-auto border pt-14 px-4 pb-10 grid grid-cols-1 gap-y-6"
@@ -88,10 +93,7 @@ function createPackage() {
     });
 }
 
-const addPackage = () => {
-  console.log(form);
-  // onMounted(getData);
-};
+
 </script>
 
 <style scoped></style>
