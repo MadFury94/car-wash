@@ -36,6 +36,12 @@
                   >
                     Created At
                   </th>
+                  <th
+                    scope="col"
+                    class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                  >
+                    Updated At
+                  </th>
                   <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0">
                     <span class="sr-only">Edit</span>
                   </th>
@@ -93,6 +99,11 @@ import TimeAgo from "../../../../components/utils/TimeAgo.vue";
 import { useAxiosRequest } from "../../../../http";
 //
 const [pending, getData, data, error] = useAxiosRequest("packages/all");
+
+
+if(data.value) {
+  console.log(data.value);
+}
 onMounted(getData);
 
 
