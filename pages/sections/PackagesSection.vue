@@ -12,131 +12,138 @@
         </p>
       </div>
 
-      <div class="mt-16 flex justify-center">
-        <RadioGroup
-          v-model="selectedTier"
-          :class="menuStyle"
-          class="rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200"
-        >
-          <RadioGroupLabel class="sr-only">Payment frequency</RadioGroupLabel>
-          <RadioGroupOption
-            as="template"
-            v-for="option in packageData"
-            :key="option.value"
-            :value="option"
-            v-slot="{ checked }"
+      <div v-if="pending">Loading ...</div>
+
+      <template v-else>
+    
+
+        <div v-if="data" class="mt-16 flex justify-center">
+          <RadioGroup
+            v-model="selectedTier"
+            :class="menuStyle"
+            class="rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200"
           >
-            <div
-              :class="[
-                checked ? 'bg-secondary-500 text-white' : 'text-gray-500',
-                'cursor-pointer rounded-full px-2.5 py-1 ',
-              ]"
+            <RadioGroupLabel class="sr-only">Payment frequency</RadioGroupLabel>
+            <RadioGroupOption
+              as="template"
+              v-for="option in Object.keys(data)"
+              :key="option"
+              :value="option"
+              v-slot="{ checked }"
             >
-              <span>{{ option.title }}</span>
-            </div>
-          </RadioGroupOption>
-        </RadioGroup>
-      </div>
+              <div
+                :class="[
+                  checked ? 'bg-secondary-500 text-white' : 'text-gray-500',
+                  'cursor-pointer rounded-full px-2.5 py-1 ',
+                ]"
+              >
+                <span>{{ option }}</span>
+              </div>
+            </RadioGroupOption>
+          </RadioGroup>
+        </div>
 
-      <div class="overflow-x-auto mt-10 p-10">
-        <div class="">
-          <div
-            class="isolate gap-x-8 flex no-wrap mx-auto max-w-lg md:max-w-8xl mt-10 xl:mx-0 xl:max-w-none"
-          >
+        <div v-if="data" class="overflow-x-auto mt-10 p-10">
+          <div class="">
             <div
-              v-for="(tier, index) in selectedTier.packages"
-              :key="index"
-              :class="[
-                tier.mostPopular
-                  ? 'ring-2 ring-secondary-600'
-                  : 'ring-1 ring-gray-200',
-                'rounded-3xl mx-auto max-w-lg',
-              ]"
-              class="flex-none mx-4"
+              class="isolate gap-x-8 flex no-wrap mx-auto max-w-lg md:max-w-8xl mt-10 xl:mx-0 xl:max-w-none"
             >
-              <div class="p-4">
-                <h3
-                  :class="[
-                    tier.mostPopular ? 'text-secondary-600' : 'text-gray-900',
-                    'text-lg font-semibold leading-8 uppercase',
-                  ]"
-                >
-                  {{ tier.name }}
-                </h3>
-                <p>
-                  <i class="fa-regular fa-timer text-secondary-500 pr-2"></i
-                  >{{ tier.duration }}
-                </p>
-                <div
-                  class="flex items-center mt-4 gap-x-4 font-semibold text-sm text-primary-500"
-                >
-                  <i
-                    class="fa-sharp fa-regular fa-circle-exclamation text-red-500"
-                  ></i>
-                  <p class="">₦8,500 extra Logistics fee to Mainland.</p>
-                </div>
-                <p v-if="false" class="mt-4 text-sm leading-6 text-gray-600">
-                  {{ tier.description }}
-                </p>
-
-                <p class="mt-6 flex items-baseline gap-x-1">
-                  <span class="text-4xl font-bold tracking-tight text-gray-900"
-                    >₦{{ tier.price }}</span
+              <div
+                v-for="(tier, index) in data[selectedTier]"
+                :key="index"
+                :class="[
+                  tier.mostPopular
+                    ? 'ring-2 ring-secondary-600'
+                    : 'ring-1 ring-gray-200',
+                  'rounded-3xl mx-auto max-w-lg',
+                ]"
+                class="flex-none mx-4"
+              >
+                <div class="p-4">
+                  <h3
+                    :class="[
+                      tier.mostPopular ? 'text-secondary-600' : 'text-gray-900',
+                      'text-lg font-semibold leading-8 uppercase',
+                    ]"
                   >
-                </p>
-
-                <NuxtLink
-                  :href="tier.href"
-                  :aria-describedby="tier.id"
-                  :class="[
-                    tier.mostPopular
-                      ? 'bg-secondary-600 text-white shadow-sm hover:bg-secondary-500'
-                      : 'text-secondary-600 ring-1 ring-inset ring-secondary-200 hover:ring-secondary-300',
-                    'mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600',
-                  ]"
-                  >Book Now</NuxtLink
-                >
-
-                <ul
-                  v-if="false"
-                  role="list"
-                  class="mt-8 space-y-3 text-sm leading-6 text-gray-600"
-                >
-                  <li
-                    v-for="(feature, index) in matchFeaturesWithDetails(
-                      tier.features
-                    )"
-                    :key="index"
-                    class="flex gap-x-3"
+                    {{ tier.name }}
+                  </h3>
+                  <p>
+                    <i class="fa-regular fa-timer text-secondary-500 pr-2"></i
+                    >{{ tier.duration }}
+                  </p>
+                  <div
+                    class="flex items-center mt-4 gap-x-4 font-semibold text-sm text-primary-500"
                   >
-                    <div v-if="feature?.title">
-                      <i
-                        class="fa-solid fa-check text-white bg-secondary-500 rounded-xl p-1 text-center"
-                      ></i>
-                    </div>
+                    <i
+                      class="fa-sharp fa-regular fa-circle-exclamation text-red-500"
+                    ></i>
+                    <p class="">₦8,500 extra Logistics fee to Mainland.</p>
+                  </div>
+                  <p v-if="false" class="mt-4 text-sm leading-6 text-gray-600">
+                    {{ tier.description }}
+                  </p>
 
-                    <div class="flex flex-col">
-                      <p v-if="feature?.title">{{ feature?.title }}</p>
+                  <p class="mt-6 flex items-baseline gap-x-1">
+                    <span
+                      class="text-4xl font-bold tracking-tight text-gray-900"
+                      >₦{{ tier.price }}</span
+                    >
+                  </p>
 
-                      <div v-if="feature?.description">
-                        <template
-                          v-for="(item, index) in orderedListItems(
-                            feature?.description
-                          )"
-                        >
-                          <ul class="list-disc list-inside">
-                            <li class="capitalize">{{ item }}</li>
-                          </ul>
-                        </template>
+                  <NuxtLink
+                    :href="tier.href"
+                    :aria-describedby="tier.id"
+                    :class="[
+                      tier.mostPopular
+                        ? 'bg-secondary-600 text-white shadow-sm hover:bg-secondary-500'
+                        : 'text-secondary-600 ring-1 ring-inset ring-secondary-200 hover:ring-secondary-300',
+                      'mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600',
+                    ]"
+                    >Book Now</NuxtLink
+                  >
+
+                  <ul
+                    v-if="false"
+                    role="list"
+                    class="mt-8 space-y-3 text-sm leading-6 text-gray-600"
+                  >
+                    <li
+                      v-for="(feature, index) in matchFeaturesWithDetails(
+                        tier.features
+                      )"
+                      :key="index"
+                      class="flex gap-x-3"
+                    >
+                      <div v-if="feature?.title">
+                        <i
+                          class="fa-solid fa-check text-white bg-secondary-500 rounded-xl p-1 text-center"
+                        ></i>
                       </div>
-                    </div>
-                  </li>
-                </ul>
+
+                      <div class="flex flex-col">
+                        <p v-if="feature?.title">{{ feature?.title }}</p>
+
+                        <div v-if="feature?.description">
+                          <template
+                            v-for="(item, index) in orderedListItems(
+                              feature?.description
+                            )"
+                          >
+                            <ul class="list-disc list-inside">
+                              <li class="capitalize">{{ item }}</li>
+                            </ul>
+                          </template>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </template>
 
       <!-- <p class="text-center py-4">See more Packages</p> -->
     </div>
@@ -145,7 +152,7 @@
 
 <script setup lang="ts">
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from "@headlessui/vue";
-import { useAxiosRequest } from "http";
+import { useAxiosRequest } from "../../http";
 import { PackageDetails } from "../../types/model";
 
 const props = defineProps({
@@ -160,12 +167,17 @@ const props = defineProps({
   },
 });
 
-const selectedTier = ref(props.packageData[0]);
+
 
 const checked = ref(false);
 
 const [pending, getData, data, error] = useAxiosRequest("packages/all");
 
+onMounted(() => {
+  getData();
+});
+
+const selectedTier = ref('saloon');
 
 type featureTypes = {
   id: "PAINT" | "PAINT-G" | "ENGINE" | "INTERIOR" | "EXTERIOR";
