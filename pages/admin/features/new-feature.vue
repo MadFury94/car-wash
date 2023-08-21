@@ -1,16 +1,21 @@
 <template>
   <div>
-    <h1>new feature</h1>
-
-
+<div class="flex justify-center">
+<div>
+    <h1 class="text-center font-bold text-2xl">New feature</h1>
+    <nuxt-link :to="{name:'all-features'}">View all features</nuxt-link>
+</div>
+</div>
 
     <div class="max-w-sm mx-auto">
       <div class="flex flex-col gap-y-8">
         <div>
+          <label class="block">name:</label>
           <input class="border" v-model="form.name" />
         </div>
 
         <div>
+          <label class="block">features:</label>
           <textarea cols="40" rows="10" class="border" v-model="form.list" />
         </div>
       </div>
@@ -23,7 +28,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-import { $useFetchApi } from "../../http";
+import { $useFetchApi } from "../../../http";
 
 definePageMeta({
   name: "new-feature",
@@ -33,11 +38,9 @@ definePageMeta({
 const existingArray = ref([]);
 
 const form = ref({
-  name: "INTERIOR DETAILING",
-
+  name: "",
   list: "",
 });
-
 
 function createFeature() {
   $useFetchApi({
@@ -52,7 +55,6 @@ function createFeature() {
       console.log(err);
     });
 }
-
 </script>
 
 <style scoped>
