@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { useAxiosFetch } from "../../../http";
+import { useAxiosRequest } from "../../../http";
 
 definePageMeta({
   name: "one-feature",
@@ -25,7 +25,7 @@ const $route = useRoute();
 
 const id = $route.params.id;
 
-const [pending, getData, data, error] = useAxiosFetch(`packages/one-feature/`, {
+const [pending, getData, data, error] = useAxiosRequest(`packages/one-feature/`, {
   id: id,
 });
 

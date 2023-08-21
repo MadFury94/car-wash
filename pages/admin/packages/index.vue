@@ -19,21 +19,19 @@
           <input v-model="form.price" type="number" placeholder="N20,000" />
         </div>
 
-
-        <button>Add Package</button>
+        <button @click="createPackage">Add Package</button>
       </div>
     </div>
 
     <!-- you will need to handle a loading state -->
-   <AllPackages/>
+    <AllPackages />
   </div>
 </template>
 
 <script setup lang="ts">
-import { useAxiosFetch } from "../../../http";
+import { $useFetchApi } from "../../../http";
 
-import AllPackages from "../packages/components/allPackages.vue";
-
+import AllPackages from "../packages/components/AllPackages.vue";
 
 definePageMeta({
   layout: "admin-layout",
@@ -42,18 +40,26 @@ definePageMeta({
   description: "This is the all packages page of our company",
 });
 
-
-const [pending, getData, data, error] = useAxiosFetch("packages/all",{
-    
-});
-
-const form = {
+const form = ref({
   duration: "8 to 9 hours",
   name: "PREMIUM DETAILING",
   price: 35000,
-};
+  type: "saloon",
+});
 
-
+function createPackage() {
+  $useFetchApi({
+    url: "packages/create",
+    method: "POST",
+    data: form.value,
+  })
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
 
 const addPackage = () => {
   console.log(form);

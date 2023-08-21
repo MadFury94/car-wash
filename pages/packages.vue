@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { useAxiosFetch } from "../http";
+import { useAxiosRequest } from "../http";
 import { package_detail_data } from "../store/data";
 import PackagesSection from "./sections/PackagesSection.vue";
 
@@ -32,7 +32,7 @@ const packageData = package_detail_data;
 }); */
 
 
- const [pending, getData, data, error] =  useAxiosFetch('packages/all')
+ const [pending, getData, data, error] =  useAxiosRequest('packages/all')
 
 
  onMounted(getData)

@@ -89,14 +89,14 @@
 
 <script setup lang="ts">
 import { onMounted } from "vue";
-import { useAxiosFetch } from "../../../http";
+import { useAxiosRequest } from "../../../http";
 
 definePageMeta({
   layout: "admin-layout",
   name: "all-features",
 });
 
-const [pending, getData, data, error] = useAxiosFetch("packages/all-features");
+const [pending, getData, data, error] = useAxiosRequest("packages/all-features");
 
 onMounted(getData);
 </script>

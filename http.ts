@@ -7,7 +7,7 @@ export const   $useFetchApi = axios.create({
   timeout: 1000,
 });
 
-export function useAxiosFetch(endpoint: any, params = {}) {
+export function useAxiosRequest(endpoint: any, params = {}) {
   const data = ref(null);
   const error = ref(null);
   const pending = ref(false);
