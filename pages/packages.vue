@@ -1,6 +1,15 @@
 <template>
   <div>
-    <PackagesSection :package-data="packageData" />
+    <!-- you will need to handle a loading state -->
+    <div v-if="pending">Loading ...</div>
+    <div v-else>
+      <div v-for="item in data">
+        <!-- do something -->
+        {{ item.name }}
+      </div>
+    </div>
+
+    <PackagesSection  :package-data="packageData" />
   </div>
 </template>
 
@@ -15,9 +24,13 @@ definePageMeta({
   description: "This is the package page of our company",
 });
 
-
-
 const packageData = package_detail_data;
+
+const { pending, data } = useFetch("http://localhost:5620/api/packages/all", {
+  lazy: true,
+});
+
+
 </script>
 
 <style scoped></style>

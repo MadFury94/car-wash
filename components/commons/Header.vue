@@ -123,6 +123,12 @@ const navigation = [
     name: "Coming Soon",
     route: { name: "comingSoon" },
     icon: "fa-solid fa-phone",
+  }, 
+  
+  {
+    name: "Admin",
+    route: { name: "admin" },
+    icon: "fa-solid fa-phone",
   },
 ];
 
