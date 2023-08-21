@@ -23,7 +23,7 @@
     "tailwindcss": "^3.3.3"
   },
   "dependencies": {
-    "@heroicons/vue": "^2.0.18",
-    "@splidejs/vue-splide": "^0.6.12"
+    "@splidejs/vue-splide": "^0.6.12",
+    "moment": "^2.29.4"
   }
 }
