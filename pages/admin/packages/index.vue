@@ -23,8 +23,13 @@
             <input v-model="form.duration" type="text" placeholder="Silver" />
           </div>
           <div class="relative">
-            <label id="price">Price</label>
+            <label id="price">Price (₦)</label>
             <input v-model="form.price" type="number" placeholder="N20,000" />
+          </div>
+
+          <div class="relative">
+            <label id="price">Notice</label>
+            <textarea v-model="form.notice" type="text" placeholder="N20,000" />
           </div>
 
           <button class="btn" @click="createPackage">Add Package</button>
@@ -77,6 +82,7 @@ const form = ref({
   name: "PREMIUM DETAILING",
   price: 35000,
   type: "saloon",
+  notice:"₦8,500 extra Logistics fee to Mainland."
 });
 
 function createPackage() {

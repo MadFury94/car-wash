@@ -8,7 +8,6 @@
         {{ item.name }}
       </div>
     </div>
-
     <PackagesSection  :package-data="packageData" />
   </div>
 </template>

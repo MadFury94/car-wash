@@ -145,6 +145,7 @@
 
 <script setup lang="ts">
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from "@headlessui/vue";
+import { useAxiosRequest } from "http";
 import { PackageDetails } from "../../types/model";
 
 const props = defineProps({
@@ -162,6 +163,9 @@ const props = defineProps({
 const selectedTier = ref(props.packageData[0]);
 
 const checked = ref(false);
+
+const [pending, getData, data, error] = useAxiosRequest("packages/all");
+
 
 type featureTypes = {
   id: "PAINT" | "PAINT-G" | "ENGINE" | "INTERIOR" | "EXTERIOR";
