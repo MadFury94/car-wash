@@ -1,22 +1,16 @@
 <template>
-    <div>
-
-        {{ value }}
-
-    </div>
+  <div>
+    {{ value }}
+  </div>
 </template>
 
 <script setup lang="ts">
-
 const props = defineProps({
-    value: {
-        type: Number,
-        required: true,
-    },
+  value: {
+    type: Number,
+    required: true,
+  },
 });
-
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
