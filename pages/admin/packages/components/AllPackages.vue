@@ -73,7 +73,7 @@
                   </td>
                   <td class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">
                     <div class="text-gray-900">{{ carPackage.duration }}</div>
-                    <div class="mt-1 text-gray-500">{{ carPackage.price }}</div>
+                    <div class="mt-1 text-gray-500"><Amount :value="carPackage.price" /> </div>
                   </td>
                   <td class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">
                     <span
@@ -104,8 +104,10 @@
 </template>
 
 <script setup lang="ts">
+import Amount from "../../../../components/utils/Amount.vue";
+import TimeAgo from "../../../../components/utils/TimeAgo.vue";
 import { useAxiosRequest } from "../../../../http";
-
+//
 const [pending, getData, data, error] = useAxiosRequest("packages/all");
 onMounted(getData);
 </script>
