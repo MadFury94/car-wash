@@ -14,6 +14,7 @@
 </template>
 
 <script setup lang="ts">
+import { useAxiosFetch } from "../http";
 import { package_detail_data } from "../store/data";
 import PackagesSection from "./sections/PackagesSection.vue";
 
@@ -26,9 +27,15 @@ definePageMeta({
 
 const packageData = package_detail_data;
 
-const { pending, data } = useFetch("http://localhost:5620/api/packages/all", {
+/* const { pending, data } = useFetch("http://localhost:5620/api/packages/all", {
   lazy: true,
-});
+}); */
+
+
+ const [pending, getData, data, error] =  useAxiosFetch('packages/all')
+
+
+ onMounted(getData)
 
 
 </script>
