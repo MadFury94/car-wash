@@ -4,7 +4,6 @@ export default defineNuxtConfig({
   css: [
     "~/assets/css/main.css",
     "~/assets/css/form.scss",
-    "@fortawesome/fontawesome-svg-core/styles.css",
   ],
 
   app: {
