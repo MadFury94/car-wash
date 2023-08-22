@@ -1,5 +1,4 @@
 import axios from "axios";
-
 const baseUrl = "http://localhost:5620/api/";
 
 type AxiosRequestResult<T> = [
@@ -10,25 +9,33 @@ type AxiosRequestResult<T> = [
 ];
 
 export const $useFetchApi = axios.create({
-  baseURL: baseUrl,
-  timeout: 1000,
+  baseURL: "http://localhost:5620/api/",
+  timeout: 3000,
 });
 
+export const $useAdminFetchApi = axios.create({
+  baseURL: "http://localhost:5620/resources/",
+  timeout: 3000,
+});
+
+
+
+
 export function useAxiosRequest<T>(
-  endpoint: any,
-  params = {}
-): AxiosRequestResult<T> {
+  endpoint: string,
+  params: Record<string, any> = {}
+): [Ref<boolean>, () => Promise<void>, Ref<T | null>, Ref<any>] {
   const data = ref<T | null>(null);
-  const error = ref(null);
-  const pending = ref(false);
+  const error = ref<any>(null);
+  const pending = ref<boolean>(false);
 
   const getData = async () => {
     pending.value = true;
     try {
-      const response = await $useFetchApi.get(endpoint, {
+      const response: AxiosResponse<T> = await $useFetchApi.get(endpoint, {
         params: params,
       });
-      data.value = response.data;
+      data.value = response.data as any;
       error.value = null;
     } catch (err: any) {
       error.value = err;
@@ -38,5 +45,34 @@ export function useAxiosRequest<T>(
     }
   };
 
-  return [pending, getData, data as Ref<T>, error];
+  return [pending, getData, data as Ref<T | null>, error];
 }
+
+
+export function useAdminAxiosRequest<T>(
+  endpoint: string,
+  params: Record<string, any> = {}
+): [Ref<boolean>, () => Promise<void>, Ref<T | null>, Ref<any>] {
+  const data = ref<T | null>(null);
+  const error = ref<any>(null);
+  const pending = ref<boolean>(false);
+
+  const getData = async () => {
+    pending.value = true;
+    try {
+      const response: AxiosResponse<T> = await $useAdminFetchApi.get(endpoint, {
+        params: params,
+      });
+      data.value = response.data as any;
+      error.value = null;
+    } catch (err: any) {
+      error.value = err;
+      data.value = null;
+    } finally {
+      pending.value = false;
+    }
+  };
+
+  return [pending, getData, data as Ref<T | null>, error];
+}
+  

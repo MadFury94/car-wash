@@ -8,13 +8,11 @@
         {{ item.name }}
       </div>
     </div>
-    <PackagesSection  :package-data="packageData" />
+    <PackagesSection />
   </div>
 </template>
 
 <script setup lang="ts">
-import { useAxiosRequest } from "../http";
-import { package_detail_data } from "../store/data";
 import PackagesSection from "./sections/PackagesSection.vue";
 
 definePageMeta({
@@ -23,20 +21,6 @@ definePageMeta({
   title: "our Company Packages ",
   description: "This is the package page of our company",
 });
-
-const packageData = package_detail_data;
-
-/* const { pending, data } = useFetch("http://localhost:5620/api/packages/all", {
-  lazy: true,
-}); */
-
-
- const [pending, getData, data, error] =  useAxiosRequest('packages/all')
-
-
- onMounted(getData)
-
-
 </script>
 
 <style scoped></style>

@@ -127,7 +127,7 @@ const navigation = [
   
   {
     name: "Admin",
-    route: { name: "admin" },
+    route: { name: "admin-index" },
     icon: "fa-solid fa-phone",
   },
 ];

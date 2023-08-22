@@ -96,9 +96,9 @@
 <script setup lang="ts">
 import Amount from "../../../../components/utils/Amount.vue";
 import TimeAgo from "../../../../components/utils/TimeAgo.vue";
-import { useAxiosRequest } from "../../../../http";
+import { useAdminAxiosRequest } from "../../../../http";
 //
-const [pending, getData, data, error] = useAxiosRequest("packages/all");
+const [pending, getData, data, error] = useAdminAxiosRequest("packages/all");
 
 
 if(data.value) {
