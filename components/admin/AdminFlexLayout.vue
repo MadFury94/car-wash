@@ -277,7 +277,7 @@ const navigation = [
   },
   {
     name: "Bookings",
-    route: { name: "admin-index" },
+    route: { name: "admin-bookings" },
     icon: "fa-solid fa-house",
   },
   {

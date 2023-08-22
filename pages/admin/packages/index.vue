@@ -1,8 +1,6 @@
 <template>
   <div>
-    all packages
 
-    <button class="bg-green-500 p-2">Create Package</button>
 
     <Modal
       max-size="max-w-md"
@@ -40,7 +38,7 @@
     <div class="p-20">
       <div class="sm:flex sm:items-center">
         <div class="sm:flex-auto">
-          <h1 class="text-base font-semibold leading-6 text-gray-900">Users</h1>
+          <h1 class="text-base font-semibold leading-6 text-gray-900">All Packages {{data?.meta.total  }}</h1>
           <p class="mt-2 text-sm text-gray-700">
             A list of all the users in your account including their name, title,
             email and role.
@@ -56,7 +54,11 @@
           </button>
         </div>
       </div>
-      <AllPackages />
+      <div>
+        <div v-if="pending">Loading ...</div>
+
+        <AllPackages v-else :data="data?.data" :meta="data?.meta" />
+      </div>
     </div>
 
     <!-- you will need to handle a loading state -->
@@ -64,7 +66,8 @@
 </template>
 
 <script setup lang="ts">
-import { $useFetchApi } from "../../../http";
+import { MetaType, PackageDetails } from "types/model";
+import { $useFetchApi, useAdminAxiosRequest } from "../../../http";
 
 import AllPackages from "../packages/components/AllPackages.vue";
 
@@ -82,7 +85,16 @@ const form = ref({
   name: "PREMIUM DETAILING",
   price: 35000,
   type: "saloon",
-  notice:"₦8,500 extra Logistics fee to Mainland."
+  notice: "₦8,500 extra Logistics fee to Mainland.",
+});
+
+const [pending, getData, data, error] = useAdminAxiosRequest<{
+  data: PackageDetails  | undefined;
+  meta: MetaType;
+}>("packages/all");
+
+onMounted(() => {
+  getData();
 });
 
 function createPackage() {
@@ -98,8 +110,6 @@ function createPackage() {
       console.log(err);
     });
 }
-
-
 </script>
 
 <style scoped></style>

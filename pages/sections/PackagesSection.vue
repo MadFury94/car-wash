@@ -151,9 +151,13 @@
 <script setup lang="ts">
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from "@headlessui/vue";
 import { $useFetchApi, useAxiosRequest } from "../../http";
+import { PackageDetails } from "../../types/model";
 
 const props = defineProps({
-
+  packageData: {
+    type: Array as PropType<PackageDetails[]>,
+    required: true,
+  },
   menuStyle: {
     type: String,
     required: false,

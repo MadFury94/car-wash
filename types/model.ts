@@ -1,16 +1,19 @@
 export type PackageDetails = {
-    title: string;
-    value: string;  
-    packages: {
-      name: string;
-      id: string;
-      href: string;
-      duration: string;
-      price: string;
-      description: string;
-      features: string[];
-      mostPopular: boolean;
-    }[];
-  }
-  
-  
+  name: string;
+  uuid: string;
+  duration: string;
+  type: string;
+  price: number;
+  description: string;
+  createdAt: string;
+  updatedAt: string;
+  features: string[];
+  mostPopular: boolean;
+};
+
+export type MetaType = {
+  lastPage: string;
+  page: string;
+  perPage: string;
+  total: string;
+};

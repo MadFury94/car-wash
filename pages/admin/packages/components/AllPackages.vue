@@ -1,9 +1,7 @@
 <template>
   <!-- you will need to handle a loading state -->
-  <div v-if="pending">Loading ...</div>
-  <div v-else>
+  <div>
     <div class="px-4 sm:px-6 lg:px-8">
-    
       <div class="mt-8 flow-root">
         <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div
@@ -63,7 +61,9 @@
                   </td>
                   <td class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">
                     <div class="text-gray-900">{{ carPackage.duration }}</div>
-                    <div class="mt-1 text-gray-500"><Amount :value="carPackage.price" /> </div>
+                    <div class="mt-1 text-gray-500">
+                      <Amount :value="carPackage.price" />
+                    </div>
                   </td>
                   <td class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">
                     <span
@@ -73,6 +73,9 @@
                   </td>
                   <td class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">
                     <TimeAgo :value="carPackage.createdAt" />
+                  </td>
+                  <td class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">
+                    <TimeAgo :value="carPackage.updatedAt" />
                   </td>
                   <td
                     class="relative whitespace-nowrap py-5 pl-3 pr-4 text-right text-sm font-medium sm:pr-0"
@@ -94,20 +97,16 @@
 </template>
 
 <script setup lang="ts">
+import { PackageDetails } from "types/model";
 import Amount from "../../../../components/utils/Amount.vue";
 import TimeAgo from "../../../../components/utils/TimeAgo.vue";
-import { useAdminAxiosRequest } from "../../../../http";
-//
-const [pending, getData, data, error] = useAdminAxiosRequest("packages/all");
 
-
-if(data.value) {
-  console.log(data.value);
-}
-onMounted(getData);
-
-
-
+const props = defineProps({
+  data: {
+    type: Object as PropType<PackageDetails[]>,
+    required: false,
+  },
+});
 </script>
 
 <style scoped></style>
