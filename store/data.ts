@@ -1,4 +1,3 @@
-import { title } from "process";
 import { PackageDetails } from "types/model";
 
 export const package_detail_data = [
@@ -203,20 +202,13 @@ export const package_detail_data = [
 
 export const admin_menu = [
   {
-    title: "Dashboard",
-    name:"all-packages"
+    name: "Dashboard",
+    route: { name: "all-packages" },
+    icon: "fa-solid fa-house",
   },
   {
-    title: "Create Features",
-    name:"new-feature"
+    name: "Create Features",
+    route: { name: "new-feature" },
+    icon: "fa-solid fa-house",
   },
-  {
-    title: "Home",
-    name:"index"
-  },
-  }
 ];
-<div>Create Package</div>
-<NuxtLink :to="{ name: 'all-packages' }">All Packages</NuxtLink>
-<NuxtLink :to="{ name: 'new-feature' }">Create features</NuxtLink>
-<NuxtLink :to="{ name: 'index' }">Home</NuxtLink>

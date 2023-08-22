@@ -89,11 +89,12 @@
                     @click="sidebarOpen = false"
                   >
                     <span class="sr-only">Close sidebar</span>
-                    <XMarkIcon class="h-6 w-6 text-white" aria-hidden="true" />
+                    <div>Hi</div>
                   </button>
                 </div>
               </TransitionChild>
               <!-- Sidebar component, swap this element with another sidebar if you like -->
+              <AdminSideBar />
               <div
                 class="flex grow flex-col gap-y-5 overflow-y-auto bg-indigo-600 px-6 pb-4"
               >
@@ -164,10 +165,7 @@
                         href="#"
                         class="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-indigo-200 hover:bg-indigo-700 hover:text-white"
                       >
-                        <Cog6ToothIcon
-                          class="h-6 w-6 shrink-0 text-indigo-200 group-hover:text-white"
-                          aria-hidden="true"
-                        />
+                        <div>cog</div>
                         Settings
                       </a>
                     </li>
@@ -185,7 +183,10 @@
       class="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col"
     >
       <!-- Sidebar component, swap this element with another sidebar if you like -->
+      <AdminSideBar />
+
       <div
+        v-if="false"
         class="flex grow flex-col gap-y-5 overflow-y-auto bg-indigo-600 px-6 pb-4"
       >
         <div class="flex h-16 shrink-0 items-center">
@@ -253,10 +254,7 @@
                 href="#"
                 class="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-indigo-200 hover:bg-indigo-700 hover:text-white"
               >
-                <Cog6ToothIcon
-                  class="h-6 w-6 shrink-0 text-indigo-200 group-hover:text-white"
-                  aria-hidden="true"
-                />
+                <div>cog</div>
                 Settings
               </a>
             </li>
@@ -275,7 +273,7 @@
           @click="sidebarOpen = true"
         >
           <span class="sr-only">Open sidebar</span>
-          <Bars3Icon class="h-6 w-6" aria-hidden="true" />
+          <div>Bar</div>
         </button>
 
         <!-- Separator -->
@@ -284,10 +282,7 @@
         <div class="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
           <form class="relative flex flex-1" action="#" method="GET">
             <label for="search-field" class="sr-only">Search</label>
-            <MagnifyingGlassIcon
-              class="pointer-events-none absolute inset-y-0 left-0 h-full w-5 text-gray-400"
-              aria-hidden="true"
-            />
+            <div>Eye</div>
             <input
               id="search-field"
               class="block h-full w-full border-0 py-0 pl-8 pr-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm"
@@ -302,7 +297,7 @@
               class="-m-2.5 p-2.5 text-gray-400 hover:text-gray-500"
             >
               <span class="sr-only">View notifications</span>
-              <BellIcon class="h-6 w-6" aria-hidden="true" />
+              <div>bell</div>
             </button>
 
             <!-- Separator -->
@@ -326,10 +321,7 @@
                     aria-hidden="true"
                     >Tom Cook</span
                   >
-                  <ChevronDownIcon
-                    class="ml-2 h-5 w-5 text-gray-400"
-                    aria-hidden="true"
-                  />
+                <div>Cherc</div>
                 </span>
               </MenuButton>
               <transition
@@ -367,6 +359,7 @@
       <main class="py-10">
         <div class="px-4 sm:px-6 lg:px-8">
           <!-- Your content -->
+          <NuxtPage />
         </div>
       </main>
     </div>
@@ -384,14 +377,15 @@ MenuItems,
 TransitionChild,
 TransitionRoot,
 } from "@headlessui/vue";
+import AdminSideBar from "../components/admin/AdminSideBar.vue";
 
 import { ref } from "vue";
 
 const navigation = [
-  { name: "Dashboard", href: "#",  current: true },
-  { name: "Booking", href: "#",  current: false },
-  { name: "Packages", href: "#",  current: false },
-  { name: "Users", href: "#",  current: false },
+  { name: "Dashboard", href: "#", current: true },
+  { name: "Booking", href: "#", current: false },
+  { name: "Packages", href: "#", current: false },
+  { name: "Users", href: "#", current: false },
   { name: "Settings", href: "#", current: false },
 ];
 const teams = [
