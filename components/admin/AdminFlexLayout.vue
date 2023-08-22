@@ -246,6 +246,8 @@
 
       <main class="py-10">
         <div class="px-4 sm:px-6 lg:px-8">
+          <BreadCrumbs />
+
           <!-- Your content -->
           <slot></slot>
           <!-- slot outlet -->
@@ -257,14 +259,14 @@
 
 <script setup>
 import {
-  Dialog,
-  DialogPanel,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems,
-  TransitionChild,
-  TransitionRoot,
+Dialog,
+DialogPanel,
+Menu,
+MenuButton,
+MenuItem,
+MenuItems,
+TransitionChild,
+TransitionRoot,
 } from "@headlessui/vue";
 
 import { ref } from "vue";
