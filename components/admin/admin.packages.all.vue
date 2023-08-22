@@ -97,9 +97,9 @@
 </template>
 
 <script setup lang="ts">
-import { PackageDetails } from "types/model";
-import Amount from "../../../../components/utils/Amount.vue";
-import TimeAgo from "../../../../components/utils/TimeAgo.vue";
+import { PackageDetails } from "~/types/model";
+import Amount from "../utils/Amount.vue";
+import TimeAgo from "../utils/TimeAgo.vue";
 
 const props = defineProps({
   data: {
