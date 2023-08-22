@@ -283,8 +283,8 @@ const navigation = [
     icon: "fa-solid fa-house",
   },
   {
-    name: "Create Features",
-    route: { name: "new-feature" },
+    name: "Features",
+    route: { name: "all-features" },
     icon: "fa-solid fa-house",
   },
   {

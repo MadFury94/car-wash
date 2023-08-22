@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex justify-center">
+    <div class="">
       <div>
         <h1 class="text-center font-bold text-2xl">New feature</h1>
         <nuxt-link :to="{ name: 'all-features' }">View all features</nuxt-link>

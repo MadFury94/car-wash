@@ -46,7 +46,18 @@
                         scope="col"
                         class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                       >
-                        Description
+                      </th>
+                      <th
+                          scope="col"
+                          class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                      >
+                        CreatedAt
+                      </th>
+                      <th
+                          scope="col"
+                          class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                      >
+                        Updated
                       </th>
                       <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
                         <span class="sr-only">Edit</span>
@@ -59,11 +70,23 @@
                         class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6"
                       >
                         {{ feature.name }}
+                        <div class="text-xs text-gray-700">
+                          {{ feature.list[0] }}...
+                        </div>
                       </td>
                       <td
                         class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
                       >
-                        {{ feature.title }}
+                    
+                      </td>
+                      <td
+                        class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
+                      >
+                        {{ feature.createdAt }}
+                      </td>   <td
+                        class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
+                      >
+                        {{ feature.updatedAt }}
                       </td>
                       <td
                         class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6"
