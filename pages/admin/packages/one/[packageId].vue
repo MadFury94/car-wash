@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Busy v-if="pending" />
+    <Busy v-if="pending"/>
 
     <div v-else>
       <div class="border grid grid-cols-2 gap-10">
@@ -11,13 +11,13 @@
               <div class="relative">
                 <label id="name">Name</label>
                 <input
-                  v-model="carPackages.name"
-                  type="text"
-                  placeholder="Silver"
+                    v-model="carPackages.name"
+                    type="text"
+                    placeholder="Silver"
                 />
               </div>
 
-              <button class="btn" @click="updatePackage">Update Package</button>
+              <button class="btn" @click="updateOne">Update Package</button>
             </div>
           </div>
         </div>
@@ -29,7 +29,7 @@
 
 <script setup lang="ts">
 import Busy from "~/components/commons/Busy.vue";
-import { $useAdminFetchApi } from "~/http";
+import {$useAdminFetchApi} from "~/http";
 
 definePageMeta({
   layout: "admin-layout",
@@ -64,22 +64,47 @@ function getData() {
     url: `packages/${packageUuid.value}/one`,
     method: "GET",
   })
-    .then((res) => {
-      carPackages.value = res.data;
-      pending.value = false;
-      console.log(carPackages.value);
-    })
-    .catch((err) => {
-      pending.value = false;
-      console.log(err);
-    });
+      .then((res) => {
+        carPackages.value = res.data;
+        pending.value = false;
+        console.log(carPackages.value);
+      })
+      .catch((err) => {
+        pending.value = false;
+        console.log(err);
+      });
 }
+
+function updateOne() {
+  pending.value = true;
+  $useAdminFetchApi({
+    url: `packages/${packageUuid.value}/update`,
+    method: "PATCH",
+    data: {
+      name: carPackages.value.name,
+    
+    },
+  })
+      .then((res) => {
+        carPackages.value = res.data;
+        getData()
+        pending.value = false;
+        console.log(carPackages.value);
+      })
+      .catch((err) => {
+        getData()
+
+        pending.value = false;
+        console.log(err);
+      });
+}
+
 
 onMounted(() => {
   getData();
 });
 
-function updatePackage() {}
+
 </script>
 
 <style scoped></style>
