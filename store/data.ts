@@ -1,3 +1,4 @@
+import { title } from "process";
 import { PackageDetails } from "types/model";
 
 export const package_detail_data = [
@@ -55,17 +56,19 @@ export const package_detail_data = [
         mostPopular: false,
         features: ["INTERIOR", "EXTERIOR"],
         duration: "4 to 6 hours",
-      }, {
+      },
+      {
         name: "CORAL PACKAGE",
         id: "tier-startup",
         href: "#",
         price: "13,500",
         description: "A plan that scales with your rapidly growing business.",
         mostPopular: false,
-        features: [ "ENGINE"],
+        features: ["ENGINE"],
 
         duration: "4 to 6 hours",
-      },{
+      },
+      {
         name: "CRYSTAL PACKAGE",
         id: "tier-startup",
         href: "#",
@@ -197,3 +200,23 @@ export const package_detail_data = [
       ],
     }, */
 ] as PackageDetails[];
+
+export const admin_menu = [
+  {
+    title: "Dashboard",
+    name:"all-packages"
+  },
+  {
+    title: "Create Features",
+    name:"new-feature"
+  },
+  {
+    title: "Home",
+    name:"index"
+  },
+  }
+];
+<div>Create Package</div>
+<NuxtLink :to="{ name: 'all-packages' }">All Packages</NuxtLink>
+<NuxtLink :to="{ name: 'new-feature' }">Create features</NuxtLink>
+<NuxtLink :to="{ name: 'index' }">Home</NuxtLink>

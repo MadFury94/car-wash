@@ -2,13 +2,23 @@ import axios from "axios";
 
 const baseUrl = "http://localhost:5620/api/";
 
-export const   $useFetchApi = axios.create({
+type AxiosRequestResult<T> = [
+  Ref<boolean>,
+  () => Promise<void>,
+  Ref<any>,
+  Ref<any>,
+];
+
+export const $useFetchApi = axios.create({
   baseURL: baseUrl,
   timeout: 1000,
 });
 
-export function useAxiosRequest(endpoint: any, params = {}) {
-  const data = ref(null);
+export function useAxiosRequest<T>(
+  endpoint: any,
+  params = {}
+): AxiosRequestResult<T> {
+  const data = ref<T | null>(null);
   const error = ref(null);
   const pending = ref(false);
 
@@ -28,5 +38,5 @@ export function useAxiosRequest(endpoint: any, params = {}) {
     }
   };
 
-  return [pending, getData, data, error];
+  return [pending, getData, data as Ref<T>, error];
 }

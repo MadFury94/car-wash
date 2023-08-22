@@ -15,8 +15,6 @@
       <div v-if="pending">Loading ...</div>
 
       <template v-else>
-    
-
         <div v-if="data" class="mt-16 flex justify-center">
           <RadioGroup
             v-model="selectedTier"
@@ -90,18 +88,18 @@
                       >₦{{ tier.price }}</span
                     >
                   </p>
-
-                  <NuxtLink
-                    :href="tier.href"
-                    :aria-describedby="tier.id"
-                    :class="[
-                      tier.mostPopular
-                        ? 'bg-secondary-600 text-white shadow-sm hover:bg-secondary-500'
-                        : 'text-secondary-600 ring-1 ring-inset ring-secondary-200 hover:ring-secondary-300',
-                      'mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600',
-                    ]"
-                    >Book Now</NuxtLink
-                  >
+                  <button @click="createBooking(tier.uuid)">
+                    <div
+                      :class="[
+                        tier.mostPopular
+                          ? 'bg-secondary-600 text-white shadow-sm hover:bg-secondary-500'
+                          : 'text-secondary-600 ring-1 ring-inset ring-secondary-200 hover:ring-secondary-300',
+                        'mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600',
+                      ]"
+                    >
+                      Book Now
+                    </div>
+                  </button>
 
                   <ul
                     v-if="false"
@@ -152,7 +150,7 @@
 
 <script setup lang="ts">
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from "@headlessui/vue";
-import { useAxiosRequest } from "../../http";
+import { $useFetchApi, useAxiosRequest } from "../../http";
 import { PackageDetails } from "../../types/model";
 
 const props = defineProps({
@@ -167,7 +165,7 @@ const props = defineProps({
   },
 });
 
-
+const $router = useRouter();
 
 const checked = ref(false);
 
@@ -177,7 +175,7 @@ onMounted(() => {
   getData();
 });
 
-const selectedTier = ref('saloon');
+const selectedTier = ref("saloon");
 
 type featureTypes = {
   id: "PAINT" | "PAINT-G" | "ENGINE" | "INTERIOR" | "EXTERIOR";
@@ -225,5 +223,30 @@ function orderedListItems(str: string) {
   const array_of_strings = str.split(",").map((item) => item.trim());
 
   return array_of_strings;
+}
+
+function createBooking(uuid: string) {
+  console.log("create booking", uuid);
+
+  $useFetchApi({
+    url: "bookings/new",
+    method: "POST",
+    data: {
+      packageUuid: uuid,
+    },
+  })
+    .then((res) => {
+      console.log(res);
+
+      $router.push({
+        name: "booking",
+        params: {
+          id: res.data.bookingUuid,
+        },
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
 </script>
