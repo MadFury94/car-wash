@@ -69,7 +69,7 @@
 import { MetaType, PackageDetails } from "types/model";
 import { $useFetchApi, useAdminAxiosRequest } from "../../../http";
 
-import AllPackages from "../packages/components/AllPackages.vue";
+import AllPackages from "../packages/components/admin.packages.all.vue";
 
 definePageMeta({
   layout: "admin-layout",
