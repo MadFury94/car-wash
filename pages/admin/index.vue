@@ -8,7 +8,7 @@
 
 definePageMeta({
   layout: "admin-layout",
-  name: "admin",
+  name: "admin-index",
   title: "Admin",
   description: "This is the admin page of our company",
 });

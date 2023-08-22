@@ -1,46 +1,4 @@
-<!-- <template>
-  <div>
-    <div class="bg-red-500">
-      <div class="flex gap-x-4">
-        <div>Create Package</div>
-        <NuxtLink :to="{ name: 'all-packages' }">All Packages</NuxtLink>
-        <NuxtLink :to="{ name: 'new-feature' }">Create features</NuxtLink>
-        <NuxtLink :to="{ name: 'index' }">Home</NuxtLink>
-      </div>
-    </div>
-    <NuxtPage />
-  </div>
-</template>
-
-<script setup lang="ts"></script>
-
-<style scoped></style>
-
- -->
-
-<!--
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
 <template>
-  <!--
-    This example requires updating your template:
-
-    ```
-    <html class="h-full bg-white">
-    <body class="h-full">
-    ```
-  -->
   <div>
     <TransitionRoot as="template" :show="sidebarOpen">
       <Dialog
@@ -89,7 +47,9 @@
                     @click="sidebarOpen = false"
                   >
                     <span class="sr-only">Close sidebar</span>
-                    <div>Hi</div>
+                    <i
+                      class="fa-regular fa-circle-xmark text-4xl text-white"
+                    ></i>
                   </button>
                 </div>
               </TransitionChild>
@@ -109,63 +69,27 @@
                   <ul role="list" class="flex flex-1 flex-col gap-y-7">
                     <li>
                       <ul role="list" class="-mx-2 space-y-1">
-                        <li v-for="item in navigation" :key="item.name">
-                          <a
-                            :href="item.href"
-                            :class="[
-                              item.current
-                                ? 'bg-indigo-700 text-white'
-                                : 'text-indigo-200 hover:text-white hover:bg-indigo-700',
-                              'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
-                            ]"
-                          >
-                            <component
-                              :is="item.icon"
-                              :class="[
-                                item.current
-                                  ? 'text-white'
-                                  : 'text-indigo-200 group-hover:text-white',
-                                'h-6 w-6 shrink-0',
-                              ]"
-                              aria-hidden="true"
-                            />
-                            {{ item.name }}
-                          </a>
-                        </li>
+                        <NuxtLink
+                          v-for="item in navigation"
+                          :key="item.name"
+                          :to="{ name: item.route.name }"
+                          :class="[
+                            $route.name === item.route.name
+                              ? 'bg-indigo-700 text-white'
+                              : 'text-indigo-200 hover:text-white hover:bg-indigo-700',
+                            'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
+                          ]"
+                        >
+                          {{ item.name }}
+                        </NuxtLink>
                       </ul>
                     </li>
-                    <li>
-                      <div
-                        class="text-xs font-semibold leading-6 text-indigo-200"
-                      >
-                        Your teams
-                      </div>
-                      <ul role="list" class="-mx-2 mt-2 space-y-1">
-                        <li v-for="team in teams" :key="team.name">
-                          <a
-                            :href="team.href"
-                            :class="[
-                              team.current
-                                ? 'bg-indigo-700 text-white'
-                                : 'text-indigo-200 hover:text-white hover:bg-indigo-700',
-                              'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
-                            ]"
-                          >
-                            <span
-                              class="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-indigo-400 bg-indigo-500 text-[0.625rem] font-medium text-white"
-                              >{{ team.initial }}</span
-                            >
-                            <span class="truncate">{{ team.name }}</span>
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
+
                     <li class="mt-auto">
                       <a
                         href="#"
                         class="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-indigo-200 hover:bg-indigo-700 hover:text-white"
                       >
-                        <div>cog</div>
                         Settings
                       </a>
                     </li>
@@ -198,61 +122,28 @@
           <ul role="list" class="flex flex-1 flex-col gap-y-7">
             <li>
               <ul role="list" class="-mx-2 space-y-1">
-                <li v-for="item in navigation" :key="item.name">
-                  <a
-                    :href="item.href"
-                    :class="[
-                      item.current
-                        ? 'bg-indigo-700 text-white'
-                        : 'text-indigo-200 hover:text-white hover:bg-indigo-700',
-                      'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
-                    ]"
-                  >
-                    <component
-                      :is="item.icon"
-                      :class="[
-                        item.current
-                          ? 'text-white'
-                          : 'text-indigo-200 group-hover:text-white',
-                        'h-6 w-6 shrink-0',
-                      ]"
-                      aria-hidden="true"
-                    />
-                    {{ item.name }}
-                  </a>
-                </li>
+                <nuxt-link
+                  v-for="item in navigation"
+                  :key="item.name"
+                  :to="{ name: item.route.name }"
+                  :class="[
+                    $route.name === item.route.name
+                      ? 'bg-indigo-700 text-white'
+                      : 'text-indigo-200 hover:text-white hover:bg-indigo-700',
+                    'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
+                  ]"
+                >
+                  {{ item.name }}
+                </nuxt-link>
               </ul>
             </li>
-            <li>
-              <div class="text-xs font-semibold leading-6 text-indigo-200">
-                Your teams
-              </div>
-              <ul role="list" class="-mx-2 mt-2 space-y-1">
-                <li v-for="team in teams" :key="team.name">
-                  <a
-                    :href="team.href"
-                    :class="[
-                      team.current
-                        ? 'bg-indigo-700 text-white'
-                        : 'text-indigo-200 hover:text-white hover:bg-indigo-700',
-                      'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
-                    ]"
-                  >
-                    <span
-                      class="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-indigo-400 bg-indigo-500 text-[0.625rem] font-medium text-white"
-                      >{{ team.initial }}</span
-                    >
-                    <span class="truncate">{{ team.name }}</span>
-                  </a>
-                </li>
-              </ul>
-            </li>
+
             <li class="mt-auto">
               <a
                 href="#"
-                class="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-indigo-200 hover:bg-indigo-700 hover:text-white"
+                class="group items-center -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-indigo-200 hover:bg-indigo-700 hover:text-white"
               >
-                <div>cog</div>
+                <i class="fa-regular fa-gear"></i>
                 Settings
               </a>
             </li>
@@ -271,7 +162,7 @@
           @click="sidebarOpen = true"
         >
           <span class="sr-only">Open sidebar</span>
-          <div>Bar</div>
+          <i class="fa-solid fa-bars-staggered text-2xl"></i>
         </button>
 
         <!-- Separator -->
@@ -280,23 +171,22 @@
         <div class="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
           <form class="relative flex flex-1" action="#" method="GET">
             <label for="search-field" class="sr-only">Search</label>
-            <div>Eye</div>
-            <input
-              id="search-field"
-              class="block h-full w-full border-0 py-0 pl-8 pr-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm"
-              placeholder="Search..."
-              type="search"
-              name="search"
-            />
+            <div class="flex items-center">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input
+                id="search-field"
+                class="block h-full w-full border-0 py-0 pl-8 pr-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm"
+                placeholder="Search..."
+                type="search"
+                name="search"
+              />
+            </div>
           </form>
           <div class="flex items-center gap-x-4 lg:gap-x-6">
             <button
               type="button"
               class="-m-2.5 p-2.5 text-gray-400 hover:text-gray-500"
-            >
-              <span class="sr-only">View notifications</span>
-              <div>bell</div>
-            </button>
+            ></button>
 
             <!-- Separator -->
             <div
@@ -319,7 +209,7 @@
                     aria-hidden="true"
                     >Tom Cook</span
                   >
-                  <div>Cherc</div>
+                  <i class="pl-2 fa-solid fa-chevron-down"></i>
                 </span>
               </MenuButton>
               <transition
@@ -380,11 +270,31 @@ import {
 import { ref } from "vue";
 
 const navigation = [
-  { name: "Dashboard", href: "#", current: true },
-  { name: "Booking", href: "#", current: false },
-  { name: "Packages", href: "#", current: false },
-  { name: "Users", href: "#", current: false },
-  { name: "Settings", href: "#", current: false },
+  {
+    name: "Dashboard",
+    route: { name: "admin-index" },
+    icon: "fa-solid fa-house",
+  },
+  {
+    name: "Bookings",
+    route: { name: "admin-index" },
+    icon: "fa-solid fa-house",
+  },
+  {
+    name: "Create Features",
+    route: { name: "new-feature" },
+    icon: "fa-solid fa-house",
+  },
+  {
+    name: "Packages",
+    route: { name: "all-packages" },
+    icon: "fa-solid fa-house",
+  },
+  {
+    name: "Home",
+    route: { name: "admin-index" },
+    icon: "fa-solid fa-house",
+  },
 ];
 const teams = [
   { id: 1, name: "Home", href: "#", initial: "H", current: false },
