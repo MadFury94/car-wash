@@ -123,7 +123,7 @@
 <script setup lang="ts">
 import {FeaturesType, MetaType} from "types/model";
 import {onMounted} from "vue";
-import {$useAdminFetchApi, useAdminAxiosRequest} from "../../../http";
+import {$useAdminFetchApi, useAdminAxiosRequest} from "~/http";
 
 definePageMeta({
   layout: "admin-layout",
