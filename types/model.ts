@@ -17,3 +17,15 @@ export type MetaType = {
   perPage: string;
   total: string;
 };
+
+
+
+export type FeaturesType ={
+  name: string;
+  list: string[];
+  uuid: string;
+  createdAt: string;
+  updatedAt: string;
+
+
+}

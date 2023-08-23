@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="">
+    <div class="flex justify-center">
       <div>
         <h1 class="text-center font-bold text-2xl">New feature</h1>
         <nuxt-link :to="{ name: 'all-features' }">View all features</nuxt-link>
@@ -21,7 +21,10 @@
           </div>
           <template v-if="!isEditing">
             <ol class="list-item" type="1">
-              <li v-for="item in previewFeatures">> {{ item }}</li>
+           <li v-for="item in previewFeatures">
+            
+            
+            <i class="fa-regular fa-circle-check text-secondary-500"></i> {{ item }}</li>
             </ol>
           </template>
 

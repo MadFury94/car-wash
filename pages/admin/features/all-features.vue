@@ -1,7 +1,6 @@
 <template>
   <div>
     <h1>View all features</h1>
-
     <!-- you will need to handle a loading state -->
     <div v-if="pending">Loading ...</div>
     <div v-else>
@@ -9,7 +8,7 @@
         <div class="sm:flex sm:items-center">
           <div class="sm:flex-auto">
             <h1 class="text-base font-semibold leading-6 text-gray-900">
-              Features
+              Features ( {{ data?.meta.total }})
             </h1>
             <p class="mt-2 text-sm text-gray-700">
               A list of all the feature in your account including their name,
@@ -45,17 +44,16 @@
                       <th
                         scope="col"
                         class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                      >
-                      </th>
+                      ></th>
                       <th
-                          scope="col"
-                          class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                        scope="col"
+                        class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                       >
                         CreatedAt
                       </th>
                       <th
-                          scope="col"
-                          class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                        scope="col"
+                        class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                       >
                         Updated
                       </th>
@@ -65,7 +63,11 @@
                     </tr>
                   </thead>
                   <tbody class="divide-y divide-gray-200 bg-white">
-                    <tr v-for="(feature, index) in data" :key="feature.email" ::key="index">
+                    <tr
+                      v-for="(feature, index) in data?.data"
+                      :key="feature.uuid"
+                      ::key="index"
+                    >
                       <td
                         class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6"
                       >
@@ -76,27 +78,32 @@
                       </td>
                       <td
                         class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
-                      >
-                    
-                      </td>
+                      ></td>
                       <td
                         class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
                       >
-                        {{ feature.createdAt }}
-                      </td>   <td
+                        <UtilsTimeAgo :value="feature.createdAt" />
+                      </td>
+
+                      <td
                         class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
                       >
-                        {{ feature.updatedAt }}
+                        <UtilsTimeAgo :value="feature.updatedAt" />
                       </td>
                       <td
                         class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6"
                       >
-                        <nuxt-link :to="{name:'one-feature', params:{id:feature.uuid}}"
+                        <nuxt-link
+                          :to="{
+                            name: 'update-feature',
+                            params: { id: feature.uuid },
+                          }"
                           href="#"
                           class="text-indigo-600 hover:text-indigo-900"
-                          >Edit<span class="sr-only"
-                            > {{ feature.name }}</span
-                          ></nuxt-link>
+                          >Edit<span class="sr-only">
+                            {{ feature.name }}</span
+                          ></nuxt-link
+                        >
                       </td>
                     </tr>
                   </tbody>
@@ -111,6 +118,7 @@
 </template>
 
 <script setup lang="ts">
+import { FeaturesType, MetaType } from "types/model";
 import { onMounted } from "vue";
 import { useAxiosRequest } from "../../../http";
 
@@ -119,7 +127,10 @@ definePageMeta({
   name: "all-features",
 });
 
-const [pending, getData, data, error] = useAxiosRequest("packages/all-features");
+const [pending, getData, data, error] = useAxiosRequest<{
+  data: FeaturesType[];
+  meta: MetaType;
+}>("packages/all-features");
 
 onMounted(getData);
 </script>
