@@ -17,95 +17,98 @@
           </div>
           <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
             <nuxt-link
-              :to="{ name: 'new-feature' }"
-              type="button"
-              class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >Add Features</nuxt-link
+                :to="{ name: 'new-feature' }"
+                type="button"
+                class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >Add Features
+            </nuxt-link
             >
           </div>
         </div>
         <div class="mt-8 flow-root">
           <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div
-              class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8"
+                class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8"
             >
               <div
-                class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg"
+                  class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg"
               >
                 <table class="min-w-full divide-y divide-gray-300">
                   <thead class="bg-gray-50">
-                    <tr>
-                      <th
+                  <tr>
+                    <th
                         scope="col"
                         class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
-                      >
-                        Name
-                      </th>
-                      <th
+                    >
+                      Name
+                    </th>
+                    <th
                         scope="col"
                         class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                      ></th>
-                      <th
+                    ></th>
+                    <th
                         scope="col"
                         class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                      >
-                        CreatedAt
-                      </th>
-                      <th
+                    >
+                      CreatedAt
+                    </th>
+                    <th
                         scope="col"
                         class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                      >
-                        Updated
-                      </th>
-                      <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
-                        <span class="sr-only">Edit</span>
-                      </th>
-                    </tr>
+                    >
+                      Updated
+                    </th>
+                    <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
+                      <span class="sr-only">Edit</span>
+                    </th>
+                  </tr>
                   </thead>
                   <tbody class="divide-y divide-gray-200 bg-white">
-                    <tr
+                  <tr
                       v-for="(feature, index) in data?.data"
                       :key="feature.uuid"
                       ::key="index"
-                    >
-                      <td
+                  >
+                    <td
                         class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6"
-                      >
-                        {{ feature.name }}
-                        <div class="text-xs text-gray-700">
-                          {{ feature.list[0] }}...
-                        </div>
-                      </td>
-                      <td
+                    >
+                      {{ feature.name }}
+                      <div class="text-xs text-gray-700">
+                        {{ feature.list[0] }}...
+                      </div>
+                    </td>
+                    <td
                         class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
-                      ></td>
-                      <td
+                    ></td>
+                    <td
                         class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
-                      >
-                        <UtilsTimeAgo :value="feature.createdAt" />
-                      </td>
+                    >
+                      <UtilsTimeAgo :value="feature.createdAt"/>
+                    </td>
 
-                      <td
+                    <td
                         class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
-                      >
-                        <UtilsTimeAgo :value="feature.updatedAt" />
-                      </td>
-                      <td
-                        class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6"
-                      >
-                        <nuxt-link
+                    >
+                      <UtilsTimeAgo :value="feature.updatedAt"/>
+                    </td>
+                    <td
+                        class="relative flex items-center gap-x-4 whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6"
+                    >
+                      <button @click="deleteFeature(feature.uuid)">
+                        Delete
+                      </button>
+                      <nuxt-link
                           :to="{
                             name: 'update-feature',
                             params: { id: feature.uuid },
                           }"
-                          href="#"
                           class="text-indigo-600 hover:text-indigo-900"
-                          >Edit<span class="sr-only">
+                      >Edit<span class="sr-only">
                             {{ feature.name }}</span
-                          ></nuxt-link
-                        >
-                      </td>
-                    </tr>
+                      ></nuxt-link
+                      >
+                    </td>
+                  </tr>
                   </tbody>
                 </table>
               </div>
@@ -118,21 +121,40 @@
 </template>
 
 <script setup lang="ts">
-import { FeaturesType, MetaType } from "types/model";
-import { onMounted } from "vue";
-import { useAxiosRequest } from "../../../http";
+import {FeaturesType, MetaType} from "types/model";
+import {onMounted} from "vue";
+import {$useAdminFetchApi, useAdminAxiosRequest} from "../../../http";
 
 definePageMeta({
   layout: "admin-layout",
   name: "all-features",
 });
 
-const [pending, getData, data, error] = useAxiosRequest<{
+const [pending, getData, data, error] = useAdminAxiosRequest<{
   data: FeaturesType[];
   meta: MetaType;
-}>("packages/all-features");
+}>("features/all");
 
 onMounted(getData);
+
+function deleteFeature(featureUuid: string) {
+  console.log("delete", featureUuid);
+  // /resources/features/:featureUuid/delete
+
+
+  $useAdminFetchApi({
+    url: `features/${featureUuid}/delete`,
+    method: "DELETE",
+  })
+      .then((res: any) => {
+        console.log(res);
+
+        getData();
+      })
+      .catch((err: any) => {
+        console.log(err);
+      });
+}
 </script>
 
 <style scoped></style>

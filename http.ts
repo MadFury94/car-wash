@@ -1,7 +1,7 @@
 import axios from "axios";
 const baseUrl = "http://localhost:5620/api/";
 
-type AxiosRequestResult<T> = [
+type AxiosResponse<T> = [
   Ref<boolean>,
   () => Promise<void>,
   Ref<any>,
@@ -35,7 +35,7 @@ export function useAxiosRequest<T>(
       const response: AxiosResponse<T> = await $useFetchApi.get(endpoint, {
         params: params,
       });
-      data.value = response.data as any;
+      data.value = response.data;
       error.value = null;
     } catch (err: any) {
       error.value = err;
@@ -63,7 +63,7 @@ export function useAdminAxiosRequest<T>(
       const response: AxiosResponse<T> = await $useAdminFetchApi.get(endpoint, {
         params: params,
       });
-      data.value = response.data as any;
+      data.value = response.data;
       error.value = null;
     } catch (err: any) {
       error.value = err;
