@@ -21,6 +21,7 @@
   >
     <div>
       <NuxtPage />
+    
     </div>
   </NuxtLayout>
 </template>

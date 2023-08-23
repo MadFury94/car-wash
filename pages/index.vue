@@ -24,6 +24,16 @@
       <HowItWork />
       <FaqSection />
       <TestimonialSlider />
+      <client-only>
+        <debug
+          :data="{
+            counter: {
+              name: 'counter',
+            },
+          }"
+          use-parent-name
+        ></debug>
+      </client-only>
     </div>
   </div>
 </template>
