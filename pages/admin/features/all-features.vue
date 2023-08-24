@@ -100,7 +100,7 @@
                       <nuxt-link
                           :to="{
                             name: 'update-feature',
-                            params: { id: feature.uuid },
+                            params: { featureId: feature.uuid },
                           }"
                           class="text-indigo-600 hover:text-indigo-900"
                       >Edit<span class="sr-only">

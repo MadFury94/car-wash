@@ -20,7 +20,7 @@
 
 <script setup lang="ts">
 import { FeaturesType } from "types/model";
-import { $useAdminFetchApi, useAdminAxiosRequest } from "../../../http";
+import { $useAdminFetchApi, useAdminAxiosRequest } from "~/http";
 
 definePageMeta({
   name: "update-feature",

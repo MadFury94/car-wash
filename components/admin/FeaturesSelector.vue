@@ -41,7 +41,7 @@
               <NuxtLink
                 :to="{
                   name: 'update-feature',
-                  params: { id: item.uuid },
+                  params: { featureId: item.uuid },
                 }"
                 >Edit
               </NuxtLink>
