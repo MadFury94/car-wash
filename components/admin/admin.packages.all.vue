@@ -56,6 +56,13 @@
                       <div class="mt-1 text-gray-500">
                         {{ carPackage.type }}
                       </div>
+                      <template v-if="carPackage.features">
+
+                        <span class="inline-flex items-center rounded-md bg-secondary-50 px-2 py-1 text-xs font-medium text-secondary-700 ring-1 ring-inset ring-secondary-700/10">  {{carPackage.features.length}} Features</span>
+
+
+                      </template>
+
                     </div>
                   </div>
                 </td>
