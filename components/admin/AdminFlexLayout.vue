@@ -269,7 +269,7 @@ TransitionChild,
 TransitionRoot,
 } from "@headlessui/vue";
 
-import { ref } from "vue";
+
 
 const navigation = [
   {
@@ -298,11 +298,7 @@ const navigation = [
     icon: "fa-solid fa-house",
   },
 ];
-const teams = [
-  { id: 1, name: "Home", href: "#", initial: "H", current: false },
-  { id: 2, name: "Tailwind Labs", href: "#", initial: "T", current: false },
-  { id: 3, name: "Workcation", href: "#", initial: "W", current: false },
-];
+
 const userNavigation = [
   { name: "Your profile", href: "#" },
   { name: "Sign out", href: "#" },

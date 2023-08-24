@@ -5,12 +5,12 @@
     <div v-else>
       <div class="border grid lg:grid-cols-2 gap-10">
         <div class="p-8">
-          <div v-if="carPackages?.name" class="form">
+          <div v-if="carPackage?.name" class="form">
             <div class="mx-auto grid grid-cols-1 gap-y-6">
               <div class="relative">
                 <label id="name">Name</label>
                 <input
-                  v-model="carPackages.name"
+                  v-model="carPackage.name"
                   type="text"
                   placeholder="Silver"
                 />
@@ -18,20 +18,20 @@
               <div class="relative">
                 <label id="duration">Duration</label>
                 <input
-                  v-model="carPackages.duration"
+                  v-model="carPackage.duration"
                   type="text"
                   placeholder="Silver"
                 />
               </div>
               <div class="relative">
                 <label id="price">Price (₦)</label>
-                <input v-model="carPackages.price" type="number" />
+                <input v-model="carPackage.price" type="number" />
               </div>
 
               <div class="relative">
                 <label id="price">Notice</label>
                 <textarea
-                  v-model="carPackages.notice"
+                  v-model="carPackage.notice"
                   type="text"
                   rows="3"
                   placeholder="N20,000"
@@ -39,6 +39,10 @@
               </div>
               <section>
                 <div>sleected</div>
+                <div v-for="(item, index) in carPackage.features">
+                  {{ item.name }}
+                
+                </div>
               </section>
 
               <button class="btn" @click="updateOne">Update Package</button>
@@ -46,7 +50,7 @@
           </div>
         </div>
         <div>
-          <AdminFeaturesSelector @addToSelection="selectedFeatuere"  />
+          <AdminFeaturesSelector :existing-feature="carPackage!.features" @addToSelection="updateSelected"  />
         </div>
       </div>
     </div>
@@ -80,15 +84,20 @@ interface PackageDetailsType {
   description: string;
   notice: string;
   uuid: string;
+  features: FeaturesType[];
 }
+const carPackage = ref<PackageDetailsType>({});
+const selectedFeatures = ref<FeaturesType[]>([]);
 
-function selectedFeatuere(item:FeaturesType){
 
-  console.log("selected feature", item.name)
+function updateSelected(item: FeaturesType) {
+  if (!selectedFeatures.value.some(f => f._id === item._id)) {
+    selectedFeatures.value.push(item);
+  }
+  console.log("selected feature", item.name);
 }
 
 const pending = ref(false);
-const carPackages = ref<PackageDetailsType>();
 
 function getData() {
   pending.value = true;
@@ -97,7 +106,7 @@ function getData() {
     method: "GET",
   })
     .then((res) => {
-      carPackages.value = res.data;
+      carPackage.value = res.data;
       pending.value = false;
     })
     .catch((err) => {
@@ -111,14 +120,17 @@ function updateOne() {
     url: `packages/${packageUuid.value}/update`,
     method: "PATCH",
     data: {
-      name: carPackages.value.name,
+      name: carPackage.value?.name,
+      duration: carPackage.value?.duration,
+      price: carPackage.value?.price,
+      notice: carPackage.value?.notice,
     },
   })
     .then((res) => {
-      carPackages.value = res.data;
+      carPackage.value = res.data;
       getData();
       pending.value = false;
-      console.log(carPackages.value);
+      console.log(carPackage.value);
     })
     .catch((err) => {
       getData();
