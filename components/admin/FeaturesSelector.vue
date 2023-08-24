@@ -30,9 +30,9 @@
               {{ item.name }}
             </div>
             <div class="flex gap-x-8">
-              <button v-if="item.selected" @click="addToSelection(item, 'remove')">Remove</button>
+              <button v-if="item.selected" @click="updateFeaturesSelection(item, 'remove')">Remove</button>
 
-              <button v-else @click="addToSelection(item,'add')">Add</button>
+              <button v-else @click="updateFeaturesSelection(item,'add')">Add</button>
               <NuxtLink
                   :to="{
                   name: 'update-feature',
@@ -74,23 +74,14 @@ const props = defineProps({
 
 const emit = defineEmits(["addToSelection"]);
 
-function addToSelection(item: FeaturesType, action: "add" | "remove") {
-  console.log("add to selection", item, action);
-
+function updateFeaturesSelection(item: FeaturesType, action: "add" | "remove") {
 
   const body = {
     feature: item,
     action,
   }
-
-
   updatePackage(body, action);
 
-
-  // packageUuid.value
-
-
-  // emit("addToSelection", item);
 }
 
 function updatePackage(item: FeaturesType, action: "add" | "remove") {
@@ -100,9 +91,13 @@ function updatePackage(item: FeaturesType, action: "add" | "remove") {
     data: item,
   })
       .then((res: any) => {
+
+        getFeatures();
         console.log(res);
       })
       .catch((err: any) => {
+        getFeatures();
+
         console.log(err);
       });
 }
