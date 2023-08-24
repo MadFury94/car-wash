@@ -139,7 +139,6 @@ onMounted(getData);
 
 function deleteFeature(featureUuid: string) {
   console.log("delete", featureUuid);
-  // /resources/features/:featureUuid/delete
 
 
   $useAdminFetchApi({

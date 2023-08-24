@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Busy v-if="pending" />
+    <Busy v-if="pending"/>
 
     <div v-else>
       <div class="border grid lg:grid-cols-2 gap-10">
@@ -10,38 +10,37 @@
               <div class="relative">
                 <label id="name">Name</label>
                 <input
-                  v-model="carPackage.name"
-                  type="text"
-                  placeholder="Silver"
+                    v-model="carPackage.name"
+                    type="text"
+                    placeholder="Silver"
                 />
               </div>
               <div class="relative">
                 <label id="duration">Duration</label>
                 <input
-                  v-model="carPackage.duration"
-                  type="text"
-                  placeholder="Silver"
+                    v-model="carPackage.duration"
+                    type="text"
+                    placeholder="Silver"
                 />
               </div>
               <div class="relative">
                 <label id="price">Price (₦)</label>
-                <input v-model="carPackage.price" type="number" />
+                <input v-model="carPackage.price" type="number"/>
               </div>
 
               <div class="relative">
                 <label id="price">Notice</label>
                 <textarea
-                  v-model="carPackage.notice"
-                  type="text"
-                  rows="3"
-                  placeholder="N20,000"
+                    v-model="carPackage.notice"
+                    type="text"
+                    rows="3"
+                    placeholder="N20,000"
                 />
               </div>
               <section>
-                <div>sleected</div>
                 <div v-for="(item, index) in carPackage.features">
                   {{ item.name }}
-                
+
                 </div>
               </section>
 
@@ -50,7 +49,8 @@
           </div>
         </div>
         <div>
-          <AdminFeaturesSelector :existing-feature="carPackage!.features" @addToSelection="updateSelected"  />
+          <AdminFeaturesSelector v-if="carPackage!.features" :existing-feature="carPackage!.features"
+                                 @addToSelection="updateSelected"/>
         </div>
       </div>
     </div>
@@ -58,9 +58,9 @@
 </template>
 
 <script setup lang="ts">
-import { FeaturesType } from "types/model";
+import {FeaturesType} from "types/model";
 import Busy from "~/components/commons/Busy.vue";
-import { $useAdminFetchApi } from "~/http";
+import {$useAdminFetchApi} from "~/http";
 
 definePageMeta({
   layout: "admin-layout",
@@ -86,6 +86,7 @@ interface PackageDetailsType {
   uuid: string;
   features: FeaturesType[];
 }
+
 const carPackage = ref<PackageDetailsType>({});
 const selectedFeatures = ref<FeaturesType[]>([]);
 
@@ -105,13 +106,13 @@ function getData() {
     url: `packages/${packageUuid.value}/one`,
     method: "GET",
   })
-    .then((res) => {
-      carPackage.value = res.data;
-      pending.value = false;
-    })
-    .catch((err) => {
-      pending.value = false;
-    });
+      .then((res) => {
+        carPackage.value = res.data;
+        pending.value = false;
+      })
+      .catch((err) => {
+        pending.value = false;
+      });
 }
 
 function updateOne() {
@@ -126,18 +127,18 @@ function updateOne() {
       notice: carPackage.value?.notice,
     },
   })
-    .then((res) => {
-      carPackage.value = res.data;
-      getData();
-      pending.value = false;
-      console.log(carPackage.value);
-    })
-    .catch((err) => {
-      getData();
+      .then((res) => {
+        carPackage.value = res.data;
+        getData();
+        pending.value = false;
+        console.log(carPackage.value);
+      })
+      .catch((err) => {
+        getData();
 
-      pending.value = false;
-      console.log(err);
-    });
+        pending.value = false;
+        console.log(err);
+      });
 }
 
 onMounted(() => {
