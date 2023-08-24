@@ -49,7 +49,7 @@
           </div>
         </div>
         <div>
-          <AdminFeaturesSelector v-if="carPackage!.features" :existing-feature="carPackage!.features"
+          <AdminFeaturesSelector  :existing-feature="carPackage!.features"
                                  @addToSelection="updateSelected"/>
         </div>
       </div>

@@ -29,7 +29,7 @@ definePageMeta({
 
 const $route = useRoute();
 
-const featureUuid = computed(() => $route.params.id);
+const featureUuid = computed(() => $route.params.featureId);
 
 const [pending, getData, data, error] = useAdminAxiosRequest<FeaturesType>(
   `features/${featureUuid.value}/one`,

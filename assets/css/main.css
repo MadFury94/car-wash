@@ -22,7 +22,7 @@
   @apply text-lg leading-8 text-white sm:text-sm;
 }
 .btn {
-  @apply rounded-xl hover:bg-secondary-600 delay-100 duration-100 transition-all bg-secondary-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-800 whitespace-nowrap;
+  @apply rounded-md hover:bg-secondary-600 py-4 delay-100 duration-100 transition-all bg-secondary-500 px-3.5  text-sm font-semibold text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-800 whitespace-nowrap;
 }
 .btn3 {
   @apply rounded-xl bg-white px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-secondary-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-800 whitespace-nowrap;

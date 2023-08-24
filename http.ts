@@ -15,7 +15,7 @@ export const $useFetchApi = axios.create({
 
 export const $useAdminFetchApi = axios.create({
   baseURL: "http://localhost:5620/resources/",
-  timeout: 3000,
+  // timeout: 3000,
 });
 
 
