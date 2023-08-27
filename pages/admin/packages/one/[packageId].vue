@@ -29,12 +29,15 @@
               </div>
 
 
-              <select v-model="carPackage.type">
+         <div class="relative">
+          <label>Type:</label>
+          <select v-model="carPackage.type">
 
-                <option value="salon">saloon</option>
-                <option value="suv">suv</option>
+<option value="salon">saloon</option>
+<option value="suv">suv</option>
 
-              </select>
+</select>
+         </div>
 
               <div class="relative">
                 <label id="price">Notice</label>
