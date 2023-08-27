@@ -115,7 +115,7 @@
                           }}</span>
                       </div>
 
-<!--                      <ul v-if="feature.list" class="list-disc list-inside">
+                      <ul v-if="feature.list" class="list-disc list-inside">
                         <li v-for="item in feature.list" class="capitalize">{{ item }}</li>
                       </ul>-->
 
@@ -135,9 +135,9 @@
 </template>
 
 <script setup lang="ts">
-import {RadioGroup, RadioGroupLabel, RadioGroupOption} from "@headlessui/vue";
-import {$useFetchApi, useAxiosRequest} from "../../http";
-import {PackageDetails} from "../../types/model";
+import { RadioGroup, RadioGroupLabel, RadioGroupOption } from "@headlessui/vue";
+import { $useFetchApi, useAxiosRequest } from "../../http";
+import { PackageDetails } from "../../types/model";
 
 const props = defineProps({
   packageData: {

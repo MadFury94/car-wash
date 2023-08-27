@@ -1,11 +1,11 @@
 <template>
   <div class="border-2 p-4 rounded-md">
-    <Busy v-if="isFetching"/>
+    <Busy v-if="isFetching" />
     <div v-else>
       <div class="form">
         <div class="relative">
           <label>Search</label>
-          <input type="text"/>
+          <input type="text" />
         </div>
       </div>
 
@@ -24,21 +24,29 @@
         <div v-for="item in filteredData" :key="item.uuid">
           <div class="flex justify-between gap-x-10 items-center">
             <div
-                :class="[item.selected ? 'border-blue-400' : 'border-gray-300']"
-                class="border-l-8 rounded-md  my-2 w-full shadow-sm border-2 py-2 pl-4"
+              :class="[item.selected ? 'border-blue-400' : 'border-gray-300']"
+              class="border-l-8 rounded-md my-2 w-full shadow-sm border-2 py-2 pl-4"
             >
               {{ item.name }}
             </div>
             <div class="flex gap-x-8">
-              <button v-if="item.selected" @click="updateFeaturesSelection(item, 'remove')">Remove</button>
+              <button
+                v-if="item.selected"
+                @click="updateFeaturesSelection(item, 'remove')"
+              >
+                Remove
+              </button>
 
-              <button v-else @click="updateFeaturesSelection(item,'add')">Add</button>
+              <button v-else @click="updateFeaturesSelection(item, 'add')">
+                Add
+              </button>
               <NuxtLink
-                  :to="{
+                v-if="false"
+                :to="{
                   name: 'update-feature',
                   params: { featureId: item.uuid },
                 }"
-              >Edit
+                >Edit
               </NuxtLink>
             </div>
           </div>
@@ -49,14 +57,13 @@
 </template>
 
 <script setup lang="ts">
-import {PropType} from "nuxt/dist/app/compat/capi";
+import { PropType } from "nuxt/dist/app/compat/capi";
 import Busy from "~/components/commons/Busy.vue";
-import {$useAdminFetchApi, useAdminAxiosRequest} from "~/http";
-import {FeaturesType, MetaType} from "~/types/model";
+import { $useAdminFetchApi, useAdminAxiosRequest } from "~/http";
+import { FeaturesType, MetaType } from "~/types/model";
 
 const $route = useRoute();
 const packageUuid = computed(() => $route.params.packageId);
-
 
 const [isFetching, getFeatures, data, error] = useAdminAxiosRequest<{
   data: FeaturesType[];
@@ -71,17 +78,14 @@ const props = defineProps({
   },
 });
 
-
 const emit = defineEmits(["addToSelection"]);
 
 function updateFeaturesSelection(item: FeaturesType, action: "add" | "remove") {
-
   const body = {
     feature: item,
     action,
-  }
+  };
   updatePackage(body, action);
-
 }
 
 function updatePackage(item: FeaturesType, action: "add" | "remove") {
@@ -90,33 +94,32 @@ function updatePackage(item: FeaturesType, action: "add" | "remove") {
     method: "PATCH",
     data: item,
   })
-      .then((res: any) => {
+    .then((res: any) => {
+      getFeatures();
+      console.log(res);
+    })
+    .catch((err: any) => {
+      getFeatures();
 
-        getFeatures();
-        console.log(res);
-      })
-      .catch((err: any) => {
-        getFeatures();
-
-        console.log(err);
-      });
+      console.log(err);
+    });
 }
 
-
 const filteredData = computed(() => {
-  return data.value?.data.map(feature => {
-    if (props.existingFeature.some(selected => selected.uuid === feature.uuid)) {
-      return {...feature, selected: true};
+  return data.value?.data.map((feature) => {
+    if (
+      props.existingFeature.some((selected) => selected.uuid === feature.uuid)
+    ) {
+      return { ...feature, selected: true };
     } else {
       return feature;
     }
-  })
+  });
 });
-
 
 onMounted(() => {
   getFeatures();
-})
+});
 </script>
 
 <style scoped></style>

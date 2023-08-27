@@ -10,6 +10,10 @@
               <label>Name:</label>
               <input type="text" v-model="data!.name" />
             </div>
+            <div class="relative">
+              <label>Description:</label>
+              <textarea type="text" v-model="data!.list" ></textarea>
+            </div>
             <button @click="updateFeature" class="btn w-full">Update</button>
           </div>
         </div>

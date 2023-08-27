@@ -28,6 +28,14 @@
                 <input v-model="carPackage.price" type="number"/>
               </div>
 
+
+              <select v-model="carPackage.type">
+
+                <option value="salon">saloon</option>
+                <option value="suv">suv</option>
+
+              </select>
+
               <div class="relative">
                 <label id="price">Notice</label>
                 <textarea
@@ -58,9 +66,9 @@
 </template>
 
 <script setup lang="ts">
-import {FeaturesType} from "types/model";
+import { FeaturesType } from "types/model";
 import Busy from "~/components/commons/Busy.vue";
-import {$useAdminFetchApi} from "~/http";
+import { $useAdminFetchApi } from "~/http";
 
 definePageMeta({
   layout: "admin-layout",
@@ -125,6 +133,7 @@ function updateOne() {
       duration: carPackage.value?.duration,
       price: carPackage.value?.price,
       notice: carPackage.value?.notice,
+      type: carPackage.value?.type,
     },
   })
       .then((res) => {
