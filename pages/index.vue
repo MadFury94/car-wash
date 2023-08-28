@@ -12,7 +12,7 @@
       <CountUpSection />
       <SectionWithTabs />
       <PackagesSection :package-data="packageData" />
-
+      <NewpackageSection :package-data="packageData" />
       <div v-if="pending">Loading ...</div>
       <div v-else>
         <div v-for="post in posts">
@@ -52,6 +52,7 @@ import PackagesSection from "./sections/PackagesSection.vue";
 import TestimonialSlider from "./sections/TestimonialSlider.vue";
 
 import { package_detail_data } from "../store/data";
+import NewpackageSection from "./sections/NewpackageSection.vue";
 
 definePageMeta({
   // layout: "default",

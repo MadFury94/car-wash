@@ -9,10 +9,12 @@
       </div>
     </div>
     <PackagesSection />
+    <NewpackageSection />
   </div>
 </template>
 
 <script setup lang="ts">
+import NewpackageSection from "./sections/NewpackageSection.vue";
 import PackagesSection from "./sections/PackagesSection.vue";
 
 definePageMeta({
