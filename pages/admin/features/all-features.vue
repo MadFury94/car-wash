@@ -121,9 +121,9 @@
 </template>
 
 <script setup lang="ts">
-import {FeaturesType, MetaType} from "types/model";
-import {onMounted} from "vue";
-import {$useAdminFetchApi, useAdminAxiosRequest} from "~/http";
+import { FeaturesType, MetaType } from "types/model";
+import { onMounted } from "vue";
+import { $useAdminFetchApi, useAdminAxiosRequest } from "~/http";
 
 definePageMeta({
   layout: "admin-layout",
@@ -133,7 +133,7 @@ definePageMeta({
 const [pending, getData, data, error] = useAdminAxiosRequest<{
   data: FeaturesType[];
   meta: MetaType;
-}>("features/all");
+}>("features");
 
 onMounted(getData);
 
@@ -142,7 +142,7 @@ function deleteFeature(featureUuid: string) {
 
 
   $useAdminFetchApi({
-    url: `features/${featureUuid}/delete`,
+    url: `features/${featureUuid}`,
     method: "DELETE",
   })
       .then((res: any) => {

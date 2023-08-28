@@ -12,7 +12,7 @@
             </div>
             <div class="relative">
               <label>Description:</label>
-              <textarea type="text" v-model="data!.list" ></textarea>
+              <textarea type="text" v-model="data!.list"></textarea>
             </div>
             <button @click="updateFeature" class="btn w-full">Update</button>
           </div>
@@ -36,7 +36,7 @@ const $route = useRoute();
 const featureUuid = computed(() => $route.params.featureId);
 
 const [pending, getData, data, error] = useAdminAxiosRequest<FeaturesType>(
-  `features/${featureUuid.value}/one`,
+  `features/${featureUuid.value}`,
   {
     featureUuid: featureUuid.value,
   }
@@ -46,7 +46,7 @@ console.log(data.value);
 
 function updateFeature() {
   $useAdminFetchApi({
-    url: `features/${featureUuid.value}/update`,
+    url: `features/${featureUuid.value}`,
     method: "PATCH",
     data: data.value,
   })

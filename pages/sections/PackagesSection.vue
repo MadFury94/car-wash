@@ -117,7 +117,7 @@
 
                       <ul v-if="feature.list" class="list-disc list-inside">
                         <li v-for="item in feature.list" class="capitalize">{{ item }}</li>
-                      </ul>-->
+                      </ul>
 
                     </li>
 
@@ -129,7 +129,6 @@
         </div>
       </template>
 
-      <!-- <p class="text-center py-4">See more Packages</p> -->
     </div>
   </div>
 </template>

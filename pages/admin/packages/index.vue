@@ -38,7 +38,7 @@
     <div class="p-20">
       <div class="sm:flex sm:items-center">
         <div class="sm:flex-auto">
-          <h1 class="text-base font-semibold leading-6 text-gray-900">All Packages {{data?.meta.total  }}</h1>
+          <h1 class="text-base font-semibold leading-6 text-gray-900">All Packages {{data?.meta  }}</h1>
           <p class="mt-2 text-sm text-gray-700">
             A list of all the users in your account including their name, title,
             email and role.

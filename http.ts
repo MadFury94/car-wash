@@ -1,25 +1,19 @@
 import axios from "axios";
-const baseUrl = "http://localhost:5620/api/";
 
-type AxiosResponse<T> = [
-  Ref<boolean>,
-  () => Promise<void>,
-  Ref<any>,
-  Ref<any>,
-];
+const baseUrl = "http://localhost:5620/v1";
+
+
+type AxiosResponse<T> = [Ref<boolean>, () => Promise<void>, Ref<any>, Ref<any>];
 
 export const $useFetchApi = axios.create({
-  baseURL: "http://localhost:5620/api/",
+  baseURL: `${baseUrl}/api`,
   timeout: 3000,
 });
 
 export const $useAdminFetchApi = axios.create({
-  baseURL: "http://localhost:5620/resources/",
+  baseURL: `${baseUrl}/admin`,
   // timeout: 3000,
 });
-
-
-
 
 export function useAxiosRequest<T>(
   endpoint: string,
@@ -48,7 +42,6 @@ export function useAxiosRequest<T>(
   return [pending, getData, data as Ref<T | null>, error];
 }
 
-
 export function useAdminAxiosRequest<T>(
   endpoint: string,
   params: Record<string, any> = {}
@@ -75,4 +68,3 @@ export function useAdminAxiosRequest<T>(
 
   return [pending, getData, data as Ref<T | null>, error];
 }
-  

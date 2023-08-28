@@ -21,10 +21,10 @@
           </div>
           <template v-if="!isEditing">
             <ol class="list-item" type="1">
-           <li v-for="item in previewFeatures">
-            
-            
-            <i class="fa-regular fa-circle-check text-secondary-500"></i> {{ item }}</li>
+              <li v-for="item in previewFeatures">
+                <i class="fa-regular fa-circle-check text-secondary-500"></i>
+                {{ item }}
+              </li>
             </ol>
           </template>
 
@@ -96,7 +96,7 @@ function editList() {
 
 function createFeature() {
   $useAdminFetchApi({
-    url: "features/new",
+    url: "features",
     method: "POST",
     data: form,
   })
