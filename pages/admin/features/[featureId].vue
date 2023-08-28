@@ -5,14 +5,15 @@
     <div v-else>
       <div v-if="oneFeature?.name" class="form">
         <div class="max-w-lg mx-auto">
-          <div class="flex flex-col gap-y-8">
+          
+          <div class="flex flex-col gap-y-4">
             <div class="relative">
               <label>Name:</label>
               <input type="text" v-model="oneFeature!.name" />
             </div>
-            <div class="flex gap-x-4">
-              <button v-if="!isEditing" @click="editList">Edit</button>
-              <button v-else @click="previewList">preview</button>
+            <div class="flex justify-end gap-x-4">
+              <button v-if="!isEditing" @click="editList"> <i class="fa-solid fa-pen-to-square"></i>Edit</button>
+              <button v-else @click="previewList"><i class="fa-solid fa-eye"></i> preview</button>
             </div>
             <template v-if="!isEditing">
               <ol class="list-item" type="1">
@@ -25,32 +26,37 @@
             <div v-else class="relative">
               <label>Description:</label>
               <textarea
-                  cols="40"
-                  rows="10"
-                  class="border"
-                  type="text" v-model="oneFeature!.list"></textarea>
+                cols="40"
+                rows="10"
+                class="border"
+                type="text"
+                v-model="oneFeature!.list"
+              ></textarea>
             </div>
-            <button @click="updateFeature" class="btn w-full">Update</button>
           </div>
+          <button @click="updateFeature" class="btn btn-primary w-full mt-4" :disabled="!isEditing">
+        Update
+      </button>
         </div>
+     
       </div>
+   
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { FeaturesType } from "types/model";
-import { $useAdminFetchApi, useAdminAxiosRequest } from "~/http";
 import { ref } from "vue";
+import { $useAdminFetchApi } from "~/http";
 
 definePageMeta({
   name: "update-feature",
   layout: "admin-layout",
 });
 
-const isEditing = ref(false);
+const isEditing = ref(true);
 
-const oneFeature = ref<FeaturesType>();
+const oneFeature = ref<any>();
 
 const pending = ref(false);
 
@@ -74,6 +80,7 @@ function getData() {
   })
     .then((res: any) => {
       oneFeature.value = res.data;
+      oneFeature.value.list = res.data.list.join("\n");
       previewFeatures.value = res.data.list;
       pending.value = false;
 
@@ -88,7 +95,7 @@ function getData() {
 
 function previewList() {
   isEditing.value = false;
-  console.log(oneFeature?.value?.list.join("\n"));
+  previewFeatures.value = oneFeature!.value!.list.split("\n");
 }
 
 function editList() {

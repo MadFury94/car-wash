@@ -56,7 +56,7 @@
               <!-- Sidebar component, swap this element with another sidebar if you like -->
 
               <div
-                class="flex grow flex-col gap-y-5 overflow-y-auto bg-indigo-600 px-6 pb-4"
+                class="flex grow flex-col gap-y-5 overflow-y-auto bg-secondary-600 px-6 pb-4"
               >
                 <div class="flex h-16 shrink-0 items-center">
                   <img
@@ -75,8 +75,8 @@
                           :to="{ name: item.route.name }"
                           :class="[
                             $route.name === item.route.name
-                              ? 'bg-indigo-700 text-white'
-                              : 'text-indigo-200 hover:text-white hover:bg-indigo-700',
+                              ? 'bg-secondary-700 text-white'
+                              : 'text-secondary-200 hover:text-white hover:bg-secondary-700',
                             'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
                           ]"
                         >
@@ -88,7 +88,7 @@
                     <li class="mt-auto">
                       <a
                         href="#"
-                        class="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-indigo-200 hover:bg-indigo-700 hover:text-white"
+                        class="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-secondary-200 hover:bg-secondary-700 hover:text-white"
                       >
                         Settings
                       </a>
@@ -109,7 +109,7 @@
       <!-- Sidebar component, swap this element with another sidebar if you like -->
 
       <div
-        class="flex grow flex-col gap-y-5 overflow-y-auto bg-indigo-600 px-6 pb-4"
+        class="flex grow flex-col gap-y-5 overflow-y-auto bg-secondary-600 px-6 pb-4"
       >
         <div class="flex h-16 shrink-0 items-center">
           <img
@@ -128,8 +128,8 @@
                   :to="{ name: item.route.name }"
                   :class="[
                     $route.name === item.route.name
-                      ? 'bg-indigo-700 text-white'
-                      : 'text-indigo-200 hover:text-white hover:bg-indigo-700',
+                      ? 'bg-secondary-700 text-white'
+                      : 'text-secondary-200 hover:text-white hover:bg-secondary-700',
                     'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
                   ]"
                 >
@@ -141,7 +141,7 @@
             <li class="mt-auto">
               <a
                 href="#"
-                class="group items-center -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-indigo-200 hover:bg-indigo-700 hover:text-white"
+                class="group items-center -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-secondary-200 hover:bg-secondary-700 hover:text-white"
               >
                 <i class="fa-regular fa-gear"></i>
                 Settings
