@@ -3,16 +3,32 @@
     <!-- you will need to handle a loading state -->
     <div v-if="pending">Loading ...</div>
     <div v-else>
-      <div v-if="data?.name" class="form">
+      <div v-if="oneFeature?.name" class="form">
         <div class="max-w-lg mx-auto">
           <div class="flex flex-col gap-y-8">
             <div class="relative">
               <label>Name:</label>
-              <input type="text" v-model="data!.name" />
+              <input type="text" v-model="oneFeature!.name" />
             </div>
-            <div class="relative">
+            <div class="flex gap-x-4">
+              <button v-if="!isEditing" @click="editList">Edit</button>
+              <button v-else @click="previewList">preview</button>
+            </div>
+            <template v-if="!isEditing">
+              <ol class="list-item" type="1">
+                <li v-for="item in previewFeatures">
+                  <i class="fa-regular fa-circle-check text-secondary-500"></i>
+                  {{ item }}
+                </li>
+              </ol>
+            </template>
+            <div v-else class="relative">
               <label>Description:</label>
-              <textarea type="text" v-model="data!.list"></textarea>
+              <textarea
+                  cols="40"
+                  rows="10"
+                  class="border"
+                  type="text" v-model="oneFeature!.list"></textarea>
             </div>
             <button @click="updateFeature" class="btn w-full">Update</button>
           </div>
@@ -25,30 +41,66 @@
 <script setup lang="ts">
 import { FeaturesType } from "types/model";
 import { $useAdminFetchApi, useAdminAxiosRequest } from "~/http";
+import { ref } from "vue";
 
 definePageMeta({
   name: "update-feature",
   layout: "admin-layout",
 });
 
+const isEditing = ref(false);
+
+const oneFeature = ref<FeaturesType>();
+
+const pending = ref(false);
+
+const previewFeatures = ref([] as string[]) as any;
+
 const $route = useRoute();
 
 const featureUuid = computed(() => $route.params.featureId);
 
-const [pending, getData, data, error] = useAdminAxiosRequest<FeaturesType>(
+/*const [pending, getData, data, error] = useAdminAxiosRequest<FeaturesType>(
   `features/${featureUuid.value}`,
   {
     featureUuid: featureUuid.value,
-  }
-);
+  },
+);*/
 
-console.log(data.value);
+function getData() {
+  $useAdminFetchApi({
+    url: `features/${featureUuid.value}`,
+    method: "GET",
+  })
+    .then((res: any) => {
+      oneFeature.value = res.data;
+      previewFeatures.value = res.data.list;
+      pending.value = false;
+
+      console.log(res.data.list);
+    })
+    .catch((err: any) => {
+      pending.value = false;
+
+      console.log(err);
+    });
+}
+
+function previewList() {
+  isEditing.value = false;
+  console.log(oneFeature?.value?.list.join("\n"));
+}
+
+function editList() {
+  isEditing.value = true;
+  oneFeature!.value!.list = previewFeatures.value.join("\n");
+}
 
 function updateFeature() {
   $useAdminFetchApi({
     url: `features/${featureUuid.value}`,
     method: "PATCH",
-    data: data.value,
+    data: oneFeature.value,
   })
     .then((res: any) => {
       console.log(res);
