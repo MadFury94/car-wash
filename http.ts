@@ -1,9 +1,28 @@
 import axios from "axios";
 
+function getAuthIdFromLocalStorage() {
+  if (process.client) {
+    return localStorage.getItem("auth-token");
+  }
+  return null;
+}
+
+const isAuth = getAuthIdFromLocalStorage();
+
+if (isAuth) {
+  // @ts-ignore
+  axios.defaults.headers["token"] = isAuth;
+}
+
 const baseUrl = "http://localhost:5620/v1";
 
-
 type AxiosResponse<T> = [Ref<boolean>, () => Promise<void>, Ref<any>, Ref<any>];
+
+export const $useBaseApi = axios.create({
+  baseURL: `${baseUrl}`,
+  // timeout: 3000,
+});
+
 
 export const $useFetchApi = axios.create({
   baseURL: `${baseUrl}/api`,
@@ -17,7 +36,7 @@ export const $useAdminFetchApi = axios.create({
 
 export function useAxiosRequest<T>(
   endpoint: string,
-  params: Record<string, any> = {}
+  params: Record<string, any> = {},
 ): [Ref<boolean>, () => Promise<void>, Ref<T | null>, Ref<any>] {
   const data = ref<T | null>(null);
   const error = ref<any>(null);
@@ -44,7 +63,7 @@ export function useAxiosRequest<T>(
 
 export function useAdminAxiosRequest<T>(
   endpoint: string,
-  params: Record<string, any> = {}
+  params: Record<string, any> = {},
 ): [Ref<boolean>, () => Promise<void>, Ref<T | null>, Ref<any>] {
   const data = ref<T | null>(null);
   const error = ref<any>(null);

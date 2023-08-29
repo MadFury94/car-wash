@@ -5,7 +5,6 @@
     <Modal
       max-size="max-w-md"
       @on-close="modalActive = false"
-      class=""
       v-if="modalActive"
     >
       <div class="form">
@@ -48,7 +47,7 @@
           <button
             @click="modalActive = true"
             type="button"
-            class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            class="btn btn-primary"
           >
             Add Package
           </button>
@@ -91,7 +90,7 @@ const form = ref({
 const [pending, getData, data, error] = useAdminAxiosRequest<{
   data: PackageDetails  | undefined;
   meta: MetaType;
-}>("packages/all");
+}>("packages");
 
 onMounted(() => {
   getData();

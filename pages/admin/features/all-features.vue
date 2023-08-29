@@ -150,6 +150,7 @@ import Modal from "../../../components/Modal.vue";
 definePageMeta({
   layout: "admin-layout",
   name: "all-features",
+  middleware: "auth",
 });
 const form = reactive<{
   slug: string;

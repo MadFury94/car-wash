@@ -154,7 +154,7 @@ const $router = useRouter();
 
 const checked = ref(false);
 
-const [pending, getData, data, error] = useAxiosRequest("packages/all");
+const [pending, getData, data, error] = useAxiosRequest("packages");
 
 onMounted(() => {
   getData();
@@ -220,7 +220,7 @@ function createBooking(uuid: string) {
   console.log("create booking", uuid);
 
   $useFetchApi({
-    url: "bookings/new",
+    url: "bookings",
     method: "POST",
     data: {
       packageUuid: uuid,

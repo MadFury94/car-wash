@@ -71,7 +71,7 @@
 </template>
 
 <script setup lang="ts">
-import { useAdminAxiosRequest } from "../../../http";
+import { useAdminAxiosRequest } from "~/http";
 definePageMeta({
   layout: "admin-layout",
   name: "admin-bookings",
@@ -82,7 +82,7 @@ definePageMeta({
 const [pending, getData, data, error] = useAdminAxiosRequest<{
   data: any;
   meta: any;
-}>("bookings/all");
+}>("bookings");
 
 onMounted(() => {
   getData();

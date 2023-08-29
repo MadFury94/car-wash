@@ -198,6 +198,8 @@
             <Menu as="div" class="relative">
               <MenuButton class="-m-1.5 flex items-center p-1.5">
                 <span class="sr-only">Open user menu</span>
+                {{ authStore.currentUser?.email }}ff
+                <NuxtLink :to="{name:'login'}">Login</NuxtLink>
                 <img
                   class="h-8 w-8 rounded-full bg-gray-50"
                   src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
@@ -257,7 +259,7 @@
   </div>
 </template>
 
-<script setup>
+<script  setup>
 import {
 Dialog,
 DialogPanel,
@@ -268,7 +270,10 @@ MenuItems,
 TransitionChild,
 TransitionRoot,
 } from "@headlessui/vue";
+import { useAuthStore } from "../../store/auth.store";
 
+
+const authStore =  useAuthStore()
 
 
 const navigation = [

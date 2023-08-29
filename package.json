@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.11",
+    "@sidebase/nuxt-auth": "^0.6.0-beta.4",
     "@splidejs/vue-splide": "^0.6.12",
     "@vueuse/core": "^10.3.0",
     "animate.css": "^4.1.1",

@@ -43,7 +43,9 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: [],
+  modules: [
+    '@pinia/nuxt',
+  ],
 
   devtools: {
     enabled: true,
