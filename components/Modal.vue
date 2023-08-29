@@ -8,15 +8,15 @@ const { enter, leave, allowBackdropDismiss } = defineProps({
   modalContentClass: { type: [String, Object], default: "rounded" },
   enter: {
     type: String,
-    default: "animate__animated animate__zoomIn animate__faster"
+    default: "animate__animated animate__zoomIn animate__faster",
   },
   leave: {
     type: String,
-    default: "animate__animated animate__zoomOut animate__faster"
+    default: "animate__animated animate__zoomOut animate__faster",
   },
-  closeText: { type: Boolean, default: false},
+  closeText: { type: Boolean, default: false },
   closeBtn: { type: Boolean, default: true },
-  allowBackdropDismiss: { type: Boolean, default: false }
+  allowBackdropDismiss: { type: Boolean, default: false },
 });
 
 const animateClass = ref(enter);
@@ -61,8 +61,13 @@ function onBackdropClick(e: MouseEvent) {
         <div
           class="relative max-h-[80vh] md:max-h-[85vh] lg:max-h-[90vh] overflow-scroll hide-scrollbar mt-20 mx-2"
         >
-          <button v-if="closeBtn" @click="() => close()" class="absolute right-0 flex items-center">
-        <span v-if="closeText"> Close </span>  <i class="fal fa-times mx-3 my-2 text-xl"></i>
+          <button
+            v-if="closeBtn"
+            @click="() => close()"
+            class="absolute right-0 flex items-center"
+          >
+            <span v-if="closeText"> Close </span>
+            <i class="fal fa-times mx-3 my-2 text-xl"></i>
           </button>
           <section>
             <slot></slot>
@@ -74,7 +79,7 @@ function onBackdropClick(e: MouseEvent) {
   <div
     :class="{
       'animate__animated animate__fadeIn animate__faster': !isLeaving,
-      'animate__animated animate__fadeOut animate__faster': isLeaving
+      'animate__animated animate__fadeOut animate__faster': isLeaving,
     }"
   >
     <div class="modal-bg" style="z-index: 100"></div>
