@@ -87,11 +87,12 @@ const form = ref({
   notice: "₦8,500 extra Logistics fee to Mainland.",
 });
 
-const [pending, getData, data, error] = useAdminAxiosRequest<{
+
+ const [pending, getData, data, error] = useAdminAxiosRequest<{
   data: PackageDetails  | undefined;
   meta: MetaType;
 }>("packages");
-
+ 
 onMounted(() => {
   getData();
 });
