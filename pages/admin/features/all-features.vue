@@ -22,17 +22,19 @@
     </Modal>
     <!-- you will need to handle a loading state -->
     <div v-if="pending">Loading ...</div>
-    <div v-else>
+    <div v-else-if="data">
       <div class="px-4 sm:px-6 lg:px-8">
         <div class="sm:flex sm:items-center">
           <div class="sm:flex-auto">
             <h1 class="text-base font-semibold leading-6 text-gray-900">
-              Features ( {{ data?.meta.total }})
+              Features ( {{ data.meta.total }})
             </h1>
             <p class="mt-2 text-sm text-gray-700">
               A list of all the feature in your account including their name,
               title, email and role.
             </p>
+
+        
           </div>
           <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
             <!--  <nuxt-link
@@ -86,9 +88,9 @@
                   </thead>
                   <tbody class="divide-y divide-gray-200 bg-white">
                     <tr
-                      v-for="(feature, index) in data?.data"
+                      v-for="(feature, index) in data.data"
                       :key="feature.uuid"
-                      ::key="index"
+
                     >
                       <td
                         class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6"
@@ -142,9 +144,9 @@
 </template>
 
 <script setup lang="ts">
-import { FeaturesType, MetaType } from "types/model";
-import { onMounted } from "vue";
-import { $useAdminFetchApi, useAdminAxiosRequest } from "~/http";
+import { FeaturesType } from "types/model";
+import { PaginatedMetaData } from "xpress-mongo/src/types/pagination";
+import { $useAdminFetchApi } from "~/http";
 import Modal from "../../../components/Modal.vue";
 
 definePageMeta({
@@ -175,12 +177,14 @@ const $router = useRouter();
 
 const modalActive = ref(false);
 
-const [pending, getData, data, error] = useAdminAxiosRequest<{
-  data: FeaturesType[];
-  meta: MetaType;
-}>("features");
-
-onMounted(getData);
+const {
+  data,
+  pending,
+  error,
+  execute: getData,
+} = SR.get.admin.features.all<
+  PaginatedMetaData<FeaturesType>
+>(undefined, {});
 
 function deleteFeature(featureUuid: string) {
   console.log("delete", featureUuid);
@@ -208,10 +212,10 @@ function createFeature() {
     .then((res: any) => {
       console.log(res.data.data.uuid);
 
-/*       $router.push({
-        name: "update-feature",
-        params: { featureId: res.data.data.uuid },
-      }); */
+      /*       $router.push({
+                  name: "update-feature",
+                  params: { featureId: res.data.data.uuid },
+                }); */
 
       modalActive.value = false;
 

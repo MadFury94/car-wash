@@ -26,10 +26,12 @@
     "@pinia/nuxt": "^0.4.11",
     "@sidebase/nuxt-auth": "^0.6.0-beta.4",
     "@splidejs/vue-splide": "^0.6.12",
+    "@trapcode/xpresser-frontend-helpers": "^1.1.6",
     "@vueuse/core": "^10.3.0",
     "animate.css": "^4.1.1",
     "moment": "^2.29.4",
     "pinia": "^2.1.6",
-    "vue-json-debug": "^1.1.28"
+    "vue-json-debug": "^1.1.28",
+    "xpress-mongo": "^2.12.1"
   }
 }

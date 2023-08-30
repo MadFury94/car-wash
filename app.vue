@@ -22,11 +22,16 @@
     <div>
       <NuxtPage />
 
+
       <div class="bg-red-500 p-10">
         {{ authStore.appData }}
+
       </div>
     </div>
   </NuxtLayout>
+  <ClientOnly>
+    <DebugDock  />
+  </ClientOnly>
 </template>
 
 <script setup lang="ts">

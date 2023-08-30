@@ -3,8 +3,6 @@ import Footer from "../components/commons/Footer.vue";
 import Header from "../components/commons/Header.vue";
 
 const $router = useRouter();
-
-
 </script>
 
 <template>
@@ -15,4 +13,5 @@ const $router = useRouter();
     </div>
     <Footer />
   </div>
+
 </template>

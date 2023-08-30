@@ -1,11 +1,6 @@
 import axios from "axios";
 
-function getAuthIdFromLocalStorage() {
-  if (process.client) {
-    return localStorage.getItem("auth-token");
-  }
-  return null;
-}
+
 
 const isAuth = getAuthIdFromLocalStorage();
 

@@ -1,9 +1,11 @@
 export default defineEventHandler(async (event) => {
   let body: any = await readBody(event);
 
+/*
   if (body instanceof Uint8Array) {
     body = JSON.parse(new TextDecoder().decode(body));
   }
+*/
 
   if (!body) {
     throw createError({

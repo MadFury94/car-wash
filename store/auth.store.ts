@@ -35,7 +35,9 @@ export const useAuthStore = defineStore("authStore", () => {
     });
 
     authToken.value = token;
+
     localStorage.setItem("auth-token", token);
+
   }
 
   const isLoggedIn = computed(() => {

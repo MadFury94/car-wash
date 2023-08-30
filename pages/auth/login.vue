@@ -70,8 +70,8 @@
 
 <script setup lang="ts">
 import { reactive } from "vue";
-import {$useBaseApi} from "~/http";
-import {useAuthStore} from "~/store/auth.store";
+import { $useBaseApi } from "~/http";
+import { useAuthStore } from "~/store/auth.store";
 
 definePageMeta({
   name: "login",
@@ -85,15 +85,15 @@ const form = reactive<{
   email: "him@gmail.com",
   password: "123456",
 });
-const authStore =  useAuthStore();
+const authStore = useAuthStore();
+
 async function login() {
+  const res = await SR.post.api.login<{
+    token: string;
+  }>(form);
 
- const res = await $useBaseApi.post("/auth/login", form);
+  await authStore.setCurrentUserToken(res.token);
 
- await authStore.setCurrentUserToken(res.data.token);
-
-
-  console.log(res.data.token);
 
   alert("Login success");
 }
