@@ -18,6 +18,10 @@ export default defineEventHandler(async (event) => {
     setCookie(event, "auth-token", body.token);
   }
 
+  if (body.data) {
+    setCookie(event, "current-user", JSON.stringify(body.data));
+  }
+
   return {
     message: "Login Successful",
   };

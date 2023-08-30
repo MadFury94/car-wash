@@ -1,14 +1,11 @@
 import { defineStore } from "pinia";
 
-
-export function getCurrentUserData () {
+export function getCurrentUserData() {
   if (!process.client) return;
-
 
   const data = localStorage.getItem("current-user") || null;
 
   if (data) {
-
     return JSON.parse(data);
   }
 
@@ -22,10 +19,7 @@ export function getCurrentUserToken() {
 export const useAuthStore = defineStore("authStore", () => {
   const authToken = getCurrentUserToken();
 
-  console.log(getCurrentUserData(),"-][]d");
-
-  const currentUserData = reactive(getCurrentUserData());
-
+  const currentUserData = getCurrentUserData();
 
   if (process.client) {
     watch(
@@ -39,29 +33,25 @@ export const useAuthStore = defineStore("authStore", () => {
       },
       {
         immediate: true,
-      }
+      },
     );
   }
 
-  async function setCurrentUserToken(token: string) {
+  async function setCurrentUserToken(token: string, data: any) {
     if (!process.client) return;
 
     await $fetch("/api/login/", {
       method: "POST",
       body: {
         token,
+        data,
       },
     });
 
     authToken.value = token;
 
     localStorage.setItem("auth-token", token);
-  }
-
-  function setCurrentUserData(data: any) {
-    if (!process.client) return;
     localStorage.setItem("current-user", JSON.stringify(data));
-    getCurrentUserData()
   }
 
   const isLoggedIn = computed(() => {
@@ -72,9 +62,7 @@ export const useAuthStore = defineStore("authStore", () => {
     authToken,
     isLoggedIn,
     setCurrentUserToken,
-    setCurrentUserData,
     getCurrentUserData,
     currentUserData,
-    
   };
 });

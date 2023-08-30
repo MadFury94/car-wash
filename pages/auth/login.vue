@@ -72,6 +72,7 @@ import { useAuthStore } from "~/store/auth.store";
 definePageMeta({
   name: "login",
   layout: "default",
+  middleware: "redirect-if-authenticated"
 });
 
 const form = reactive<{
@@ -83,8 +84,10 @@ const form = reactive<{
 });
 const authStore = useAuthStore() 
 
-const currentUser = computed(() => authStore.currentUserData);
-console.log(authStore.currentUserData);
+
+
+const { currentUser } = useCurrentUser();
+
 
 async function login() {
   const res = await SR.post.api.login<{
@@ -97,8 +100,7 @@ async function login() {
   }>(form);
 
 
-  await authStore.setCurrentUserToken(res.token);
-   authStore.setCurrentUserData(res.user);
+  await authStore.setCurrentUserToken(res.token, res.user );
 }
 </script>
 
