@@ -102,9 +102,6 @@ const {
   execute: getData,
 } = SR.get.admin.packages.all<PaginatedMetaData<FeaturesType>>({}, {});
 
-onMounted(() => {
-  getData();
-});
 
 async function createPackage() {
   $useFetchApi({

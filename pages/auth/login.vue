@@ -12,7 +12,9 @@
         <h2
           class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
         >
-          Sign in to your account
+      Sign in to your account <ClientOnly>
+        {{ currentUser}}
+       </ClientOnly> 
         </h2>
       </div>
 
@@ -79,15 +81,24 @@ const form = reactive<{
   email: "him@gmail.com",
   password: "123456",
 });
-const authStore = useAuthStore();
+const authStore = useAuthStore() 
+
+const currentUser = computed(() => authStore.currentUserData);
+console.log(authStore.currentUserData);
 
 async function login() {
   const res = await SR.post.api.login<{
     token: string;
+    user: {
+      uuid: string;
+      email: string;
+      name: string;
+    };
   }>(form);
 
-  await authStore.setCurrentUserToken(res.token);
 
+  await authStore.setCurrentUserToken(res.token);
+   authStore.setCurrentUserData(res.user);
 }
 </script>
 

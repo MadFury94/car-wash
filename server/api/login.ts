@@ -13,13 +13,12 @@ export default defineEventHandler(async (event) => {
       statusMessage: "Bad request",
     });
   }
-  console.log("body", body);
 
   if (body.token) {
     setCookie(event, "auth-token", body.token);
   }
 
   return {
-    message: "Login successful!!!=----",
+    message: "Login Successful",
   };
 });

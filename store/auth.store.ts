@@ -1,11 +1,31 @@
 import { defineStore } from "pinia";
 
+
+export function getCurrentUserData () {
+  if (!process.client) return;
+
+
+  const data = localStorage.getItem("current-user") || null;
+
+  if (data) {
+
+    return JSON.parse(data);
+  }
+
+  return null;
+}
+
 export function getCurrentUserToken() {
   return useCookie("auth-token");
 }
 
 export const useAuthStore = defineStore("authStore", () => {
   const authToken = getCurrentUserToken();
+
+  console.log(getCurrentUserData(),"-][]d");
+
+  const currentUserData = reactive(getCurrentUserData());
+
 
   if (process.client) {
     watch(
@@ -19,7 +39,7 @@ export const useAuthStore = defineStore("authStore", () => {
       },
       {
         immediate: true,
-      },
+      }
     );
   }
 
@@ -36,7 +56,12 @@ export const useAuthStore = defineStore("authStore", () => {
     authToken.value = token;
 
     localStorage.setItem("auth-token", token);
+  }
 
+  function setCurrentUserData(data: any) {
+    if (!process.client) return;
+    localStorage.setItem("current-user", JSON.stringify(data));
+    getCurrentUserData()
   }
 
   const isLoggedIn = computed(() => {
@@ -47,5 +72,9 @@ export const useAuthStore = defineStore("authStore", () => {
     authToken,
     isLoggedIn,
     setCurrentUserToken,
+    setCurrentUserData,
+    getCurrentUserData,
+    currentUserData,
+    
   };
 });

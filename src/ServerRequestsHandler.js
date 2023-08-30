@@ -1,6 +1,7 @@
 // @ts-ignore
 import {getCurrentUserToken} from "~/store/auth.store";
 
+
 export default function handleRequest(url, args) {
   const baseURL = "http://localhost:5620";
   const { body, query, method, ...others } = args || {};

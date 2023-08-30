@@ -125,7 +125,7 @@ declare const _default: {
          * **admin/BookingController@all**
          *
          * - `[admin.bookings.all]`
-         * - `GET: /v1/admin/bookings/`
+         * - `GET: /v1/admin/bookings`
          */
         all<T = any>(
           query?: SRQuery,

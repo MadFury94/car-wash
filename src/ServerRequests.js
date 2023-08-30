@@ -43,7 +43,7 @@ const a = [
   ['delete', 'admin.features.delete', '/v1/admin/features/:featureUuid', {
     featureUuid: true
   }],
-  ['get', 'admin.bookings.all', '/v1/admin/bookings/', {}],
+  ['get', 'admin.bookings.all', '/v1/admin/bookings', {}],
 ];
 
 // Autogenerate useful objects

@@ -33,37 +33,37 @@
           </th>
         </tr>
       </thead>
-      <tbody  class="divide-y divide-gray-200 bg-white">
+      <tbody class="divide-y divide-gray-200 bg-white">
         <tr
           v-for="(feature, index) in data?.data"
           :key="feature.uuid"
           ::key="index"
         >
-     <td
+          <td
             class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6"
           >
-            <div class="text-xs text-gray-700">{{ feature.package.name}}</div>
-          </td> 
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"></td>
+            <div class="text-xs text-gray-700">{{ feature.package.name }}</div>
+          </td>
+          <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"></td>
           <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
             <UtilsTimeAgo :value="feature.createdAt" />
-          </td> 
- 
+          </td>
+
           <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
             <UtilsTimeAgo :value="feature.updatedAt" />
-          </td> 
-    <!--       <td
-            class="relative flex items-center gap-x-4 whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6"
-          >
-            <nuxt-link
-              :to="{
-                name: 'update-feature',
-                params: { featureId: feature.uuid },
-              }"
-              class="text-indigo-600 hover:text-indigo-900"
-              >Edit<span class="sr-only"> {{ feature.name }}</span></nuxt-link
-            >
-          </td> -->
+          </td>
+          <!--       <td
+                class="relative flex items-center gap-x-4 whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6"
+              >
+                <nuxt-link
+                  :to="{
+                    name: 'update-feature',
+                    params: { featureId: feature.uuid },
+                  }"
+                  class="text-indigo-600 hover:text-indigo-900"
+                  >Edit<span class="sr-only"> {{ feature.name }}</span></nuxt-link
+                >
+              </td> -->
         </tr>
       </tbody>
     </table>
@@ -72,8 +72,9 @@
 
 <script setup lang="ts">
 import { useAdminAxiosRequest } from "~/http";
-import {PaginatedMetaData} from "xpress-mongo/src/types/pagination";
-import {FeaturesType} from "~/types/model";
+import { PaginatedMetaData } from "xpress-mongo/src/types/pagination";
+import { FeaturesType } from "~/types/model";
+
 definePageMeta({
   layout: "admin-layout",
   name: "admin-bookings",
@@ -81,22 +82,12 @@ definePageMeta({
   description: "This is the admin page of our company",
 });
 
-/*const [pending, getData, data, error] = useAdminAxiosRequest<{
-  data: any;
-  meta: any;
-}>("bookings");*/
 const {
   data,
   pending,
   error,
   execute: getData,
-} = SR.get.admin.bookings.all<
-    PaginatedMetaData<FeaturesType>
->(undefined, {});
-
-onMounted(() => {
-  getData();
-});
+} = SR.get.admin.bookings.all<PaginatedMetaData<FeaturesType>>(undefined, {});
 </script>
 
 <style scoped></style>
