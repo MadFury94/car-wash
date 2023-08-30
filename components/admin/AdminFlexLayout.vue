@@ -279,7 +279,12 @@ import { useAuthStore } from "../../store/auth.store";
 const authStore = useAuthStore();
 
 function logOut() {
+
   console.log("logout");
+
+  authStore.logout();
+
+
 }
 
 const { currentUser } = useCurrentUser();

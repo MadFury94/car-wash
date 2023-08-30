@@ -58,11 +58,23 @@ export const useAuthStore = defineStore("authStore", () => {
     return !!authToken.value;
   });
 
+
+  async function logout() {
+    if (!process.client) return;
+
+    authToken.value = null;
+    localStorage.removeItem("auth-token");
+    localStorage.removeItem("current-user");
+
+
+  }
+
   return {
     authToken,
     isLoggedIn,
     setCurrentUserToken,
     getCurrentUserData,
     currentUserData,
+    logout,
   };
 });
