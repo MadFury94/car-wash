@@ -32,7 +32,7 @@
       </div>
     </Modal>
 
-    <div class="p-20">
+    <div>
       <div class="sm:flex sm:items-center">
         <div class="sm:flex-auto">
           <h1 class="text-base font-semibold leading-6 text-gray-900">
@@ -72,7 +72,7 @@
 
 <script setup lang="ts">
 import { PackageDetails } from "types/model";
-import { $useAdminFetchApi, $useFetchApi } from "~/http";
+import { $useAdminFetchApi } from "~/http";
 
 import { PaginatedMetaData } from "xpress-mongo/src/types/pagination";
 import AllPackages from "../../../components/admin/admin.packages.all.vue";

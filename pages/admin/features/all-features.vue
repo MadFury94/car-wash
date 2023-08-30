@@ -21,10 +21,11 @@
       </div>
     </Modal>
     <!-- you will need to handle a loading state -->
-    <div v-if="pending">Loading ...</div>
-    <div v-else-if="data">
+
+
+    <div>
       <div class="px-4 sm:px-6 lg:px-8">
-        <div class="sm:flex sm:items-center">
+        <div v-if="false" class="sm:flex sm:items-center">
           <div class="sm:flex-auto">
             <h1 class="text-base font-semibold leading-6 text-gray-900">
               Features ( {{ data.meta.total }})
@@ -46,6 +47,7 @@
             </button>
           </div>
         </div>
+
         <div class="mt-8 flow-root">
           <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div
@@ -54,7 +56,9 @@
               <div
                 class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg"
               >
-                <table>
+                <TableSkeletalLoader v-if="pending" />
+
+                <table v-else-if="data">
                   <thead>
                     <tr>
                       <th scope="col">Name</th>
@@ -79,18 +83,12 @@
                           {{ feature.list[0] }}...
                         </div>
                       </td>
-                      <td
-                        class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
-                      ></td>
-                      <td
-                        class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
-                      >
+                      <td class="text-sm text-gray-500"></td>
+                      <td class="text-sm text-gray-500">
                         <UtilsTimeAgo :value="feature.createdAt" />
                       </td>
 
-                      <td
-                        class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
-                      >
+                      <td class="px-3 py-4 text-sm text-gray-500">
                         <UtilsTimeAgo :value="feature.updatedAt" />
                       </td>
                       <td
@@ -140,8 +138,8 @@ const form = reactive<{
 }>({
   slug: "INTERIOR",
   name: "INTERIOR DETAILING",
-  list: `Vacuum 
-  trunk 
+  list: `Vacuum
+  trunk
   stain removal
   leather/fabric cleaning & conditioning
   mat/rugs shampooing
@@ -190,9 +188,9 @@ function createFeature() {
       console.log(res.data.data.uuid);
 
       /*       $router.push({
-                  name: "update-feature",
-                  params: { featureId: res.data.data.uuid },
-                }); */
+                    name: "update-feature",
+                    params: { featureId: res.data.data.uuid },
+                  }); */
 
       modalActive.value = false;
 

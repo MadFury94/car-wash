@@ -11,7 +11,7 @@
               <label>Name:</label>
               <input type="text" v-model="oneFeature!.name" />
             </div>
-            <div class="flex justify-end gap-x-4">
+            <div class="flex justify-end gap-x-4 text-secondary-500">
               <button v-if="!isEditing" @click="editList"> <i class="fa-solid fa-pen-to-square"></i>Edit</button>
               <button v-else @click="previewList"><i class="fa-solid fa-eye"></i> preview</button>
             </div>
