@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Busy v-if="pending"/>
+    <Busy v-if="pending" />
 
     <div v-else>
       <div class="border grid lg:grid-cols-2 gap-10">
@@ -10,48 +10,44 @@
               <div class="relative">
                 <label id="name">Name</label>
                 <input
-                    v-model="carPackage.name"
-                    type="text"
-                    placeholder="Silver"
+                  v-model="carPackage.name"
+                  type="text"
+                  placeholder="Silver"
                 />
               </div>
               <div class="relative">
                 <label id="duration">Duration</label>
                 <input
-                    v-model="carPackage.duration"
-                    type="text"
-                    placeholder="Silver"
+                  v-model="carPackage.duration"
+                  type="text"
+                  placeholder="Silver"
                 />
               </div>
               <div class="relative">
                 <label id="price">Price (₦)</label>
-                <input v-model="carPackage.price" type="number"/>
+                <input v-model="carPackage.price" type="number" />
               </div>
 
-
-         <div class="relative">
-          <label>Type:</label>
-          <select v-model="carPackage.type">
-
-<option value="salon">saloon</option>
-<option value="suv">suv</option>
-
-</select>
-         </div>
+              <div class="relative">
+                <label>Type:</label>
+                <select v-model="carPackage.type">
+                  <option value="salon">saloon</option>
+                  <option value="suv">suv</option>
+                </select>
+              </div>
 
               <div class="relative">
                 <label id="price">Notice</label>
                 <textarea
-                    v-model="carPackage.notice"
-                    type="text"
-                    rows="3"
-                    placeholder="N20,000"
+                  v-model="carPackage.notice"
+                  type="text"
+                  rows="3"
+                  placeholder="N20,000"
                 />
               </div>
               <section>
                 <div v-for="(item, index) in carPackage.features">
                   {{ item.name }}
-
                 </div>
               </section>
 
@@ -60,8 +56,10 @@
           </div>
         </div>
         <div>
-          <AdminFeaturesSelector  :existing-feature="carPackage!.features"
-                                 @addToSelection="updateSelected"/>
+          <AdminFeaturesSelector
+            :existing-feature="carPackage!.features"
+            @addToSelection="updateSelected"
+          />
         </div>
       </div>
     </div>
@@ -101,9 +99,8 @@ interface PackageDetailsType {
 const carPackage = ref<PackageDetailsType>({});
 const selectedFeatures = ref<FeaturesType[]>([]);
 
-
 function updateSelected(item: FeaturesType) {
-  if (!selectedFeatures.value.some(f => f._id === item._id)) {
+  if (!selectedFeatures.value.some((f) => f._id === item._id)) {
     selectedFeatures.value.push(item);
   }
   console.log("selected feature", item.name);
@@ -114,22 +111,22 @@ const pending = ref(false);
 function getData() {
   pending.value = true;
   $useAdminFetchApi({
-    url: `packages/${packageUuid.value}/one`,
+    url: `packages/${packageUuid.value}`,
     method: "GET",
   })
-      .then((res) => {
-        carPackage.value = res.data;
-        pending.value = false;
-      })
-      .catch((err) => {
-        pending.value = false;
-      });
+    .then((res) => {
+      carPackage.value = res.data;
+      pending.value = false;
+    })
+    .catch((err) => {
+      pending.value = false;
+    });
 }
 
 function updateOne() {
   pending.value = true;
   $useAdminFetchApi({
-    url: `packages/${packageUuid.value}/update`,
+    url: `packages/${packageUuid.value}`,
     method: "PATCH",
     data: {
       name: carPackage.value?.name,
@@ -139,18 +136,18 @@ function updateOne() {
       type: carPackage.value?.type,
     },
   })
-      .then((res) => {
-        carPackage.value = res.data;
-        getData();
-        pending.value = false;
-        console.log(carPackage.value);
-      })
-      .catch((err) => {
-        getData();
+    .then((res) => {
+      carPackage.value = res.data;
+      getData();
+      pending.value = false;
+      console.log(carPackage.value);
+    })
+    .catch((err) => {
+      getData();
 
-        pending.value = false;
-        console.log(err);
-      });
+      pending.value = false;
+      console.log(err);
+    });
 }
 
 onMounted(() => {

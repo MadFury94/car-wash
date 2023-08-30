@@ -68,7 +68,7 @@ const packageUuid = computed(() => $route.params.packageId);
 const [isFetching, getFeatures, data, error] = useAdminAxiosRequest<{
   data: FeaturesType[];
   meta: MetaType;
-}>("features/all");
+}>("features");
 
 const props = defineProps({
   existingFeature: {

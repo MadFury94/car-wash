@@ -56,7 +56,13 @@
       <div>
         <div v-if="pending">Loading ...</div>
 
-        <AllPackages v-else :data="data?.data" :meta="data?.meta" />
+        <div v-else-if="data?.data">
+          <AllPackages
+            @delete="deletePackage"
+            :data="data.data"
+            :meta="data?.meta"
+          />
+        </div>
       </div>
     </div>
 
@@ -65,11 +71,11 @@
 </template>
 
 <script setup lang="ts">
-import { FeaturesType, MetaType, PackageDetails } from "types/model";
-import { $useFetchApi, useAdminAxiosRequest } from "../../../http";
+import { PackageDetails } from "types/model";
+import { $useAdminFetchApi, $useFetchApi } from "~/http";
 
-import AllPackages from "../../../components/admin/admin.packages.all.vue";
 import { PaginatedMetaData } from "xpress-mongo/src/types/pagination";
+import AllPackages from "../../../components/admin/admin.packages.all.vue";
 
 definePageMeta({
   layout: "admin-layout",
@@ -88,24 +94,16 @@ const form = ref({
   notice: "₦8,500 extra Logistics fee to Mainland.",
 });
 
-/*
- const [pending, getData, data, error] = useAdminAxiosRequest<{
-  data: PackageDetails  | undefined;
-  meta: MetaType;
-}>("packages");
-*/
-
 const {
   data,
   pending,
   error,
   execute: getData,
-} = SR.get.admin.packages.all<PaginatedMetaData<FeaturesType>>({}, {});
-
+} = SR.get.admin.packages.all<PaginatedMetaData<PackageDetails>>({}, {});
 
 async function createPackage() {
-  $useFetchApi({
-    url: "packages/create",
+  $useAdminFetchApi({
+    url: "packages",
     method: "POST",
     data: form.value,
   })
@@ -115,6 +113,18 @@ async function createPackage() {
     .catch((err) => {
       console.log(err);
     });
+  /*  await SR.post.admin.packages({
+      data: form.value,
+    });*/
+}
+
+async function deletePackage(uuid: string) {
+  await SR.delete.admin.packages.delete({
+    packageUuid: uuid,
+  });
+
+  getData();
+  console.log(uuid, "get emit");
 }
 </script>
 
