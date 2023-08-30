@@ -58,7 +58,7 @@
               >
                 <TableSkeletalLoader v-if="pending" />
 
-                <table v-else-if="data">
+                <table v-else-if="data.data">
                   <thead>
                     <tr>
                       <th scope="col">Name</th>
