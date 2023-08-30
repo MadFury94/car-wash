@@ -33,8 +33,6 @@
               A list of all the feature in your account including their name,
               title, email and role.
             </p>
-
-        
           </div>
           <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
             <!--  <nuxt-link
@@ -56,32 +54,14 @@
               <div
                 class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg"
               >
-                <table class="min-w-full divide-y divide-gray-300">
-                  <thead class="bg-gray-50">
+                <table>
+                  <thead>
                     <tr>
-                      <th
-                        scope="col"
-                        class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
-                      >
-                        Name
-                      </th>
-                      <th
-                        scope="col"
-                        class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                      ></th>
-                      <th
-                        scope="col"
-                        class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                      >
-                        CreatedAt
-                      </th>
-                      <th
-                        scope="col"
-                        class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                      >
-                        Updated
-                      </th>
-                      <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
+                      <th scope="col">Name</th>
+                      <th scope="col"></th>
+                      <th scope="col">CreatedAt</th>
+                      <th scope="col">Updated</th>
+                      <th scope="col">
                         <span class="sr-only">Edit</span>
                       </th>
                     </tr>
@@ -90,7 +70,6 @@
                     <tr
                       v-for="(feature, index) in data.data"
                       :key="feature.uuid"
-
                     >
                       <td
                         class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6"
@@ -182,9 +161,7 @@ const {
   pending,
   error,
   execute: getData,
-} = SR.get.admin.features.all<
-  PaginatedMetaData<FeaturesType>
->(undefined, {});
+} = SR.get.admin.features.all<PaginatedMetaData<FeaturesType>>(undefined, {});
 
 function deleteFeature(featureUuid: string) {
   console.log("delete", featureUuid);

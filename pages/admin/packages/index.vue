@@ -119,12 +119,15 @@ async function createPackage() {
 }
 
 async function deletePackage(uuid: string) {
-  await SR.delete.admin.packages.delete({
+
+  console.log(uuid, "delete Stuff");
+
+  /*await SR.delete.admin.packages.delete({
     packageUuid: uuid,
   });
 
   getData();
-  console.log(uuid, "get emit");
+  console.log(uuid, "get emit");*/
 }
 </script>
 

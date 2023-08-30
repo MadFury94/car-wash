@@ -88,10 +88,9 @@
                     class="relative whitespace-nowrap py-5 pl-3 pr-4 text-right text-sm font-medium sm:pr-0"
                   >
                     <div class="flex gap-x-2">
-                      <button @click="deletePackage(carPackage.uuid)">
+                      <button @click="$emit('delete', carPackage.uuid)">
                         Delete
                       </button>
-
                       <nuxt-link
                         v-if="carPackage.uuid"
                         :to="{
@@ -127,9 +126,7 @@ const props = defineProps({
 
 const $emit = defineEmits(["delete"]);
 
-async function deletePackage(uuid: string) {
-  $emit("delete", uuid);
-}
+
 </script>
 
 <style scoped></style>
