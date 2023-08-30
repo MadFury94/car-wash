@@ -120,18 +120,19 @@ declare const _default: {
           ...others: any[]
         ): SRF<T>;
       };
-
-      /**
-       * **admin/BookingController@all**
-       *
-       * - `[admin.all]`
-       * - `GET: /v1/admin/bookings/`
-       */
-      all<T = any>(
-        query?: SRQuery,
-        config?: SRConfig,
-        ...others: any[]
-      ): SRF<T>;
+      bookings: {
+        /**
+         * **admin/BookingController@all**
+         *
+         * - `[admin.bookings.all]`
+         * - `GET: /v1/admin/bookings/`
+         */
+        all<T = any>(
+          query?: SRQuery,
+          config?: SRConfig,
+          ...others: any[]
+        ): SRF<T>;
+      };
     };
   };
   post: {

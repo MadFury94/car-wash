@@ -1,7 +1,5 @@
 <template>
   <div>
-
-
     <Modal
       max-size="max-w-md"
       @on-close="modalActive = false"
@@ -37,7 +35,9 @@
     <div class="p-20">
       <div class="sm:flex sm:items-center">
         <div class="sm:flex-auto">
-          <h1 class="text-base font-semibold leading-6 text-gray-900">All Packages {{data?.meta  }}</h1>
+          <h1 class="text-base font-semibold leading-6 text-gray-900">
+            All Packages {{ data?.meta }}
+          </h1>
           <p class="mt-2 text-sm text-gray-700">
             A list of all the users in your account including their name, title,
             email and role.
@@ -65,11 +65,11 @@
 </template>
 
 <script setup lang="ts">
-import {FeaturesType, MetaType, PackageDetails} from "types/model";
+import { FeaturesType, MetaType, PackageDetails } from "types/model";
 import { $useFetchApi, useAdminAxiosRequest } from "../../../http";
 
 import AllPackages from "../../../components/admin/admin.packages.all.vue";
-import {PaginatedMetaData} from "xpress-mongo/src/types/pagination";
+import { PaginatedMetaData } from "xpress-mongo/src/types/pagination";
 
 definePageMeta({
   layout: "admin-layout",
@@ -88,25 +88,25 @@ const form = ref({
   notice: "₦8,500 extra Logistics fee to Mainland.",
 });
 
-
+/*
+ const [pending, getData, data, error] = useAdminAxiosRequest<{
+  data: PackageDetails  | undefined;
+  meta: MetaType;
+}>("packages");
+*/
 
 const {
   data,
   pending,
   error,
   execute: getData,
-} = SR.get.admin.packages.all<
-    PaginatedMetaData<FeaturesType>
->(undefined, {
-  params: {
-    limit: 10,
-    page: 1,
-  },
+} = SR.get.admin.packages.all<PaginatedMetaData<FeaturesType>>({}, {});
+
+onMounted(() => {
+  getData();
 });
- 
 
-
-function createPackage() {
+async function createPackage() {
   $useFetchApi({
     url: "packages/create",
     method: "POST",

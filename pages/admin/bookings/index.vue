@@ -72,6 +72,8 @@
 
 <script setup lang="ts">
 import { useAdminAxiosRequest } from "~/http";
+import {PaginatedMetaData} from "xpress-mongo/src/types/pagination";
+import {FeaturesType} from "~/types/model";
 definePageMeta({
   layout: "admin-layout",
   name: "admin-bookings",
@@ -79,10 +81,18 @@ definePageMeta({
   description: "This is the admin page of our company",
 });
 
-const [pending, getData, data, error] = useAdminAxiosRequest<{
+/*const [pending, getData, data, error] = useAdminAxiosRequest<{
   data: any;
   meta: any;
-}>("bookings");
+}>("bookings");*/
+const {
+  data,
+  pending,
+  error,
+  execute: getData,
+} = SR.get.admin.bookings.all<
+    PaginatedMetaData<FeaturesType>
+>(undefined, {});
 
 onMounted(() => {
   getData();

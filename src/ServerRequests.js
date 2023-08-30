@@ -43,7 +43,7 @@ const a = [
   ['delete', 'admin.features.delete', '/v1/admin/features/:featureUuid', {
     featureUuid: true
   }],
-  ['get', 'admin.all', '/v1/admin/bookings/', {}],
+  ['get', 'admin.bookings.all', '/v1/admin/bookings/', {}],
 ];
 
 // Autogenerate useful objects
@@ -84,7 +84,9 @@ export default {
         all: (...args) => s(...p(b['get.admin.features.all'], args)),
         one: (...args) => s(...p(b['get.admin.features.one'], args)),
       },
-      all: (...args) => s(...p(b['get.admin.all'], args)),
+      bookings: {
+        all: (...args) => s(...p(b['get.admin.bookings.all'], args)),
+      },
     },
   },
   post: {
