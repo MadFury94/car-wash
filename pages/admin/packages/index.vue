@@ -32,7 +32,7 @@
       </div>
     </Modal>
 
-    <div>
+    <div class="px-4 sm:px-6 lg:px-8">
       <div class="sm:flex sm:items-center">
         <div class="sm:flex-auto">
           <h1 class="text-base font-semibold leading-6 text-gray-900">
@@ -57,6 +57,7 @@
         <div v-if="pending">Loading ...</div>
 
         <div v-else-if="data?.data">
+
           <AllPackages
             @delete="deletePackage"
             :data="data.data"
@@ -76,6 +77,8 @@ import { $useAdminFetchApi } from "~/http";
 
 import { PaginatedMetaData } from "xpress-mongo/src/types/pagination";
 import AllPackages from "../../../components/admin/admin.packages.all.vue";
+import Amount from "~/components/utils/Amount.vue";
+import TimeAgo from "~/components/utils/TimeAgo.vue";
 
 definePageMeta({
   layout: "admin-layout",
