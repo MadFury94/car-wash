@@ -22,11 +22,6 @@
     <div>
       <NuxtPage />
 
-
-      <div class="bg-red-500 p-10">
-        {{ authStore.appData }}
-
-      </div>
     </div>
   </NuxtLayout>
   <ClientOnly>
@@ -35,7 +30,6 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from "vue";
 import { useAuthStore } from "~/store/auth.store";
 
 let _token: string | null = null;

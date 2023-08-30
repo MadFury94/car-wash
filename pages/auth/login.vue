@@ -88,7 +88,6 @@ async function login() {
 
   await authStore.setCurrentUserToken(res.token);
 
-  alert("Login success");
 }
 </script>
 

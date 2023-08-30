@@ -22,7 +22,6 @@ export const useAuthStore = defineStore("authStore", () => {
       },
     );
   }
-  console.log("authToken", authToken.value);
 
   async function setCurrentUserToken(token: string) {
     if (!process.client) return;
