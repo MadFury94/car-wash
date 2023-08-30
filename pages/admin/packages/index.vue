@@ -31,12 +31,11 @@
         </div>
       </div>
     </Modal>
-    <div v-if="pending">Loading ...</div>
-    <div v-else-if="data?.data" class="px-4 sm:px-6 lg:px-8">
+    <div class="px-4 sm:px-6 lg:px-8">
       <div class="sm:flex sm:items-center">
         <div class="sm:flex-auto">
           <h1 class="text-base font-semibold leading-6 text-gray-900">
-            All Packages ({{ data?.meta.total }})
+            All Packages ({{pending ? '  ': data.meta.total }})
           </h1>
           <p class="mt-2 text-sm text-gray-700">
             A list of all the users in your account including their name, title,
