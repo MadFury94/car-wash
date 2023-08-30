@@ -31,12 +31,12 @@
         </div>
       </div>
     </Modal>
-
-    <div class="px-4 sm:px-6 lg:px-8">
+    <div v-if="pending">Loading ...</div>
+    <div v-else-if="data?.data" class="px-4 sm:px-6 lg:px-8">
       <div class="sm:flex sm:items-center">
         <div class="sm:flex-auto">
           <h1 class="text-base font-semibold leading-6 text-gray-900">
-            All Packages {{ data?.meta }}
+            All Packages ({{ data?.meta.total }})
           </h1>
           <p class="mt-2 text-sm text-gray-700">
             A list of all the users in your account including their name, title,
@@ -54,14 +54,11 @@
         </div>
       </div>
       <div>
-        <div v-if="pending">Loading ...</div>
-
-        <div v-else-if="data?.data">
-
+        <div>
           <AllPackages
             @delete="deletePackage"
             :data="data.data"
-            :meta="data?.meta"
+            :meta="data.meta"
           />
         </div>
       </div>
@@ -77,8 +74,6 @@ import { $useAdminFetchApi } from "~/http";
 
 import { PaginatedMetaData } from "xpress-mongo/src/types/pagination";
 import AllPackages from "../../../components/admin/admin.packages.all.vue";
-import Amount from "~/components/utils/Amount.vue";
-import TimeAgo from "~/components/utils/TimeAgo.vue";
 
 definePageMeta({
   layout: "admin-layout",
@@ -122,7 +117,6 @@ async function createPackage() {
 }
 
 async function deletePackage(uuid: string) {
-
   console.log(uuid, "delete Stuff");
 
   /*await SR.delete.admin.packages.delete({
