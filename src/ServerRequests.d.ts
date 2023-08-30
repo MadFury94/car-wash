@@ -68,18 +68,32 @@ declare const _default: {
       };
     };
     admin: {
-      /**
-       * **admin/CarPackageController@one**
-       *
-       * - `[admin.packages]`
-       * - `GET: /v1/admin/packages/:packageUuid`
-       */
-      packages<T = any>(
-        params: { packageUuid: StringOrNumber } | SRParams,
-        query?: SRQuery,
-        config?: SRConfig,
-        ...others: any[]
-      ): SRF<T>;
+      packages: {
+        /**
+         * **admin/CarPackageController@all**
+         *
+         * - `[admin.packages.all]`
+         * - `GET: /v1/admin/packages`
+         */
+        all<T = any>(
+          query?: SRQuery,
+          config?: SRConfig,
+          ...others: any[]
+        ): SRF<T>;
+
+        /**
+         * **admin/CarPackageController@one**
+         *
+         * - `[admin.packages.one]`
+         * - `GET: /v1/admin/packages/:packageUuid`
+         */
+        one<T = any>(
+          params: { packageUuid: StringOrNumber } | SRParams,
+          query?: SRQuery,
+          config?: SRConfig,
+          ...others: any[]
+        ): SRF<T>;
+      };
       features: {
         /**
          * **admin/FeaturesController@all**

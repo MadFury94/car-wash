@@ -20,7 +20,7 @@ const a = [
   ['get', 'api.packages.all', '/v1/api/packages', {}],
   ['get', 'admin.packages.all', '/v1/admin/packages', {}],
   ['post', 'admin.packages.new', '/v1/admin/packages', {}],
-  ['get', 'admin.packages', '/v1/admin/packages/:packageUuid', {
+  ['get', 'admin.packages.one', '/v1/admin/packages/:packageUuid', {
     packageUuid: true
   }],
   ['patch', 'admin.packages.update', '/v1/admin/packages/:packageUuid', {
@@ -76,7 +76,10 @@ export default {
       },
     },
     admin: {
-      packages: (...args) => s(...p(b['get.admin.packages'], args)),
+      packages: {
+        all: (...args) => s(...p(b['get.admin.packages.all'], args)),
+        one: (...args) => s(...p(b['get.admin.packages.one'], args)),
+      },
       features: {
         all: (...args) => s(...p(b['get.admin.features.all'], args)),
         one: (...args) => s(...p(b['get.admin.features.one'], args)),

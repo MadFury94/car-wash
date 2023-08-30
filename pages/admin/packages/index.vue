@@ -65,10 +65,11 @@
 </template>
 
 <script setup lang="ts">
-import { MetaType, PackageDetails } from "types/model";
+import {FeaturesType, MetaType, PackageDetails} from "types/model";
 import { $useFetchApi, useAdminAxiosRequest } from "../../../http";
 
 import AllPackages from "../../../components/admin/admin.packages.all.vue";
+import {PaginatedMetaData} from "xpress-mongo/src/types/pagination";
 
 definePageMeta({
   layout: "admin-layout",
@@ -88,14 +89,22 @@ const form = ref({
 });
 
 
- const [pending, getData, data, error] = useAdminAxiosRequest<{
-  data: PackageDetails  | undefined;
-  meta: MetaType;
-}>("packages");
- 
-onMounted(() => {
-  getData();
+
+const {
+  data,
+  pending,
+  error,
+  execute: getData,
+} = SR.get.admin.packages.all<
+    PaginatedMetaData<FeaturesType>
+>(undefined, {
+  params: {
+    limit: 10,
+    page: 1,
+  },
 });
+ 
+
 
 function createPackage() {
   $useFetchApi({
