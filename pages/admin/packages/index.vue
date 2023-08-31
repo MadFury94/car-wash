@@ -35,11 +35,10 @@
       <div class="sm:flex sm:items-center">
         <div class="sm:flex-auto">
           <h1 class="text-base font-semibold leading-6 text-gray-900">
-            All Packages ({{ pending ? "  " : data.meta.total }})
+            Packages ({{ pending ? "  " : data.meta.total }})
           </h1>
           <p class="mt-2 text-sm text-gray-700">
-            A list of all the users in your account including their name, title,
-            email and role.
+            A list of all the Packages available
           </p>
         </div>
         <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
@@ -114,20 +113,13 @@
                             <Amount :value="item.price" />
                           </div>
                         </td>
-                        <td
-                          class="whitespace-nowrap px-3 py-5 text-sm text-gray-500"
-                        >
-                          <span
-                            :class="[
-                              item.isActive
-                                ? 'bg-green-100 text-green-800 ring-green-600/20'
-                                : 'bg-gray-100 text-gray-800',
-                            ]"
-                            class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ring-1 ring-inset"
-                          >
-                            {{ item.isActive ? "Active " : "Disabled" }}</span
-                          >
-                          {{ item.isActive }}
+                        <td>
+                          <ToggleButton
+                            @update:model-value="
+                              (value) => updatePackage(item, value)
+                            "
+                            v-model="item.isActive"
+                          />
                         </td>
                         <td
                           class="whitespace-nowrap px-3 py-5 text-sm text-gray-500"
@@ -142,24 +134,23 @@
                         <td
                           class="relative whitespace-nowrap py-5 pl-3 pr-4 text-right text-sm font-medium sm:pr-0"
                         >
-                          <div class="flex gap-x-2 items-center">
-                            <ToggleButton
-                                @update:model-value="value => updatePackage(item, value)"
-                              v-model="item.isActive"
-                            />
-
+                          <div class="flex gap-x-8 items-center">
                             <nuxt-link
                               v-if="item.uuid"
                               :to="{
                                 name: '_package.one',
                                 params: { packageId: item.uuid },
                               }"
-                              class="text-indigo-600 hover:text-indigo-900"
-                              >Edit<span class="sr-only">, </span></nuxt-link
                             >
-                            <button @click="deletePackage(item.uuid)">
-                              Delete
-                            </button>
+                              <i class="fa-solid fa-pen-to-square"></i>
+                            </nuxt-link>
+
+                            <ConfirmActionButton
+                              @confirm="deletePackage(item.uuid)"
+                              class="w-4"
+                            >
+                              <i class="fa-solid fa-trash text-red-500"></i>
+                            </ConfirmActionButton>
                           </div>
                         </td>
                       </tr>
@@ -238,7 +229,7 @@ async function deletePackage(uuid: string) {
   console.log(uuid, "get emit");
 }
 
-async function updatePackage(item: PackageDetails,newValue: boolean) {
+async function updatePackage(item: PackageDetails, newValue: boolean) {
   console.log(item.isActive, "get emit");
   item.isActive = newValue;
 
@@ -246,7 +237,7 @@ async function updatePackage(item: PackageDetails,newValue: boolean) {
     await $useAdminFetchApi({
       url: `packages/${item.uuid}`,
       method: "PATCH",
-      data: item
+      data: item,
     });
 
     getData();
