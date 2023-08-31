@@ -100,7 +100,14 @@ async function login() {
   }>(form);
 
 
+
+
+
   await authStore.setCurrentUserToken(res.token, res.user );
+
+  navigateTo({
+    name: "all-features",
+  })
 }
 </script>
 

@@ -11,6 +11,8 @@ definePageMeta({
   name: "admin-index",
   title: "Admin",
   description: "This is the admin page of our company",
+  middleware: "auth",
+
 });
 
 

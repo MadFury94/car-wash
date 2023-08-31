@@ -55,6 +55,8 @@ import { $useAdminFetchApi } from "../../../http";
 definePageMeta({
   name: "new-feature",
   layout: "admin-layout",
+  middleware: "auth",
+
 });
 
 const existingArray = ref([]);

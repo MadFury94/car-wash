@@ -181,6 +181,8 @@ definePageMeta({
   name: "all-packages",
   title: "All Packages",
   description: "This is the all packages page of our company",
+  middleware: "auth",
+
 });
 
 const modalActive = ref(false);

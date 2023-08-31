@@ -274,15 +274,18 @@ MenuItems,
 TransitionChild,
 TransitionRoot,
 } from "@headlessui/vue";
-import { useAuthStore } from "../../store/auth.store";
+import { useAuthStore } from "~/store/auth.store";
 
 const authStore = useAuthStore();
 
 function logOut() {
 
-  console.log("logout");
 
   authStore.logout();
+
+  navigateTo({
+    name: "login",
+  })
 
 
 }
