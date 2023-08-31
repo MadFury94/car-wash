@@ -26,9 +26,9 @@ export const useFormError = defineStore("formError", () => {
     }
   
     function handleRequestError(e: any, scroll_id_prefix?: string, form = "default") {
+
       if (!e || !e.response) return;
-  
-      const data = e.response.data as Maybe<FormError>;
+      const data = e.response._data as Maybe<FormError>;
       if (data) {
         set(data, form);
   
@@ -37,7 +37,7 @@ export const useFormError = defineStore("formError", () => {
         // Scroll to input by ids
         const el = document.getElementById(`${scroll_id_prefix}-${data.key}`);
         if (el) {
-          el.scrollIntoVieindexw({ behavior: "smooth", block: "end" });
+          el.scrollIntoView({ behavior: "smooth", block: "end" });
           el.focus();
         }
       }
