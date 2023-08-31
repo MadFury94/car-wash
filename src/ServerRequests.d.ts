@@ -73,7 +73,7 @@ declare const _default: {
          * **admin/CarPackageController@all**
          *
          * - `[admin.packages.all]`
-         * - `GET: /v1/admin/packages`
+         * - `GET: /v1/admin/packages/all`
          */
         all<T = any>(
           query?: SRQuery,

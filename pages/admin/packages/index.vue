@@ -65,8 +65,7 @@
                   <TableSkeletalLoader v-if="pending" />
 
                   <table v-else-if="data.data">
-
-                  <thead>
+                    <thead>
                       <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Title</th>
@@ -82,28 +81,23 @@
                       </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200 bg-white">
-                      <tr
-                        v-for="carPackage in data.data"
-                        :key="carPackage.uuid"
-                      >
+                      <tr v-for="item in data.data" :key="item.uuid">
                         <td
                           class="whitespace-nowrap py-5 pl-4 pr-3 text-sm sm:pl-0"
                         >
                           <div class="flex items-center">
                             <div class="ml-4">
                               <div class="font-medium text-gray-900">
-                                {{ carPackage.name }}
+                                {{ item.name }}
                               </div>
                               <div class="mt-1 text-gray-500">
-                                {{ carPackage.type }}
+                                {{ item.type }}
                               </div>
-                              <template v-if="carPackage.features">
+                              <template v-if="item.features">
                                 <span
                                   class="inline-flex items-center rounded-md bg-secondary-50 px-2 py-1 text-xs font-medium text-secondary-700 ring-1 ring-inset ring-secondary-700/10"
                                 >
-                                  {{
-                                    carPackage.features.length
-                                  }}
+                                  {{ item.features.length }}
                                   Features</span
                                 >
                               </template>
@@ -114,46 +108,58 @@
                           class="whitespace-nowrap px-3 py-5 text-sm text-gray-500"
                         >
                           <div class="text-gray-900">
-                            {{ carPackage.duration }}
+                            {{ item.duration }}
                           </div>
                           <div class="mt-1 text-gray-500">
-                            <Amount :value="carPackage.price" />
+                            <Amount :value="item.price" />
                           </div>
                         </td>
                         <td
                           class="whitespace-nowrap px-3 py-5 text-sm text-gray-500"
                         >
                           <span
-                            class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20"
-                            >Active</span
+                            :class="[
+                              item.isActive
+                                ? 'bg-green-100 text-green-800 ring-green-600/20'
+                                : 'bg-gray-100 text-gray-800',
+                            ]"
+                            class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ring-1 ring-inset"
                           >
+                            {{ item.isActive ? "Active " : "Disabled" }}</span
+                          >
+                          {{ item.isActive }}
                         </td>
                         <td
                           class="whitespace-nowrap px-3 py-5 text-sm text-gray-500"
                         >
-                          <TimeAgo :value="carPackage.createdAt" />
+                          <TimeAgo :value="item.createdAt" />
                         </td>
                         <td
                           class="whitespace-nowrap px-3 py-5 text-sm text-gray-500"
                         >
-                          <TimeAgo :value="carPackage.updatedAt" />
+                          <TimeAgo :value="item.updatedAt" />
                         </td>
                         <td
                           class="relative whitespace-nowrap py-5 pl-3 pr-4 text-right text-sm font-medium sm:pr-0"
                         >
-                          <div class="flex gap-x-2">
-                            <button @click="deletePackage(carPackage.uuid)">
-                              Delete
-                            </button>
+                          <div class="flex gap-x-2 items-center">
+                            <ToggleButton
+                              @update:model-value="updatePackage(item)"
+                              v-model="item.isActive"
+                            />
+
                             <nuxt-link
-                              v-if="carPackage.uuid"
+                              v-if="item.uuid"
                               :to="{
                                 name: '_package.one',
-                                params: { packageId: carPackage.uuid },
+                                params: { packageId: item.uuid },
                               }"
                               class="text-indigo-600 hover:text-indigo-900"
                               >Edit<span class="sr-only">, </span></nuxt-link
                             >
+                            <button @click="deletePackage(item.uuid)">
+                              Delete
+                            </button>
                           </div>
                         </td>
                       </tr>
@@ -173,12 +179,11 @@
 
 <script setup lang="ts">
 import { PackageDetails } from "types/model";
-import { $useAdminFetchApi } from "~/http";
 
 import { PaginatedMetaData } from "xpress-mongo/src/types/pagination";
-import AllPackages from "../../../components/admin/admin.packages.all.vue";
 import Amount from "~/components/utils/Amount.vue";
 import TimeAgo from "~/components/utils/TimeAgo.vue";
+import { $useAdminFetchApi } from "~/http";
 
 definePageMeta({
   layout: "admin-layout",
@@ -212,13 +217,14 @@ async function createPackage() {
   })
     .then((res) => {
       console.log(res);
+      modalActive.value = false;
     })
     .catch((err) => {
       console.log(err);
     });
-  /*  await SR.post.admin.packages({
-      data: form.value,
-    });*/
+  /*   await SR.post.admin.packages({
+       data: form.value,
+     })*/
 }
 
 async function deletePackage(uuid: string) {
@@ -230,6 +236,24 @@ async function deletePackage(uuid: string) {
 
   getData();
   console.log(uuid, "get emit");
+}
+
+async function updatePackage(item: PackageDetails) {
+  console.log(item.isActive, "get emit");
+
+  try {
+    await $useAdminFetchApi({
+      url: `packages/${item.uuid}`,
+      method: "PATCH",
+      data: item
+    });
+
+    getData();
+  } catch (e) {
+    getData();
+
+    console.log(e);
+  }
 }
 </script>
 

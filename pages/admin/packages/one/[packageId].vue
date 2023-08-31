@@ -3,8 +3,8 @@
     <Busy v-if="pending" />
 
     <div v-else>
-      <div class="border grid lg:grid-cols-2 gap-10">
-        <div class="p-8">
+      <div class="grid lg:grid-cols-2 gap-10 items-start pt-8">
+        <div>
           <div v-if="carPackage?.name" class="form">
             <div class="mx-auto grid grid-cols-1 gap-y-6">
               <div class="relative">
@@ -51,6 +51,9 @@
                 </div>
               </section>
 
+              
+              <CommonsLoadingButton  class="btn" :click="updateOne">Update Packagdde</CommonsLoadingButton>
+
               <button class="btn" @click="updateOne">Update Package</button>
             </div>
           </div>
@@ -59,6 +62,7 @@
           <AdminFeaturesSelector
             :existing-feature="carPackage!.features"
             @addToSelection="updateSelected"
+            @refresh="getData"
           />
         </div>
       </div>
@@ -139,13 +143,11 @@ function updateOne() {
     .then((res) => {
       carPackage.value = res.data;
       getData();
-      pending.value = false;
       console.log(carPackage.value);
     })
     .catch((err) => {
       getData();
 
-      pending.value = false;
       console.log(err);
     });
 }

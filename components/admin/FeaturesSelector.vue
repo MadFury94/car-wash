@@ -1,5 +1,5 @@
 <template>
-  <div class="border-2 p-4 rounded-md">
+  <div class="rounded-md">
     <Busy v-if="isFetching" />
     <div v-else>
       <div class="form">
@@ -14,7 +14,7 @@
       <div>
         <span class="bg-green-400" v-if="existingFeature">
           {{ existingFeature.length }}
-        </span>
+        </span>/
 
         <span v-if="filteredData" class="bg-yellow-400">
           {{ filteredData.length }}
@@ -34,11 +34,13 @@
                 v-if="item.selected"
                 @click="updateFeaturesSelection(item, 'remove')"
               >
-                Remove
+                <i  class="far fa-toggle-on text-secondary-500 text-2xl"></i>
+
               </button>
 
               <button v-else @click="updateFeaturesSelection(item, 'add')">
-                Add
+                <i  class="far fa-toggle-off text-gray-500 text-2xl"></i>
+
               </button>
               <NuxtLink
                 v-if="false"
@@ -78,13 +80,13 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["addToSelection"]);
+const $emit = defineEmits(["refresh"]);
 
 function updateFeaturesSelection(item: FeaturesType, action: "add" | "remove") {
   const body = {
     feature: item,
     action,
-  };
+  } as any;
   updatePackage(body, action);
 }
 
@@ -95,13 +97,14 @@ function updatePackage(item: FeaturesType, action: "add" | "remove") {
     data: item,
   })
     .then((res: any) => {
+      $emit("refresh");
       getFeatures();
-      console.log(res);
     })
     .catch((err: any) => {
+      $emit("refresh");
+
       getFeatures();
 
-      console.log(err);
     });
 }
 

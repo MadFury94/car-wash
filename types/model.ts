@@ -9,6 +9,7 @@ export type PackageDetails = {
   updatedAt: string;
   features: string[];
   mostPopular: boolean;
+  isActive: boolean;
 };
 
 export type MetaType = {

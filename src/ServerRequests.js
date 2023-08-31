@@ -18,7 +18,7 @@ const a = [
   }],
   ['post', 'api.booking.new', '/v1/api/bookings', {}],
   ['get', 'api.packages.all', '/v1/api/packages', {}],
-  ['get', 'admin.packages.all', '/v1/admin/packages', {}],
+  ['get', 'admin.packages.all', '/v1/admin/packages/all', {}],
   ['post', 'admin.packages.new', '/v1/admin/packages', {}],
   ['get', 'admin.packages.one', '/v1/admin/packages/:packageUuid', {
     packageUuid: true
