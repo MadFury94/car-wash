@@ -13,6 +13,9 @@
     />
   </Head>
 
+
+  <NotificationToast/>
+
   <NuxtLayout
     :transition="{
       name: 'bounce',
@@ -21,19 +24,18 @@
   >
     <div>
       <NuxtPage />
-
     </div>
   </NuxtLayout>
   <ClientOnly>
-    <DebugDock  />
+    <DebugDock />
   </ClientOnly>
 </template>
 
 <script setup lang="ts">
 import { useAuthStore } from "~/store/auth.store";
+import NotificationToast from "~/components/commons/NotificationToast.vue";
 
 let _token: string | null = null;
-
 
 /*
 const { data } = await useFetch("/api/v1", {
@@ -43,8 +45,6 @@ const { data } = await useFetch("/api/v1", {
   },
 });
 */
-
-
 
 const authStore = useAuthStore();
 </script>

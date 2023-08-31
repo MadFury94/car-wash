@@ -67,13 +67,13 @@
             </button>
           </div>
           <p class="mt-10 text-center text-sm text-gray-500">
-            Dont have an account?
+           Already have an account?
             {{ " " }}
             <NuxtLink
-              :to="{ name: 'register' }"
+              :to="{ name: 'login' }"
               class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
             >
-              Register
+              Login
             </NuxtLink>
           </p>
         </div>
@@ -96,8 +96,7 @@ const form = reactive<{
   email: string;
   password: string;
 }>({
-  email: "",
-  // email: "him@gmail.com",
+  email: "boc@gmail.com",
   password: "123456",
 });
 
@@ -117,9 +116,9 @@ async function register() {
 
     localStorage.setItem("signUpMail", form.email);
 
-    navigateTo({
+/*     navigateTo({
       name: "all-features",
-    });
+    }); */
   } catch (error: any) {
     console.log(error.data);
     formError.handleRequestError(error, "reg");
