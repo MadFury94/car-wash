@@ -144,7 +144,7 @@
                         >
                           <div class="flex gap-x-2 items-center">
                             <ToggleButton
-                              @update:model-value="updatePackage(item)"
+                                @update:model-value="value => updatePackage(item, value)"
                               v-model="item.isActive"
                             />
 
@@ -238,8 +238,9 @@ async function deletePackage(uuid: string) {
   console.log(uuid, "get emit");
 }
 
-async function updatePackage(item: PackageDetails) {
+async function updatePackage(item: PackageDetails,newValue: boolean) {
   console.log(item.isActive, "get emit");
+  item.isActive = newValue;
 
   try {
     await $useAdminFetchApi({
