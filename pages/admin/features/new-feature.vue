@@ -55,7 +55,7 @@ import { $useAdminFetchApi } from "../../../http";
 definePageMeta({
   name: "new-feature",
   layout: "admin-layout",
-  middleware: ["auth"],
+  middleware: ["auth", "admin"],
 
 });
 

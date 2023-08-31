@@ -109,7 +109,7 @@
       <!-- Sidebar component, swap this element with another sidebar if you like -->
 
       <div
-        class="flex grow flex-col gap-y-5 overflow-y-auto bg-secondary-600 px-6 pb-4"
+        class="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-4"
       >
         <div class="flex h-16 shrink-0 items-center">
           <img
@@ -219,14 +219,10 @@
 
 <script setup>
 import {
-  Dialog,
-  DialogPanel,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems,
-  TransitionChild,
-  TransitionRoot,
+Dialog,
+DialogPanel,
+TransitionChild,
+TransitionRoot
 } from "@headlessui/vue";
 import { useAuthStore } from "~/store/auth.store";
 

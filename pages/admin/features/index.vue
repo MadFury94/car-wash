@@ -129,7 +129,7 @@ import Modal from "../../../components/Modal.vue";
 definePageMeta({
   layout: "admin-layout",
   name: "all-features",
-  middleware: ["auth"]
+  middleware: ["auth", "admin"],
 });
 const form = reactive<{
   slug: string;
@@ -162,7 +162,6 @@ const {
 } = SR.get.admin.features.all<PaginatedMetaData<FeaturesType>>(undefined, {});
 
 function deleteFeature(featureUuid: string) {
-  console.log("delete", featureUuid);
 
   $useAdminFetchApi({
     url: `features/${featureUuid}`,

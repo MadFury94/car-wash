@@ -52,7 +52,7 @@
               </section>
 
               
-              <CommonsLoadingButton  class="btn" :click="updateOne">Update Packagdde</CommonsLoadingButton>
+              <!-- <CommonsLoadingButton  class="btn" :click="updateOne">Update Packagdde</CommonsLoadingButton> -->
 
               <button class="btn" @click="updateOne">Update Package</button>
             </div>
@@ -80,7 +80,7 @@ definePageMeta({
   name: "_package.one",
   title: "One Package",
   description: "This is the all packages page of our company",
-  middleware: ["auth"]
+  middleware: ["auth", "admin"],
 
 });
 

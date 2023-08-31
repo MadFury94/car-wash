@@ -56,7 +56,7 @@
               <!-- Sidebar component, swap this element with another sidebar if you like -->
 
               <div
-                class="flex grow flex-col gap-y-5 overflow-y-auto bg-red-500 px-6 pb-4"
+                class="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-50 px-6 pb-4"
               >
                 <div class="flex h-16 shrink-0 items-center">
                   <img
@@ -80,7 +80,7 @@
                             'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
                           ]"
                         >
-                          {{ item.name }}
+                          {{ item }}dd ???
                         </NuxtLink>
                       </ul>
                     </li>
@@ -109,7 +109,7 @@
       <!-- Sidebar component, swap this element with another sidebar if you like -->
 
       <div
-        class="flex grow flex-col gap-y-5 overflow-y-auto bg-red-500 px-6 pb-4"
+        class="flex grow flex-col gap-y-5 overflow-y-auto bg-secondary-600 px-6 pb-4"
       >
         <div class="flex h-16 shrink-0 items-center">
           <img
@@ -123,8 +123,8 @@
             <li>
               <ul role="list" class="-mx-2 space-y-1">
                 <nuxt-link
-                  v-for="item in navigation"
-                  :key="item.name"
+                  v-for="(item, index) in navigation"
+                  :key="index"
                   :to="{ name: item.route.name }"
                   :class="[
                     $route.name === item.route.name
@@ -133,7 +133,9 @@
                     'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
                   ]"
                 >
-                  {{ item.name }}
+                  <div v-if="item?.visible">
+                    {{ item.name }}
+                  </div>
                 </nuxt-link>
               </ul>
             </li>
@@ -194,10 +196,9 @@
               aria-hidden="true"
             />
 
-            <ProfileComponent  />
+            <ProfileComponent />
 
             <!-- Profile dropdown -->
-
           </div>
         </div>
       </div>
@@ -215,16 +216,12 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {
-  Dialog,
-  DialogPanel,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems,
-  TransitionChild,
-  TransitionRoot,
+Dialog,
+DialogPanel,
+TransitionChild,
+TransitionRoot,
 } from "@headlessui/vue";
 import { useAuthStore } from "~/store/auth.store";
 
@@ -234,40 +231,36 @@ function logOut() {
   authStore.logout();
 }
 
-const { currentUser } = useCurrentUser();
+const { currentUser, isAdmin } = useCurrentUser();
 
-const navigation = [
+type RouteTypes = {
+  name: string;
+  route: { name: string };
+  icon: string;
+  visible: boolean;
+};
+
+const navigation = ref<RouteTypes[]>([
   {
     name: "Dashboard",
     route: { name: "admin-index" },
     icon: "fa-solid fa-house",
+    visible: true,
   },
   {
     name: "Bookings",
     route: { name: "admin-bookings" },
     icon: "fa-solid fa-house",
+    visible: true,
   },
+
   {
-    name: "Features",
-    route: { name: "all-features" },
-    icon: "fa-solid fa-house",
-  },
-  {
-    name: "Packages",
-    route: { name: "all-packages" },
-    icon: "fa-solid fa-house",
-  },
-  {
-    name: "Home",
+    name: "Manage",
+    visible: isAdmin.value,
     route: { name: "admin-index" },
     icon: "fa-solid fa-house",
   },
-];
-
-const userNavigation = [
-  { name: "Your profile", href: "#" },
-  { name: "Sign out", href: "#" },
-];
+]);
 
 const sidebarOpen = ref(false);
 </script>

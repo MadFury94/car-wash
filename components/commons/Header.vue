@@ -45,8 +45,8 @@
             {{ item.name }}</NuxtLink
           >
         </div>
-
-        <button @click="logOut">LogOut</button>
+        <button v-if="authStore.isLoggedIn" @click="logOut">LogOut</button>
+        <div v-else>Login</div>
       </nav>
       <ClientOnly>
         <Dialog
@@ -99,7 +99,9 @@
 <script setup>
 import { Dialog, DialogPanel } from "@headlessui/vue";
 import { ref } from "vue";
-import {useAuthStore} from "~/store/auth.store";
+import { useAuthStore } from "~/store/auth.store";
+
+const currentUser = useCurrentUser();
 
 const navigation = [
   {

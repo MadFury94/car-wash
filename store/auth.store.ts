@@ -33,7 +33,7 @@ export const useAuthStore = defineStore("authStore", () => {
       },
       {
         immediate: true,
-      },
+      }
     );
   }
 
@@ -58,7 +58,6 @@ export const useAuthStore = defineStore("authStore", () => {
     return !!authToken.value;
   });
 
-
   async function logout() {
     if (!process.client) return;
     const setAuthRole = useCookie("auth-role");
@@ -67,6 +66,10 @@ export const useAuthStore = defineStore("authStore", () => {
     localStorage.removeItem("auth-token");
     localStorage.removeItem("current-user");
     setAuthRole.value = null;
+
+    navigateTo({
+      name: "login",
+    });
   }
 
   return {

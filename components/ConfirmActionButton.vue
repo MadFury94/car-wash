@@ -24,7 +24,6 @@ function  confirmAction() {
   showConfirmation.value = false;
 
   $emit('confirm');
-  console.log('confirming action');
 }
 
 </script>

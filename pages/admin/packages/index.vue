@@ -87,7 +87,15 @@
                           <div class="flex items-center">
                             <div class="ml-4">
                               <div class="font-medium text-gray-900">
-                                {{ item.name }}
+                                <nuxt-link
+                                :class="[item.isActive ? 'text-secondary-600' : 'text-gray-400']"
+                                  :to="{
+                                    name: '_package.one',
+                                    params: { packageId: item.uuid },
+                                  }"
+                                >
+                                  {{ item.name }}
+                                </nuxt-link>
                               </div>
                               <div class="mt-1 text-gray-500">
                                 {{ item.type }}
@@ -136,7 +144,6 @@
                         >
                           <div class="flex gap-x-8 items-center">
                             <nuxt-link
-                              v-if="item.uuid"
                               :to="{
                                 name: '_package.one',
                                 params: { packageId: item.uuid },
@@ -181,8 +188,7 @@ definePageMeta({
   name: "all-packages",
   title: "All Packages",
   description: "This is the all packages page of our company",
-  middleware: ["auth"]
-
+  middleware: ["auth", "admin"],
 });
 
 const modalActive = ref(false);
