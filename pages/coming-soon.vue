@@ -6,13 +6,12 @@
         We are updating our Web Application to give you something awesome.
       </p>
 
-      <PackagesSection :package-data="packageData" />
+      <PackagesSection  />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { package_detail_data } from "../store/data";
 import PackagesSection from "./sections/PackagesSection.vue";
 
 definePageMeta({
@@ -24,7 +23,6 @@ definePageMeta({
     "https://demo.ovatheme.com/mistercar/wp-content/uploads/2020/09/blog_3.jpg",
 });
 
-const packageData = package_detail_data;
 </script>
 
 <style scoped></style>

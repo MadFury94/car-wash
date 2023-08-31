@@ -1,5 +1,5 @@
 <template>
-  <div  class="bg-white py-24 sm:py-32">
+  <div class="bg-white py-24 sm:py-32">
     <!-- you will need to handle a loading state -->
 
     <div class="mx-auto max-w-7xl lg:px-8">
@@ -134,7 +134,7 @@
 
 <script setup lang="ts">
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from "@headlessui/vue";
-import { $useFetchApi } from "../../http";
+import { $useFetchApi } from "~/http";
 
 const props = defineProps({
   menuStyle: {
@@ -146,7 +146,6 @@ const props = defineProps({
 
 const $router = useRouter();
 
-const checked = ref(false);
 
 const { data, pending, error, execute: getData } = SR.get.public.packages.all();
 
@@ -155,59 +154,6 @@ onMounted(() => {
 });
 
 const selectedTier = ref("saloon");
-
-type featureTypes = {
-  id: "PAINT" | "PAINT-G" | "ENGINE" | "INTERIOR" | "EXTERIOR";
-  title: string;
-  description: string;
-};
-
-function returnFeatureList(str: string[]) {
-  return str.join("\n");
-}
-
-const featureDetails = [
-  {
-    id: "PAINT",
-    title: "PAINT ENHANCEMENT AND GLOSS/SHINE",
-    description:
-      "Removing minor surface scratches, droplets,& firmly bonded surface contaminants on paint.",
-  },
-  {
-    id: "PAINT-G",
-    title: "PAINT ENHANCEMENT AND GLOSS/SHINE",
-    description:
-      "Restoring paint shine,smoothens paint surface,reducing friction between debris & paint, protecting paint from uv Ray’s & salt water.",
-  },
-  {
-    id: "ENGINE",
-    title: "ENGINE DETAILING",
-    description:
-      "Engine bay cleaning,degreasing,protecting engine from rust,restoring engine shine.",
-  },
-  {
-    id: "INTERIOR",
-    title: "INTERIOR DETAILING",
-    description:
-      "Vacuum,trunk,stain removal,leather/fabric cleaning & conditioning,mat/rugs shampooing,vinyl/plastic restoration,door jambs, dashboard,roof,AC vents flushing & steaming,cockpits.",
-  },
-] as featureTypes[];
-
-function matchFeaturesWithDetails(features: string[]) {
-  return features.map((feature) => {
-    const matchedFeature = featureDetails.find(
-      (detail) => detail.id === feature
-    );
-    return matchedFeature;
-  });
-}
-
-function orderedListItems(str: string) {
-  const array_of_strings = str.split(",").map((item) => item.trim());
-
-  return array_of_strings;
-}
-
 function createBooking(uuid: string) {
   console.log("create booking", uuid);
 

@@ -1,7 +1,7 @@
 <template>
   <div>
     <AboutHero />
-    <PackagesSection :package-data="packageData" />
+    <PackagesSection  />
 
     <AboutFeatures />
     <OurTeam />
@@ -11,7 +11,6 @@
 </template>
 
 <script setup lang="ts">
-import { package_detail_data } from "../store/data";
 import AboutFeatures from "./sections/AboutFeatures.vue";
 import AboutHero from "./sections/AboutHero.vue";
 import OurTeam from "./sections/OurTeam.vue";
@@ -28,7 +27,6 @@ const { pending, data: posts } = useFetch("http://localhost:3000/packages", {
   lazy: true,
 });
 
-const packageData = package_detail_data;
 </script>
 
 <style scoped></style>

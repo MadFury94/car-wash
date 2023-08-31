@@ -11,7 +11,7 @@
     <div>
       <CountUpSection />
       <SectionWithTabs />
-      <PackagesSection :package-data="packageData" />
+      <PackagesSection  />
 
       <div v-if="pending">Loading ...</div>
       <div v-else>
@@ -51,7 +51,6 @@ import HowItWork from "./sections/HowItWork.vue";
 import PackagesSection from "./sections/PackagesSection.vue";
 import TestimonialSlider from "./sections/TestimonialSlider.vue";
 
-import { package_detail_data } from "../store/data";
 
 definePageMeta({
   // layout: "default",
@@ -63,5 +62,4 @@ const { pending, data: posts } = useFetch("http://localhost:3000/packages", {
   lazy: true,
 });
 
-const packageData = package_detail_data;
 </script>
