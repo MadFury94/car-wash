@@ -5,15 +5,18 @@
     <div v-else>
       <div v-if="oneFeature?.name" class="form">
         <div class="max-w-lg mx-auto">
-          
           <div class="flex flex-col gap-y-4">
             <div class="relative">
               <label>Name:</label>
               <input type="text" v-model="oneFeature!.name" />
             </div>
             <div class="flex justify-end gap-x-4 text-secondary-500">
-              <button v-if="!isEditing" @click="editList"> <i class="fa-solid fa-pen-to-square"></i>Edit</button>
-              <button v-else @click="previewList"><i class="fa-solid fa-eye"></i> preview</button>
+              <button v-if="!isEditing" @click="editList">
+                <i class="fa-solid fa-pen-to-square"></i>Edit
+              </button>
+              <button v-else @click="previewList">
+                <i class="fa-solid fa-eye"></i> preview
+              </button>
             </div>
             <template v-if="!isEditing">
               <ol class="list-item" type="1">
@@ -34,13 +37,15 @@
               ></textarea>
             </div>
           </div>
-          <button @click="updateFeature" class="btn btn-primary w-full mt-4" :disabled="!isEditing">
-        Update
-      </button>
+          <button
+            @click="updateFeature"
+            class="btn btn-primary w-full mt-4"
+            :disabled="!isEditing"
+          >
+            Update
+          </button>
         </div>
-     
       </div>
-   
     </div>
   </div>
 </template>
@@ -53,7 +58,6 @@ definePageMeta({
   name: "update-feature",
   layout: "admin-layout",
   middleware: "auth",
-
 });
 
 const isEditing = ref(true);
