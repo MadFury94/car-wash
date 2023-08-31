@@ -61,12 +61,12 @@ export const useAuthStore = defineStore("authStore", () => {
 
   async function logout() {
     if (!process.client) return;
+    const setAuthRole = useCookie("auth-role");
 
     authToken.value = null;
     localStorage.removeItem("auth-token");
     localStorage.removeItem("current-user");
-
-
+    setAuthRole.value = null;
   }
 
   return {

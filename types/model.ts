@@ -36,5 +36,5 @@ export type UserType = {
   email: string;
   uuid: string;
   lastSeen: string;
-  role:string[];
+  role:string;
 }

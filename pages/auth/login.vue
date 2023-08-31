@@ -12,9 +12,10 @@
         <h2
           class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
         >
-      Sign in to your account <ClientOnly>
-        {{ currentUser}}
-       </ClientOnly> 
+          Sign in to your account
+          <ClientOnly>
+            {{ currentUser }}
+          </ClientOnly>
         </h2>
       </div>
 
@@ -72,7 +73,7 @@ import { useAuthStore } from "~/store/auth.store";
 definePageMeta({
   name: "login",
   layout: "default",
-  middleware: "redirect-if-authenticated"
+  middleware: "redirect-if-authenticated",
 });
 
 const form = reactive<{
@@ -82,32 +83,29 @@ const form = reactive<{
   email: "him@gmail.com",
   password: "123456",
 });
-const authStore = useAuthStore() 
-
-
+const authStore = useAuthStore();
 
 const { currentUser } = useCurrentUser();
 
-
 async function login() {
+  const setAuthRole = useCookie("auth-role");
+
   const res = await SR.post.api.login<{
     token: string;
     user: {
       uuid: string;
       email: string;
       name: string;
+      role: string;
     };
   }>(form);
 
-
-
-
-
-  await authStore.setCurrentUserToken(res.token, res.user );
+  await authStore.setCurrentUserToken(res.token, res.user);
+  setAuthRole.value = res.user.role;
 
   navigateTo({
     name: "all-features",
-  })
+  });
 }
 </script>
 

@@ -80,7 +80,7 @@ definePageMeta({
   name: "_package.one",
   title: "One Package",
   description: "This is the all packages page of our company",
-  middleware: "auth",
+  middleware: ["auth"]
 
 });
 

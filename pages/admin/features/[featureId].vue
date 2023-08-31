@@ -57,7 +57,7 @@ import { $useAdminFetchApi } from "~/http";
 definePageMeta({
   name: "update-feature",
   layout: "admin-layout",
-  middleware: "auth",
+  middleware: ["auth"]
 });
 
 const isEditing = ref(true);
