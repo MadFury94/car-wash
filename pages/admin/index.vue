@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Admin areas</h1>
+    <h1>Admin areas ??</h1>
   </div>
 </template>
 
@@ -11,7 +11,7 @@ definePageMeta({
   name: "admin-index",
   title: "Admin",
   description: "This is the admin page of our company",
-  middleware: ["auth"],
+  middleware: ["auth", "admin"],
 
 });
 

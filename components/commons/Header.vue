@@ -45,6 +45,8 @@
             {{ item.name }}</NuxtLink
           >
         </div>
+
+        <button @click="logOut">LogOut</button>
       </nav>
       <ClientOnly>
         <Dialog
@@ -97,6 +99,7 @@
 <script setup>
 import { Dialog, DialogPanel } from "@headlessui/vue";
 import { ref } from "vue";
+import {useAuthStore} from "~/store/auth.store";
 
 const navigation = [
   {
@@ -133,4 +136,11 @@ const navigation = [
 ];
 
 const mobileMenuOpen = ref(false);
+const authStore = useAuthStore();
+
+
+function logOut() {
+  authStore.logout();
+}
+
 </script>
