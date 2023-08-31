@@ -90,22 +90,26 @@ const { currentUser } = useCurrentUser();
 async function login() {
   const setAuthRole = useCookie("auth-role");
 
-  const res = await SR.post.api.login<{
-    token: string;
-    user: {
-      uuid: string;
-      email: string;
-      name: string;
-      role: string;
-    };
-  }>(form);
+  try {
+    const res = await SR.post.api.login<{
+      token: string;
+      user: {
+        uuid: string;
+        email: string;
+        name: string;
+        role: string;
+      };
+    }>(form);
 
-  await authStore.setCurrentUserToken(res.token, res.user);
-  setAuthRole.value = res.user.role;
+    await authStore.setCurrentUserToken(res.token, res.user);
+    setAuthRole.value = res.user.role;
 
-  navigateTo({
-    name: "all-features",
-  });
+    navigateTo({
+      name: "all-features",
+    });
+  } catch (e:any) {
+    console.log(e.data);
+  }
 }
 </script>
 

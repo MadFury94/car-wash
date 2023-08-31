@@ -6,12 +6,14 @@ const $router = useRouter();
 </script>
 
 <template>
-  <div class="">
+  <div>
     <Header />
     <div>
       <slot />
     </div>
+    <client-only>
+      <debug :data="{}" />
+    </client-only>
     <Footer />
   </div>
-
 </template>

@@ -11,7 +11,7 @@ export const general_menu = [
   },
   {
     name: "Packages",
-    route: { name: "packagePage" },
+    route: { name: "public.packages" },
     icon: "fa-solid fa-car-wash",
   },
   {

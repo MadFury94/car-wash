@@ -13,11 +13,11 @@ const a = [
   ['get', 'api.pulse', '/v1/pulse', {}],
   ['post', 'api.login', '/v1/auth/login', {}],
   ['post', 'api.register', '/v1/auth/register', {}],
+  ['get', 'public.packages.all', '/v1/public/packages', {}],
   ['patch', 'api.booking.update', '/v1/api/bookings/:bookingUuid', {
     bookingUuid: true
   }],
   ['post', 'api.booking.new', '/v1/api/bookings', {}],
-  ['get', 'api.packages.all', '/v1/api/packages', {}],
   ['get', 'admin.packages.all', '/v1/admin/packages/all', {}],
   ['post', 'admin.packages.new', '/v1/admin/packages', {}],
   ['get', 'admin.packages.one', '/v1/admin/packages/:packageUuid', {
@@ -71,8 +71,10 @@ export default {
     index: (...args) => s(...p(b['get.index'], args)),
     api: {
       pulse: (...args) => s(...p(b['get.api.pulse'], args)),
+    },
+    public: {
       packages: {
-        all: (...args) => s(...p(b['get.api.packages.all'], args)),
+        all: (...args) => s(...p(b['get.public.packages.all'], args)),
       },
     },
     admin: {

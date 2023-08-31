@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
 definePageMeta({
-  layout: "pages-layout",
+  layout: "general-layout",
   name: "contactPage",
   title: "Contact our Company",
   description: "This is the details about company",

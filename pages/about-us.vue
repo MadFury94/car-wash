@@ -11,15 +11,15 @@
 </template>
 
 <script setup lang="ts">
+import { package_detail_data } from "../store/data";
 import AboutFeatures from "./sections/AboutFeatures.vue";
 import AboutHero from "./sections/AboutHero.vue";
 import OurTeam from "./sections/OurTeam.vue";
-import TestimonialSlider from "./sections/TestimonialSlider.vue";
 import PackagesSection from "./sections/PackagesSection.vue";
-import { package_detail_data } from "../store/data";
+import TestimonialSlider from "./sections/TestimonialSlider.vue";
 
 definePageMeta({
-  layout: "pages-layout",
+  layout: "general-layout",
   name: "aboutPage",
   title: "About Us",
 });

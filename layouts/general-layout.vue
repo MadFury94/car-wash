@@ -31,6 +31,9 @@
     <div>
       <slot />
     </div>
+    <client-only>
+      <debug :data="{}" />
+    </client-only>
     <Footer />
   </div>
 </template>

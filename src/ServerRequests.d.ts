@@ -53,12 +53,14 @@ declare const _default: {
         config?: SRConfig,
         ...others: any[]
       ): SRF<T>;
+    };
+    public: {
       packages: {
         /**
-         * **CarPackageController@all**
+         * **public/CarPackageController@all**
          *
-         * - `[api.packages.all]`
-         * - `GET: /v1/api/packages`
+         * - `[public.packages.all]`
+         * - `GET: /v1/public/packages`
          */
         all<T = any>(
           query?: SRQuery,

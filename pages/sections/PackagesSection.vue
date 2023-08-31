@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white py-24 sm:py-32">
+  <div  class="bg-white py-24 sm:py-32">
     <!-- you will need to handle a loading state -->
 
     <div class="mx-auto max-w-7xl lg:px-8">
@@ -134,7 +134,7 @@
 
 <script setup lang="ts">
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from "@headlessui/vue";
-import { $useFetchApi, useAxiosRequest } from "../../http";
+import { $useFetchApi } from "../../http";
 
 const props = defineProps({
   menuStyle: {
@@ -148,7 +148,7 @@ const $router = useRouter();
 
 const checked = ref(false);
 
-const [pending, getData, data, error] = useAxiosRequest("packages");
+const { data, pending, error, execute: getData } = SR.get.public.packages.all();
 
 onMounted(() => {
   getData();
