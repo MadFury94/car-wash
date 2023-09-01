@@ -61,9 +61,13 @@
             </button>
           </div>
           <p class="mt-10 text-center text-sm text-gray-500">
-          Dont have an account?
-            {{ ' ' }}
-            <NuxtLink :to="{name:'register'}" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Register</NuxtLink>
+            Dont have an account?
+            {{ " " }}
+            <NuxtLink
+              :to="{ name: 'register' }"
+              class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+              >Register</NuxtLink
+            >
           </p>
         </div>
       </div>
@@ -112,7 +116,7 @@ async function login() {
     navigateTo({
       name: "all-features",
     });
-  } catch (e:any) {
+  } catch (e: any) {
     console.log(e.data);
   }
 }

@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     "~/assets/css/main.css",
     "vue-json-debug/src/debug.css",
     "~/assets/css/form.scss",
+    "vue-toastification/dist/index.css",
   ],
 
   app: {
@@ -18,8 +19,8 @@ export default defineNuxtConfig({
         },
         {
           rel: "stylesheet",
-          href: "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-        },  
+          href: "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css",
+        },
 
         {
           rel: "stylesheet",
@@ -34,6 +35,10 @@ export default defineNuxtConfig({
       src: "@/plugins/extend-vue.ts",
       mode: "client",
     },
+    {
+      src: "@/plugins/vue-toast.ts",
+      mode: "client",
+    },
   ],
 
   postcss: {
@@ -43,9 +48,7 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: [
-    '@pinia/nuxt',
-  ],
+  modules: ["@pinia/nuxt"],
 
   devtools: {
     enabled: true,
