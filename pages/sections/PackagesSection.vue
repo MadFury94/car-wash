@@ -88,7 +88,7 @@
                       >₦{{ tier.price }}</span
                     >
                   </p>
-                  <button @click="createBooking(tier.uuid)">
+                  <button v-if="false" @click="createBooking(tier.uuid)">
                     <div
                       :class="[
                         tier.mostPopular

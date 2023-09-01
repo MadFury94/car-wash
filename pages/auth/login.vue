@@ -13,9 +13,6 @@
           class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
         >
           Sign in to your account
-          <ClientOnly>
-            {{ currentUser }}
-          </ClientOnly>
         </h2>
       </div>
 
@@ -61,9 +58,13 @@
             </button>
           </div>
           <p class="mt-10 text-center text-sm text-gray-500">
-          Dont have an account?
-            {{ ' ' }}
-            <NuxtLink :to="{name:'register'}" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Register</NuxtLink>
+            Dont have an account?
+            {{ " " }}
+            <NuxtLink
+              :to="{ name: 'register' }"
+              class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+              >Register</NuxtLink
+            >
           </p>
         </div>
       </div>
@@ -74,7 +75,6 @@
 <script setup lang="ts">
 import { reactive } from "vue";
 import { useAuthStore } from "~/store/auth.store";
-
 definePageMeta({
   name: "login",
   layout: "default",
@@ -85,7 +85,7 @@ const form = reactive<{
   email: string;
   password: string;
 }>({
-  email: "him@gmail.com",
+  email: "hi33m@gmail.com",
   password: "123456",
 });
 const authStore = useAuthStore();
@@ -112,9 +112,7 @@ async function login() {
     navigateTo({
       name: "all-features",
     });
-  } catch (e:any) {
-    console.log(e.data);
-  }
+  } catch (e: any) {}
 }
 </script>
 

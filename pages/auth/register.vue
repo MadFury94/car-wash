@@ -12,7 +12,7 @@
         <h2
           class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
         >
-         Register an account
+          Register an account
         </h2>
       </div>
 
@@ -21,11 +21,12 @@
           <div class="relative">
             <label>Email address</label>
             <input
-              id="email"
+              id="reg-email"
               v-model="form.email"
               type="email"
               autocomplete="email"
             />
+            <FormErrorMessage field="email" />
           </div>
 
           <div class="">
@@ -45,10 +46,14 @@
                 >Password</label
               >
               <input
+                  id="reg-email"
+
                 v-model="form.password"
                 type="password"
                 autocomplete="current-password"
               />
+              <FormErrorMessage field="password" />
+
             </div>
           </div>
 
@@ -58,17 +63,17 @@
               type="submit"
               class="btn btn-primary w-full"
             >
-              Sign in
+              Register
             </button>
           </div>
           <p class="mt-10 text-center text-sm text-gray-500">
-            Dont have an account?
+           Already have an account?
             {{ " " }}
             <NuxtLink
-              :to="{ name: 'register' }"
+              :to="{ name: 'login' }"
               class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
             >
-              Register
+              Login
             </NuxtLink>
           </p>
         </div>
@@ -79,6 +84,7 @@
 
 <script setup lang="ts">
 import { reactive } from "vue";
+import { useFormError } from "~/store/response.store";
 
 definePageMeta({
   name: "register",
@@ -90,9 +96,11 @@ const form = reactive<{
   email: string;
   password: string;
 }>({
-  email: "him@gmail.com",
+  email: "boc@gmail.com",
   password: "123456",
 });
+
+const formError = useFormError();
 
 async function register() {
   const setAuthRole = useCookie("auth-role");
@@ -101,20 +109,19 @@ async function register() {
     const res = await SR.post.api.register<{
       token: string;
       user: {
-        uuid: string;
         email: string;
         name: string;
-        role: string;
       };
     }>(form);
 
-    setAuthRole.value = res.user.role;
+    localStorage.setItem("signUpMail", form.email);
 
-    navigateTo({
+/*     navigateTo({
       name: "all-features",
-    });
-  } catch (e: any) {
-    console.log(e.data);
+    }); */
+  } catch (error: any) {
+    console.log(error.data);
+    formError.handleRequestError(error, "reg");
   }
 }
 </script>

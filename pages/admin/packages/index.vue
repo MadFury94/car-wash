@@ -68,7 +68,6 @@
                       <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Title</th>
-                        <th scope="col">Status</th>
                         <th scope="col">Created At</th>
                         <th scope="col">Updated At</th>
                         <th
@@ -102,7 +101,8 @@
                               </div>
                               <template v-if="item.features">
                                 <span
-                                  class="inline-flex items-center rounded-md bg-secondary-50 px-2 py-1 text-xs font-medium text-secondary-700 ring-1 ring-inset ring-secondary-700/10"
+                                :class="[item.isActive ? 'text-secondary-700 bg-secondary-50 ' : 'text-gray-400']"
+                                  class="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ring-1 ring-inset ring-secondary-700/10"
                                 >
                                   {{ item.features.length }}
                                   Features</span
@@ -121,14 +121,7 @@
                             <Amount :value="item.price" />
                           </div>
                         </td>
-                        <td>
-                          <ToggleButton
-                            @update:model-value="
-                              (value) => updatePackage(item, value)
-                            "
-                            v-model="item.isActive"
-                          />
-                        </td>
+                      
                         <td
                           class="whitespace-nowrap px-3 py-5 text-sm text-gray-500"
                         >
@@ -143,6 +136,12 @@
                           class="relative whitespace-nowrap py-5 pl-3 pr-4 text-right text-sm font-medium sm:pr-0"
                         >
                           <div class="flex gap-x-8 items-center">
+                            <ToggleButton
+                            @update:model-value="
+                              (value) => updatePackage(item, value)
+                            "
+                            v-model="item.isActive"
+                          />
                             <nuxt-link
                               :to="{
                                 name: '_package.one',
@@ -215,10 +214,12 @@ async function createPackage() {
     data: form.value,
   })
     .then((res) => {
-      console.log(res);
+      getData();
       modalActive.value = false;
     })
     .catch((err) => {
+      getData();
+
       console.log(err);
     });
   /*   await SR.post.admin.packages({

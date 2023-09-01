@@ -13,10 +13,6 @@ const baseUrl = "http://localhost:5620/v1";
 
 type AxiosResponse<T> = [Ref<boolean>, () => Promise<void>, Ref<any>, Ref<any>];
 
-export const $useBaseApi = axios.create({
-  baseURL: `${baseUrl}`,
-  // timeout: 3000,
-});
 
 
 export const $useFetchApi = axios.create({
@@ -42,7 +38,7 @@ export function useAxiosRequest<T>(
     try {
       const response: AxiosResponse<T> = await $useFetchApi.get(endpoint, {
         params: params,
-      });
+      }) as any;
       data.value = response.data;
       error.value = null;
     } catch (err: any) {

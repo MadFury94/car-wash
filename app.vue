@@ -21,11 +21,10 @@
   >
     <div>
       <NuxtPage />
-
     </div>
   </NuxtLayout>
   <ClientOnly>
-    <DebugDock  />
+    <DebugDock />
   </ClientOnly>
 </template>
 
@@ -33,7 +32,6 @@
 import { useAuthStore } from "~/store/auth.store";
 
 let _token: string | null = null;
-
 
 /*
 const { data } = await useFetch("/api/v1", {
@@ -43,8 +41,6 @@ const { data } = await useFetch("/api/v1", {
   },
 });
 */
-
-
 
 const authStore = useAuthStore();
 </script>
