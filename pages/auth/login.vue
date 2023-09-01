@@ -72,13 +72,14 @@
         </div>
       </div>
     </div>
+    <button @click="toastMe" class="bg-red-500 p-10">toast</button>
   </div>
 </template>
 
 <script setup lang="ts">
 import { reactive } from "vue";
+import { useToast } from "vue-toastification";
 import { useAuthStore } from "~/store/auth.store";
-
 definePageMeta({
   name: "login",
   layout: "default",
@@ -119,6 +120,26 @@ async function login() {
   } catch (e: any) {
     console.log(e.data);
   }
+}
+
+function toastMe() {
+  // Get toast interface
+  const toast = useToast();
+
+  // Use it!
+  toast("I'm a toast!");
+
+  // or with options
+  toast.success("My toast content", {
+    timeout: 2000,
+  });
+  // These options will override the options defined in the "app.use" plugin registration for this specific toast
+
+  // Make it available inside methods
+
+  toast.success("My toast content", {
+    timeout: 2000,
+  });
 }
 </script>
 
