@@ -7,13 +7,4 @@ export default defineNuxtPlugin((nuxtApp) => {
   };
 
   app.use(Toast, options);
-
-  console.log("Toast", Toast);
-
-  /*   useDebugPlugin(app, {
-    registerDebugComponent: true,
-    components: {
-      after: { RouterInfo, ScreenSize },
-    },
-  }); */
 });
