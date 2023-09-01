@@ -1,0 +1,10 @@
+@import "vue-toastification/dist/index.css";
+
+.Vue-Toastification__toast--success {
+  @apply bg-white border-2 text-gray-600;
+}
+
+.Vue-Toastification__toast-body {
+  @apply text-gray-600;
+}
+// Vue-Toastification__toast-body

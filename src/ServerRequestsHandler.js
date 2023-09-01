@@ -24,9 +24,13 @@ export default function handleRequest(url, args) {
       const message = response._data.message;
       // Handle the response or modify it here
       // For example, you can check if the response status is 401 (Unauthorized) and redirect the user to a login page
-      toast.success(response._data.message, {
-        timeout: 2000,
-      });
+
+      if (response._data.message) {
+        toast.success(message, {
+          timeout: 2000,
+          icon: "fa-regular fa-circle-check text-green-500",
+        });
+      }
     },
     onRequestError({ request, options, error }) {
       // Handle request errors here

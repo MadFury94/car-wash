@@ -13,9 +13,6 @@
           class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
         >
           Sign in to your account
-          <ClientOnly>
-            {{ currentUser }}
-          </ClientOnly>
         </h2>
       </div>
 
@@ -88,7 +85,7 @@ const form = reactive<{
   email: string;
   password: string;
 }>({
-  email: "him@gmail.com",
+  email: "hi33m@gmail.com",
   password: "123456",
 });
 const authStore = useAuthStore();
@@ -115,9 +112,7 @@ async function login() {
     navigateTo({
       name: "all-features",
     }); */
-  } catch (e: any) {
-    console.log(e.data);
-  }
+  } catch (e: any) {}
 }
 </script>
 

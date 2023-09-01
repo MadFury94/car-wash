@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     "~/assets/css/main.css",
     "vue-json-debug/src/debug.css",
     "~/assets/css/form.scss",
-    "vue-toastification/dist/index.css",
+    "~/assets/css/vue-toast.scss",
   ],
 
   app: {
