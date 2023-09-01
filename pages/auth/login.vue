@@ -108,10 +108,10 @@ async function login() {
 
     await authStore.setCurrentUserToken(res.token, res.user);
     setAuthRole.value = res.user.role;
-    /* 
+
     navigateTo({
       name: "all-features",
-    }); */
+    });
   } catch (e: any) {}
 }
 </script>
