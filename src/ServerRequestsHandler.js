@@ -1,5 +1,7 @@
 // @ts-ignore
+import { useToast } from "vue-toastification";
 import { getCurrentUserToken } from "~/store/auth.store";
+const toast = useToast();
 
 export default function handleRequest(url, args) {
   const baseURL = "http://localhost:5620";
@@ -16,13 +18,15 @@ export default function handleRequest(url, args) {
       // Modify request or options here if needed
       // For example, you can add additional headers or modify the request body
 
-      console.log("request", request);
+      console.log("request routes ??", request);
     },
     onResponse({ request, response, options }) {
+      const message = response._data.message;
       // Handle the response or modify it here
       // For example, you can check if the response status is 401 (Unauthorized) and redirect the user to a login page
-
-      console.log("response --", response);
+      toast.success(response._data.message, {
+        timeout: 2000,
+      });
     },
     onRequestError({ request, options, error }) {
       // Handle request errors here
