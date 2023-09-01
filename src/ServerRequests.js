@@ -14,6 +14,13 @@ const a = [
   ['post', 'api.login', '/v1/auth/login', {}],
   ['post', 'api.register', '/v1/auth/register', {}],
   ['get', 'public.packages.all', '/v1/public/packages', {}],
+  ['post', 'public.reports.new', '/v1/public/reports', {}],
+  ['patch', 'public.reports.update', '/v1/public/reports/:reportUuid', {
+    reportUuid: true
+  }],
+  ['get', 'public.reports.one', '/v1/public/reports/:reportUuid', {
+    reportUuid: true
+  }],
   ['patch', 'api.booking.update', '/v1/api/bookings/:bookingUuid', {
     bookingUuid: true
   }],
@@ -76,6 +83,9 @@ export default {
       packages: {
         all: (...args) => s(...p(b['get.public.packages.all'], args)),
       },
+      reports: {
+        one: (...args) => s(...p(b['get.public.reports.one'], args)),
+      },
     },
     admin: {
       packages: {
@@ -99,6 +109,11 @@ export default {
         new: (...args) => s(...p(b['post.api.booking.new'], args)),
       },
     },
+    public: {
+      reports: {
+        new: (...args) => s(...p(b['post.public.reports.new'], args)),
+      },
+    },
     admin: {
       packages: {
         new: (...args) => s(...p(b['post.admin.packages.new'], args)),
@@ -109,6 +124,11 @@ export default {
     },
   },
   patch: {
+    public: {
+      reports: {
+        update: (...args) => s(...p(b['patch.public.reports.update'], args)),
+      },
+    },
     api: {
       booking: {
         update: (...args) => s(...p(b['patch.api.booking.update'], args)),

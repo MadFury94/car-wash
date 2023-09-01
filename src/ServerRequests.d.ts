@@ -68,6 +68,20 @@ declare const _default: {
           ...others: any[]
         ): SRF<T>;
       };
+      reports: {
+        /**
+         * **public/ReportsController@one**
+         *
+         * - `[public.reports.one]`
+         * - `GET: /v1/public/reports/:reportUuid`
+         */
+        one<T = any>(
+          params: { reportUuid: StringOrNumber } | SRParams,
+          query?: SRQuery,
+          config?: SRConfig,
+          ...others: any[]
+        ): SRF<T>;
+      };
     };
     admin: {
       packages: {
@@ -176,6 +190,21 @@ declare const _default: {
         ): Promise<T>;
       };
     };
+    public: {
+      reports: {
+        /**
+         * **public/ReportsController@new**
+         *
+         * - `[public.reports.new]`
+         * - `POST: /v1/public/reports`
+         */
+        new <T = any>(
+          body?: SRBody,
+          config?: SRConfig,
+          ...others: any[]
+        ): Promise<T>;
+      };
+    };
     admin: {
       packages: {
         /**
@@ -206,6 +235,22 @@ declare const _default: {
     };
   };
   patch: {
+    public: {
+      reports: {
+        /**
+         * **public/ReportsController@update**
+         *
+         * - `[public.reports.update]`
+         * - `PATCH: /v1/public/reports/:reportUuid`
+         */
+        update<T = any>(
+          params: { reportUuid: StringOrNumber } | SRParams,
+          body?: SRBody,
+          config?: SRConfig,
+          ...others: any[]
+        ): Promise<T>;
+      };
+    };
     api: {
       booking: {
         /**

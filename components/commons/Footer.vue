@@ -115,10 +115,10 @@
                 </h3>
                 <ul role="list" class="mt-6 space-y-4">
                   <li v-for="item in navigation.company" :key="item.name">
-                    <a
-                      :href="item.href"
+                    <NuxtLink
+                      :to="item.route.name"
                       class="text-sm leading-6 text-white hover:text-white"
-                      >{{ item.name }}</a
+                      >{{ item.name }}</NuxtLink
                     >
                   </li>
                 </ul>
@@ -165,10 +165,13 @@ const navigation = {
     { name: "Contact", href: "#" },
   ],
   company: [
-    { name: "About", href: "#" },
-    { name: "Blog", href: "#" },
-    { name: "Jobs", href: "#" },
-    { name: "Partners", href: "#" },
+    {
+      name: "Terms and Conditions",
+      route: { name: "terms-and-condition" },
+    },
+    // { name: "Blog", href: "#" },
+    // { name: "Jobs", href: "#" },
+    // { name: "Partners", href: "#" },
   ],
   legal: [
     { name: "Claim", href: "#" },
