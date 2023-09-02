@@ -15,15 +15,10 @@ export default function handleRequest(url, args) {
   const fetchOptions = {
     // Adding interceptors
     onRequest({ request, options }) {
-      // Modify request or options here if needed
-      // For example, you can add additional headers or modify the request body
-
-      console.log("request routes ??", request);
+      // console.log("request routes ??", request);
     },
     onResponse({ request, response, options }) {
       const message = response._data.message;
-      // Handle the response or modify it here
-      // For example, you can check if the response status is 401 (Unauthorized) and redirect the user to a login page
 
       if (response._data.message) {
         toast.success(message, {
@@ -33,16 +28,14 @@ export default function handleRequest(url, args) {
       }
     },
     onRequestError({ request, options, error }) {
-      // Handle request errors here
-      // For example, you can log the error or show a notification to the user
-
       console.log("request error", error);
+
+      return Promise.reject(error.data);
     },
     onResponseError({ request, response, options }) {
-      // Handle response errors here
-      // For example, you can log the error or show a notification to the user
-
-      console.log("response error", response);
+      // return Promise.reject(response);
+      // console.log("response error", response);
+      return Promise.reject(response.data);
     },
   };
 

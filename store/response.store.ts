@@ -1,6 +1,5 @@
-import { defineStore } from "pinia";
 import { Maybe } from "js-genie/utils/typescript";
-
+import { defineStore } from "pinia";
 
 type DurationType = "short" | "medium" | "long";
 
@@ -9,13 +8,6 @@ export type FormError = {
   key: string;
 };
 
-
-
-export type NotificationMessage = {
-  message: string;
-  type: string;
-  duration?: DurationType;
-};
 export const useFormError = defineStore("formError", () => {
   const defaultError = () => ({ error: "", key: "" });
 
@@ -40,7 +32,7 @@ export const useFormError = defineStore("formError", () => {
   function handleRequestError(
     e: any,
     scroll_id_prefix?: string,
-    form = "default",
+    form = "default"
   ) {
     if (!e || !e.response) return;
     const data = e.response._data as Maybe<FormError>;
@@ -59,16 +51,4 @@ export const useFormError = defineStore("formError", () => {
   }
 
   return { state, reset, set, clearAllErrors, handleRequestError };
-});
-
-export const notificationMessage = defineStore("notificationMessage", () => {
-  const defaultMessage = () => ({ message: "", type: "success" });
-
-  const state = reactive<Record<string, NotificationMessage>>({
-    default: defaultMessage(),
-  });
-
-  function set(data: NotificationMessage, form = "default") {
-    state[form] = data;
-  }
 });
