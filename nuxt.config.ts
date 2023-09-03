@@ -60,6 +60,7 @@ export default defineNuxtConfig({
     transpile: [
       // Transpile @trapcode/browser-storage for IE11 support
       "@trapcode/browser-storage",
+      "vue-toastification",
     ],
   },
   hooks: {
