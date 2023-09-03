@@ -37,7 +37,7 @@
     <SectionWithTabs />
     <div class="text-center p-10">
       <PillInfo title="WHY CHOOSE US" />
-      <h1 class="heading">
+      <h1 class="heading mt-8">
         What advantages will you get when washing your car?
       </h1>
       <div class="grid lg:grid-cols-3 md:grid-cols-2 mt-10 space-y-4">
