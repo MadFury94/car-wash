@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="lg:flex gap-x-7">
-      <div class="bg-white p-24 grid grid-">
+    <div class="lg:grid grid-cols-5">
+      <div class="p-10 col-span-2">
         <PillInfo class="uppercase py-6" title="Contact Info" />
         <h1 class="heading">Contact Details</h1>
         <p>
@@ -15,7 +15,11 @@
           </div>
           <div>
             <h1>ADDRESS:</h1>
-            <p>345 Park Avenue, San Jose, CA 95110</p>
+            <p>
+              ISLAND ⇒ Ikoyi, Victoria Island, Lekki, Ajah, Ado/Badore,
+              Sangotedo, Abijo, Awoyaya, Lakowe, Eputu & environs. MAINLAND
+              =>Surulere, Fadeyi, Yaba, (T & C Applies). 0
+            </p>
           </div>
         </div>
         <div class="flex gap-x-4 mt-5">
@@ -24,7 +28,7 @@
           </div>
           <div>
             <h1>PHONE NUMBER::</h1>
-            <p>1-800-7878-09</p>
+            <p>07064793621</p>
           </div>
         </div>
         <div class="flex gap-x-4 mt-5">
@@ -33,7 +37,7 @@
           </div>
           <div>
             <h1>E-MAIL:</h1>
-            <p>noreply@envato.com</p>
+            <p>Contact@sprynxmulti.com</p>
           </div>
         </div>
         <div class="flex gap-x-4 mt-10">
@@ -59,7 +63,7 @@
             />
           </div>
         </div>
-        <div class="mt-24">
+        <div class="mt-20">
           <h2
             class="text-2xl font-bold text-gray-900 sm:text-3xl sm:tracking-tight"
           >
@@ -67,7 +71,8 @@
           </h2>
           <div class="mt-3">
             <p class="text-lg text-gray-500">
-              Contact Our Head Office for Bookings
+              ISLAND ⇒ Ikoyi, Victoria Island, Lekki, Ajah, Ado/Badore,
+              Sangotedo, Abijo, Awoyaya, Lakowe, Eputu & environs.
             </p>
           </div>
           <div class="mt-9">
@@ -76,7 +81,7 @@
                 <i class="fa-solid fa-phone text-gray-400"></i>
               </div>
               <div class="ml-3 text-base text-gray-500">
-                <p>+1 (555) 123 4567</p>
+                <p>07064793621</p>
                 <p class="mt-1">Available 24/7</p>
               </div>
             </div>
@@ -85,14 +90,14 @@
                 <i class="fa-solid fa-envelope text-gray-400"></i>
               </div>
               <div class="ml-3 text-base text-gray-500">
-                <p>fraudreport@youronlinebanker.com</p>
+                <p>Contact@sprynxmulti.com</p>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="p-20">
+      <div class="p-10 col-span-3">
         <h1 class="heading mt-10 mb-10">Leave your Message</h1>
 
         <div class="form relative grid grid-cols-5">
@@ -146,7 +151,7 @@
         </div>
         <ButtonComponent class="mt-10" title="Submit" />
 
-        <div class="mt-24">
+        <div class="mt-32">
           <h2
             class="text-2xl font-bold text-gray-900 sm:text-3xl sm:tracking-tight"
           >
@@ -163,8 +168,10 @@
                 <i class="fa-solid fa-phone text-gray-400"></i>
               </div>
               <div class="ml-3 text-base text-gray-500">
-                <p>+1 (555) 123 4567</p>
-                <p class="mt-1">Mon-Fri 8am to 6pm PST</p>
+                <p>(+234)7064793621</p>
+                <p class="mt-1">Mon-Wed & Friday 8am to 7pm PST</p>
+                <p class="mt-1">Thurs 8am to 4pm</p>
+                <p class="mt-1">Sat 9am to 7pm</p>
               </div>
             </div>
             <div class="mt-6 flex">
@@ -172,7 +179,7 @@
                 <i class="fa-solid fa-envelope text-gray-400"></i>
               </div>
               <div class="ml-3 text-base text-gray-500">
-                <p>support@youronlinebanker.com</p>
+                <p>Contact@sprynxmulti.com</p>
               </div>
             </div>
           </div>
@@ -180,16 +187,20 @@
       </div>
     </div>
     <div class="bg-white">
-      <div class="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+      <div class="mx-auto max-w-7xl px-6 py-0 lg:px-8">
         <div
           class="mx-auto max-w-lg md:grid md:max-w-none md:grid-cols-2 md:gap-8"
         ></div>
       </div>
     </div>
+    <FaqSection />
   </div>
 </template>
 
 <script setup lang="ts">
+import FaqSection from "./sections/FaqSection.vue";
+import TestimonialSlider from "./sections/TestimonialSlider.vue";
+
 definePageMeta({
   layout: "general-layout",
   name: "contactPage",
