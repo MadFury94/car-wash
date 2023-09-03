@@ -199,7 +199,6 @@
 
 <script setup lang="ts">
 import FaqSection from "./sections/FaqSection.vue";
-import TestimonialSlider from "./sections/TestimonialSlider.vue";
 
 definePageMeta({
   layout: "general-layout",

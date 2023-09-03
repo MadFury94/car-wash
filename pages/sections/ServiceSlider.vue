@@ -41,22 +41,6 @@ type Sliders = {
 };
 const sliders = ref<Sliders[]>([
   {
-    heading: "Express Exterior",
-    image:
-      "https://res.cloudinary.com/duxvgqgfl/image/upload/v1691317598/01-Express-Exterior_puuahm.jpg",
-    description:
-      "For those in a hurry. Get a rapid, efficient exterior wash that leaves your car gleaming without the wait.",
-    icon: "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691169409/car-wash_yq9w1o.png",
-  },
-  {
-    heading: "Auto Detailing Service",
-    image:
-      "https://demo.ovatheme.com/mistercar/wp-content/uploads/2020/11/02-Auto-Detailing.jpg",
-    description:
-      "Delve deeper than the surface. Comprehensive cleaning, waxing, and polishing to make every detail of your car stand out.",
-    icon: "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691169409/car-wash_yq9w1o.png",
-  },
-  {
     heading: "Complete Car Package",
     image:
       "https://demo.ovatheme.com/mistercar/wp-content/uploads/2020/11/04-Complete-Detail-Wash.jpg",
@@ -70,6 +54,46 @@ const sliders = ref<Sliders[]>([
       "https://demo.ovatheme.com/mistercar/wp-content/uploads/2020/11/05-Oil-Changing.jpg",
     description:
       "Enhance your car's longevity and performance. We offer a premium oil change to ensure a smooth ride.",
+    icon: "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691169409/car-wash_yq9w1o.png",
+  },
+  {
+    heading: "Car Waxing",
+    image:
+      "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691167695/01-Express-Exterior_pus9y2.jpg",
+    description:
+      "Car wax smoothes the paint surface and will reduce the friction between debris and your car, meaning that tiny debris is more likely to slide off your car rather than damage it.",
+    icon: "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691169409/car-wash_yq9w1o.png",
+  },
+  {
+    heading: "Car Polishing",
+    image:
+      "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1693727213/auto-service-salon-doign-car-wrapping_jjbvtp.jpg",
+    description:
+      "Car polish is a product that helps to eliminate surface scratches, swirls, oxidation, dirt, and other minor imperfections. Polish should be used before wax, as it helps to restore auto paint that has lost its shine due to oxidation.",
+    icon: "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691169409/car-wash_yq9w1o.png",
+  },
+  {
+    heading: "Headlight Restoration",
+    image:
+      "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1693727346/car-being-taking-care-workshop_3_h68kix.jpg",
+    description:
+      "Headlight restoration or plastic headlight restoration is the act of refinishing aged headlight lenses that have become discolored or dull due to oxidation primarily due to UV light and other environmental factors such as road debris impact rain, and exposure to caustic chemicals.",
+    icon: "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691169409/car-wash_yq9w1o.png",
+  },
+  {
+    heading: "Engine Cleaning",
+    image:
+      "https://demo.ovatheme.com/mistercar/wp-content/uploads/2020/11/06-Preventative-Services.jpg",
+    description:
+      "A clean engine makes a used car look newer and better maintained. Some shops that perform engine cleaning services claim a clean engine even runs a little cooler because removing the gunk formed by dirt, oil and grease allows engines to run cooler.",
+    icon: "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691169409/car-wash_yq9w1o.png",
+  },
+  {
+    heading: "Car Detailing",
+    image:
+      "https://demo.ovatheme.com/mistercar/wp-content/uploads/2020/11/02-Auto-Detailing.jpg",
+    description:
+      "Car detailing involves cleaning and reconditioning the interior and exterior of the car. The aim of this is to restore the paintwork by eliminating scratches or swirl marks to make the car look almost brand new like it did when you first drove it out of the shop.",
     icon: "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691169409/car-wash_yq9w1o.png",
   },
 ]);

@@ -47,7 +47,7 @@
         </div>
         <button v-if="authStore.isLoggedIn" @click="logOut">LogOut</button>
         <div v-else>
-          <NuxtLink :to="{name:'login'}">Login</NuxtLink>
+          <NuxtLink :to="{ name: 'login' }">Login</NuxtLink>
         </div>
       </nav>
       <ClientOnly>
@@ -103,7 +103,6 @@ import { Dialog, DialogPanel } from "@headlessui/vue";
 import { ref } from "vue";
 import { useAuthStore } from "~/store/auth.store";
 
-
 const navigation = [
   {
     name: "Home",
@@ -126,11 +125,16 @@ const navigation = [
     icon: "fa-solid fa-phone",
   },
   {
+    name: "Our Services",
+    route: { name: "services" },
+    icon: "fa-light fa-car-building",
+  },
+  {
     name: "Coming Soon",
     route: { name: "comingSoon" },
     icon: "fa-solid fa-phone",
-  }, 
-  
+  },
+
   {
     name: "Admin",
     route: { name: "admin-index" },
@@ -141,9 +145,7 @@ const navigation = [
 const mobileMenuOpen = ref(false);
 const authStore = useAuthStore();
 
-
 function logOut() {
   authStore.logout();
 }
-
 </script>

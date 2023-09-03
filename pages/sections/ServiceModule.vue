@@ -8,12 +8,16 @@
       </div>
 
       <div class="">
-        <div class="w-96 bg-white p-4">
+        <div class="bg-white p-4">
           <h1 class="mb-4 text-xl font-semibold text-primary-500">
             {{ title }}
           </h1>
-          {{ description }}
-          <p class="text-center text-secondary-500 text-sm font-semibold">
+          {{ shortDescription }}
+          <p
+            v-if="!isExpanded.value && props.description.split(' ').length > 10"
+            class="text-center text-secondary-500 text-sm font-semibold cursor-pointer"
+            @click="toggleExpanded"
+          >
             Read More
           </p>
         </div>
@@ -50,6 +54,17 @@ const props = defineProps({
 });
 
 let isExpanded = ref(false);
+const shortDescription = computed(() => {
+  if (props.description.split(" ").length > 10 && !isExpanded.value) {
+    return `${props.description.split(" ").slice(0, 10).join(" ")}...`;
+  } else {
+    return props.description;
+  }
+});
+
+const toggleExpanded = () => {
+  isExpanded.value = !isExpanded.value;
+};
 </script>
 
 <style scoped></style>
