@@ -47,12 +47,12 @@ Sprynx Multi shall do its best to let users know about any delay of delivery.`,
     key: `coupon_referral_policy`,
     description: `
     
-      <p> 
+      <p class="font-bold"> 
       
 From time to time, Sprynx Multi may offer a referral program which enables you to earn credits redeemable for Sprynx Multi services by sharing a unique referral link provided to you by Sprynx Multi (“Referral Link”) with your friends.
       </p>
 
-      <p>
+      <pS>
 Note that combining credits & coupons is not possible.
       </p>
       <p>
@@ -64,7 +64,7 @@ To qualify for credits, the referred customer must be a new customer of Sprynx M
     
     >
       <li>
-        self-referring by using multiple or false names, identities, accounts or
+        Self-referring by using multiple or false names, identities, accounts or
         email addresses;
       </li>
       <li>

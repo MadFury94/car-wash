@@ -1,18 +1,19 @@
 <template>
   <div class="p-20">
-    <div class="border-2">
+    <!-- <div class="border-2">
       {{ rainChecksData.title }}
       {{ rainChecksData.description }}
-    </div>
+    </div> -->
     <div>
       <!-- use v-html so u can add stylings liek i did -->
-      <div v-html="coupon_referral.description"></div>
+      <!-- <div v-html="coupon_referral.description"></div> -->
     </div>
-    <h1>Terms and conditions</h1>
+    <h1 class="font-bold text-center mb-6">Terms and conditions</h1>
 
     <div>
       <div v-for="item in terms_conditions_data" :key="item.key">
-        <h2 class="text-bold">{{ item.title }}</h2>
+        <h2 class="font-bold">{{ item.title }}</h2>
+
         <p v-html="item.description" />
       </div>
     </div>
