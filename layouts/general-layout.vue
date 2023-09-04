@@ -4,7 +4,7 @@
 
     <!-- ovverlay arae -->
     <div
-      class="rounded-lg relative h-52"
+      class="rounded-lg relative h-60"
       :style="{
         'background-image': `url(${$route.meta.image || defaultImgUrl})`,
         'background-position': 'center center',
@@ -16,8 +16,8 @@
       <div class="text-wrapper">
         <div class="p-24">
           <div class="font-medium text-white text-center">
-            <h1 class="text-4xl">{{ $route.meta.title || "Page Tile" }}</h1>
-            <p>
+            <h1 class="text-5xl">{{ $route.meta.title || "Page Tile" }}</h1>
+            <p class="mt-6">
               {{ $route.meta.description || "Home > About Us" }}
             </p>
           </div>
@@ -41,7 +41,6 @@
 <script setup lang="ts">
 import Footer from "../components/commons/Footer.vue";
 import Header from "../components/commons/Header.vue";
-
 
 const defaultImgUrl =
   "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691081374/beautiful-car-washing-service_yeptnx.jpg";
