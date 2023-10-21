@@ -106,10 +106,10 @@ const options = {
   arrows: true,
   perPage: 3,
   breakpoints: {
-    /*    800: { perPage: 2, gap: "2rem", arrows: true },
+    800: { perPage: 2, gap: "2rem", arrows: true },
     1600: { perPage: 2, gap: "2rem", arrows: true },
     1000: { perPage: 2, gap: "2rem", arrows: true },
-    640: { perPage: 1, gap: "2rem", arrows: false }, */
+    640: { perPage: 1, gap: "2rem", arrows: false },
   },
 
   autoplay: true,
