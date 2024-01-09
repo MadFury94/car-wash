@@ -4,9 +4,7 @@
       <SplideTrack>
         <SplideSlide v-for="(item, index) in sliders" :key="index">
           <div class="mx-auto">
-            <div
-              class="relative h-[700px] isolate overflow-hidden mb-8  px-2"
-            >
+            <div class="relative h-[700px] isolate overflow-hidden mb-8 px-2">
               <div class="absolute inset-0 bg-black opacity-50"></div>
 
               <img
@@ -23,14 +21,14 @@
                   >
                     {{ item.heading }}
                   </h1>
-                  <div class="text-3xl">
+                  <div class="text-5xl">
                     <h1
-                      class="font-semibol w-80 lg:w-full tracking-tight text-lg text-white relative z-10 my-2"
+                      class="font-semibold w-80 lg:w-full tracking-tight text-4xl text-white relative z-10 my-2"
                     >
                       {{ item.heading2 }}
                     </h1>
                     <h1
-                      class="lg:text-8xl  font-semibold tracking-tight sm:text-xl md:text-xl text-white relative z-10 my-2"
+                      class="lg:text-8xl font-semibold tracking-tight sm:text-xl md:text-xl text-white relative z-10 my-2"
                     >
                       {{ item.heading3 }}
                     </h1>
@@ -86,8 +84,7 @@ const sliders = ref<Sliders[]>([
     heading2: "It's time to Come ",
     heading3: " Clean your Car",
     button: "Discover more",
-    image:
-      "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691081374/beautiful-car-washing-service_yeptnx.jpg",
+    image: "./images/car-1.jpg",
     description:
       "Professional Car Wash Center to help you to get clean vehicle!",
   },
@@ -97,8 +94,7 @@ const sliders = ref<Sliders[]>([
     heading3: " Detailing Service",
     button: "Discover more",
 
-    image:
-      "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691083363/wepik-export-202308031715220nwH_ezwxfe.jpg",
+    image: "/images/car-2.jpg",
     description:
       "Our experts vacuum and polish your car's interior surfaces to keep them looking and feeling fresh.",
   },
@@ -108,8 +104,7 @@ const sliders = ref<Sliders[]>([
     heading3: " Care Package",
     button: "Discover more",
 
-    image:
-      "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691081374/beautiful-car-washing-service_yeptnx.jpg",
+    image: "./images/car-3.jpg",
     description:
       "A thorough wash with high-quality cleaning agents to leave your car's exterior shining and free from dirt and grime.",
   },

@@ -149,3 +149,6 @@ function logOut() {
   authStore.logout();
 }
 </script>
+
+https://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@github.com/sprynx-app/client.git
+https://github.com/sprynx-app/client
