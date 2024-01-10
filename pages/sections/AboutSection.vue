@@ -10,7 +10,7 @@
           <div class="">
             <img
               class="h-full w-full object-cover rounded-2xl shadow-xl md:h-full md:w-full"
-              src="https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691152992/Professional-Washing-and-Cleaning-of-Your-Car_nzhy0n.jpg"
+              src="/images/car-clean.jpg"
               alt="car"
             />
           </div>
@@ -23,8 +23,8 @@
                   <div class="flex items-center">
                     <div>
                       <img
-                        class="w-20 h-20"
-                        src="https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691158914/goal_whxapr.png"
+                        class="w-20 h-20 px-0"
+                        src="/images/goal.png"
                         alt=""
                       />
                     </div>
@@ -107,16 +107,16 @@
               </div>
             </div>
             <div class="border-t-2 border-gray-200 w-full mt-4"></div>
-            <div class="flex gap-x-2 w-full py-10">
-              <div class="flex px-2">
+            <div class="flex gap-x-3 w-full py-10">
+              <div class="flex px-2 space-x-1">
                 <img
                   class="rounded-full w-14 h-14"
-                  src="https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691164026/portrait-african-american-man_kzgbkz.jpg"
+                  src="/images/support.jpg"
                   alt=""
                 />
                 <img
-                  class="w-14 h-14 -ml-4"
-                  src="https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691163567/call_yd4afo.png"
+                  class="w-14 h-14 px-1 -ml-4"
+                  src="/images/tele.png"
                   alt=""
                 />
               </div>

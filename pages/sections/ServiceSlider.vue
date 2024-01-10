@@ -58,24 +58,21 @@ const sliders = ref<Sliders[]>([
   },
   {
     heading: "Car Waxing",
-    image:
-      "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691167695/01-Express-Exterior_pus9y2.jpg",
+    image: "/images/auto-wax.jpg",
     description:
       "Car wax smoothes the paint surface and will reduce the friction between debris and your car, meaning that tiny debris is more likely to slide off your car rather than damage it.",
     icon: "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691169409/car-wash_yq9w1o.png",
   },
   {
     heading: "Car Polishing",
-    image:
-      "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1693727213/auto-service-salon-doign-car-wrapping_jjbvtp.jpg",
+    image: "/images/polish.jpg",
     description:
       "Car polish is a product that helps to eliminate surface scratches, swirls, oxidation, dirt, and other minor imperfections. Polish should be used before wax, as it helps to restore auto paint that has lost its shine due to oxidation.",
     icon: "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691169409/car-wash_yq9w1o.png",
   },
   {
     heading: "Headlight Restoration",
-    image:
-      "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1693727346/car-being-taking-care-workshop_3_h68kix.jpg",
+    image: "/images/headlight.jpg",
     description:
       "Headlight restoration or plastic headlight restoration is the act of refinishing aged headlight lenses that have become discolored or dull due to oxidation primarily due to UV light and other environmental factors such as road debris impact rain, and exposure to caustic chemicals.",
     icon: "https://res.cloudinary.com/dqwfjxn8g/image/upload/v1691169409/car-wash_yq9w1o.png",
